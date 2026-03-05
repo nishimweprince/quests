@@ -73,7 +73,7 @@ export default function RealEstatePage() {
 
               <Link
                 href="/contact"
-                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white"
+                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white!"
                 style={{
                   borderColor: 'var(--color-text-dark)',
                   color: 'var(--color-text-dark)',
@@ -197,7 +197,7 @@ export default function RealEstatePage() {
             </span>
             <h2
               id="tenants-heading"
-              className="mt-3 mb-10 text-2xl text-white md:text-3xl"
+              className="mt-3 mb-10 text-2xl text-white! md:text-3xl"
               style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
             >
               Trusted by Industry Leaders
@@ -251,14 +251,14 @@ export default function RealEstatePage() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white"
+                  className="inline-flex items-center gap-2 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white!"
                   style={{ borderColor: 'var(--color-text-dark)', color: 'var(--color-text-dark)' }}
                 >
                   Contact Us
                 </Link>
                 <a
                   href={`tel:${CONTACT_INFO.phones.realEstate[0].replace(/\s/g, '')}`}
-                  className="inline-flex items-center gap-2 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-accent)] hover:border-[var(--color-accent)] hover:text-white"
+                  className="inline-flex items-center gap-2 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-accent)] hover:border-[var(--color-accent)] hover:text-white!"
                   style={{ borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}
                 >
                   <Phone size={15} aria-hidden="true" />

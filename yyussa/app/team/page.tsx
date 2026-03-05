@@ -66,7 +66,7 @@ export default function TeamPage() {
                 </div>
                 <div className="mt-5 text-center lg:text-left">
                   <h2
-                    className="text-xl text-white"
+                    className="text-xl text-white!"
                     style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
                   >
                     {founder.name}
@@ -87,7 +87,7 @@ export default function TeamPage() {
                   Founding Vision
                 </span>
                 <h3
-                  className="mt-3 mb-6 text-2xl text-white md:text-3xl"
+                  className="mt-3 mb-6 text-2xl text-white! md:text-3xl"
                   style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
                 >
                   Building an Enterprise<br />That Outlasts Its Founder
@@ -129,7 +129,7 @@ export default function TeamPage() {
           <section
             key={dept}
             className="py-24 md:py-28"
-            style={{ background: isLight ? 'var(--bg-light)' : 'var(--bg-white)' }}
+            style={{ background: isLight ? 'var(--bg-grey-100)' : 'var(--bg-white)' }}
             aria-labelledby={`dept-${dept.toLowerCase()}`}
           >
             <div className="container-xl">
@@ -160,14 +160,13 @@ export default function TeamPage() {
 
               <div className="grid grid-cols-2 gap-px border [grid-auto-rows:1fr] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
                 style={{
-                  borderColor: isLight ? 'var(--color-secondary-dark)' : 'var(--color-secondary-dark)',
-                  background: isLight ? 'var(--color-secondary-dark)' : 'var(--color-secondary-dark)',
+                  borderColor: isLight ? 'var(--color-grey-100)' : 'var(--color-secondary-dark)',
                 }}>
                 {members.map((member, i) => (
                   <ScrollReveal key={member.name} direction="up" delay={i * 0.06}>
                     <div
                       className="group flex h-full flex-col items-center p-7 text-center transition-colors duration-200 hover:bg-(--bg-light)"
-                      style={{ background: isLight ? 'var(--bg-light)' : 'var(--bg-white)' }}
+                      style={{ background: isLight ? 'var(--bg-grey-100)' : 'var(--bg-white)' }}
                     >
                       {/* Avatar */}
                       <div

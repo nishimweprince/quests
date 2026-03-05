@@ -135,6 +135,13 @@ export default function Hero() {
               href="/about"
               className="inline-flex items-center gap-2 border border-white/30 px-6 py-4 text-sm uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
               style={{ borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-accent)';
+                e.currentTarget.style.color = 'var(--color-accent)';
+              }}
             >
               Our Corporate Story
               <ArrowRight size={14} aria-hidden="true" />

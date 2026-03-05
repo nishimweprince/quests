@@ -81,7 +81,7 @@ export default function LogisticsPage() {
               </div>
               <Link
                 href="/contact"
-                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white"
+                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)]! hover:text-white!"
                 style={{ borderColor: 'var(--color-text-dark)', color: 'var(--color-text-dark)' }}
               >
                 Request a Quote
@@ -218,7 +218,7 @@ export default function LogisticsPage() {
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2
-                  className="text-2xl text-white md:text-3xl"
+                  className="text-2xl text-white! md:text-3xl"
                   style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
                 >
                   Move Your Cargo with Confidence
@@ -229,7 +229,7 @@ export default function LogisticsPage() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white hover:text-[var(--color-accent)]"
+                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white! hover:text-[var(--color-accent)]!"
                 style={{ borderColor: 'var(--color-grey-600)', color: 'var(--color-grey-300)' }}
               >
                 Contact Logistics Team

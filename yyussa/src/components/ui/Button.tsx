@@ -17,7 +17,7 @@ const variants = {
   primary:
     'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] active:scale-[0.98]',
   outline:
-    'border-2 border-white text-white hover:bg-white hover:text-[var(--color-text-primary)] active:scale-[0.98]',
+    'border-2 border-white text-white hover:bg-white! hover:text-[var(--color-text-primary)] active:scale-[0.98]',
   ghost:
     'text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] underline-offset-2 hover:underline',
 };

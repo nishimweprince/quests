@@ -60,7 +60,7 @@ export default function ServicesPage() {
             </span>
             <h2
               id="divisions-heading"
-              className="mt-3 mb-16 text-3xl text-white md:text-5xl"
+              className="mt-3 mb-16 text-3xl text-white! md:text-5xl"
               style={{
                 fontFamily: "'Libre Baskerville', Georgia, serif",
                 letterSpacing: '-0.025em',
@@ -149,7 +149,7 @@ export default function ServicesPage() {
                         aria-hidden="true"
                       />
                       <h3
-                        className="mb-4 text-2xl text-white md:text-3xl"
+                        className="mb-4 text-2xl text-white! md:text-3xl"
                         style={{
                           fontFamily: "'Libre Baskerville', Georgia, serif",
                           letterSpacing: '-0.02em',

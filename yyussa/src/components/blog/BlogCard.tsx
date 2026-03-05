@@ -97,7 +97,7 @@ export default function BlogCard({ post, index = 0, featured = false }: BlogCard
               </span>
             </div>
             <h2
-              className="text-xl md:text-2xl text-white leading-snug"
+              className="text-xl md:text-2xl text-white! leading-snug"
               style={{
                 fontFamily: "'Libre Baskerville', Georgia, serif",
                 letterSpacing: '-0.02em',

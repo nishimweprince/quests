@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YYUSSA Group Website
 
-## Getting Started
+Corporate marketing website for YYUSSA Group Ltd, built with Next.js App Router. The site presents the company's real estate, import and export, and logistics divisions, along with leadership, insights, and contact information.
 
-First, run the development server:
+Live site: https://yyussa.nishimweprince.dev/
+
+## Overview
+
+The application is a content-driven corporate website focused on:
+
+- A branded homepage with hero, company stats, services, company overview, and partner highlights
+- Dedicated pages for About, Services, Team, Blog, and Contact
+- Three detailed service pages for Real Estate, Import & Export, and Logistics
+- A statically generated blog powered by local MDX content
+- Responsive layouts, page-level metadata, animated reveals, and accessible navigation basics
+
+## Current Route Map
+
+- `/` home page
+- `/about` company story, milestones, mission, and vision
+- `/services` overview of the three business divisions
+- `/services/real-estate`
+- `/services/import-export`
+- `/services/logistics`
+- `/team` leadership and department listings
+- `/blog` insights listing page
+- `/blog/[slug]` statically generated blog post pages from local MDX files
+- `/contact` contact details, inquiry form, and embedded map
+
+## Tech Stack
+
+- Next.js 16 with the App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- `framer-motion` for motion and reveal effects
+- `lucide-react` for iconography
+- `gray-matter` and `next-mdx-remote` for blog content parsing and rendering
+- `react-hook-form`, `zod`, and `@hookform/resolvers` for contact form validation
+
+## Project Structure
+
+- `app/` route segments, page metadata, and layout
+- `src/components/` UI, layout, home, blog, and contact components
+- `src/lib/constants.ts` shared navigation, services, stats, team, partner, property, and contact data
+- `src/lib/blog.ts` blog post loading and sorting logic
+- `src/content/blog/` MDX blog posts
+- `public/` static assets
+
+## Local Development
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+Linting:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content Updates
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Most site content is currently maintained directly in the codebase:
 
-## Deploy on Vercel
+- Company stats, navigation, services, team members, properties, partners, and contact details live in `src/lib/constants.ts`
+- Blog posts live in `src/content/blog/` as `.mdx` files with frontmatter
+- Page copy and section composition live in each route file under `app/` and reusable components under `src/components/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The blog is file-based and statically generated from local MDX content
+- The contact form currently performs client-side validation and shows a success state, but it is not connected to a backend submission service yet
+- Global metadata is configured in `app/layout.tsx`

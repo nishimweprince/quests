@@ -41,6 +41,7 @@
   --bg-dark: #0F1A27;
   --bg-light: #F4F2EF;
   --bg-white: #FAFBFC;
+  --bg-grey-100: #BCC7D2;
 
   /* ── Legacy aliases (keep for compatibility with existing components) ── */
   --color-surface-dark: #0F1A27;

@@ -215,7 +215,7 @@ export default function Navbar() {
               </Link>
 
               <button
-                className="border p-2 text-white transition-colors lg:hidden"
+                className="border p-2 cursor-pointer text-white transition-colors lg:hidden"
                 style={{ borderColor: 'var(--color-grey-700)' }}
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open navigation menu"
@@ -275,7 +275,7 @@ export default function Navbar() {
                   </span>
                 </div>
                 <button
-                  className="p-1 text-white/50 transition-colors hover:text-white"
+                  className="p-1 cursor-pointer text-white/50 transition-colors hover:text-white!"
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close navigation menu"
                 >

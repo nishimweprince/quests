@@ -17,7 +17,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputBase =
-  'w-full border-0 border-b bg-transparent focus:ring-0 focus:border-none pb-3 pt-1 text-sm text-[var(--color-text-dark)] placeholder-[var(--color-grey-400)] outline-none transition-colors';
+  'w-full border-0 border-b-2 focus-visible:border-none focus:ring-0 focus:border-none focus-visible:ring-0 focus:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] transition-[border-color] duration-200 px-3 bg-transparent pb-2 text-[13px] pt-2 text-sm text-[var(--color-text-dark)] placeholder-[var(--color-grey-400)] outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 focus:border-[var(--color-accent)] focus-visible:border-[var(--color-accent)] transition-[border-color] duration-200';
 
 const labelBase = 'mb-2 block text-[10px] uppercase tracking-[0.14em] text-[var(--color-grey-500)]';
 
@@ -100,8 +100,7 @@ export default function ContactForm() {
             type="text"
             autoComplete="name"
             placeholder="Your full name"
-            className={inputBase}
-            style={{ borderBottomColor: errors.name ? '#ef4444' : 'var(--color-secondary-dark)' }}
+            className={`${inputBase} ${errors.name ? 'border-red-500' : 'border-[var(--color-secondary-dark)]'}`}
             aria-required="true"
             aria-describedby={errors.name ? 'name-error' : undefined}
             {...register('name')}
@@ -123,8 +122,7 @@ export default function ContactForm() {
             type="email"
             autoComplete="email"
             placeholder="your@email.com"
-            className={inputBase}
-            style={{ borderBottomColor: errors.email ? '#ef4444' : 'var(--color-secondary-dark)' }}
+            className={`${inputBase} ${errors.email ? 'border-red-500' : 'border-[var(--color-secondary-dark)]'}`}
             aria-required="true"
             aria-describedby={errors.email ? 'email-error' : undefined}
             {...register('email')}
@@ -146,8 +144,7 @@ export default function ContactForm() {
             type="tel"
             autoComplete="tel"
             placeholder="+250 7XX XXX XXX"
-            className={inputBase}
-            style={{ borderBottomColor: 'var(--color-secondary-dark)' }}
+            className={`${inputBase} border-[var(--color-secondary-dark)]`}
             {...register('phone')}
           />
         </div>
@@ -159,12 +156,8 @@ export default function ContactForm() {
           </label>
           <select
             id="subject"
-            className={inputBase}
-            style={{
-              borderBottomColor: 'var(--color-secondary-dark)',
-              appearance: 'none',
-              cursor: 'pointer',
-            }}
+            className={`${inputBase} border-[var(--color-secondary-dark)]`}
+            style={{ appearance: 'none', cursor: 'pointer' }}
             aria-required="true"
             {...register('subject')}
           >
@@ -186,8 +179,7 @@ export default function ContactForm() {
             id="message"
             rows={5}
             placeholder="Tell us about your inquiry..."
-            className={`${inputBase} resize-none`}
-            style={{ borderBottomColor: errors.message ? '#ef4444' : 'var(--color-secondary-dark)' }}
+            className={`${inputBase} resize-none ${errors.message ? 'border-red-500' : 'border-[var(--color-secondary-dark)]'}`}
             aria-required="true"
             aria-describedby={errors.message ? 'message-error' : undefined}
             {...register('message')}
@@ -207,8 +199,8 @@ export default function ContactForm() {
         style={{ background: 'var(--color-text-dark)', borderColor: 'var(--color-text-dark)' }}
         onMouseEnter={(e) => {
           if (!isSubmitting) {
-            (e.currentTarget as HTMLElement).style.background = 'var(--color-accent)';
-            (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-accent)';
+            (e.currentTarget as HTMLElement).style.background = 'var(--color-primary)';
+            (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-primary)';
           }
         }}
         onMouseLeave={(e) => {

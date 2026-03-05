@@ -56,7 +56,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
                 {crumb.href && index < breadcrumbs.length - 1 ? (
                   <Link
                     href={crumb.href}
-                    className="uppercase tracking-[0.1em] text-(--color-grey-300) transition-colors duration-200 hover:text-white"
+                    className="uppercase tracking-[0.1em] text-(--color-grey-300) transition-colors duration-200 hover:text-white!"
                   >
                     {crumb.label}
                   </Link>

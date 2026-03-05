@@ -14,7 +14,7 @@ export default function StatsBar() {
           {STATS.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center py-14 md:py-16"
+              className="flex flex-col items-center py-10 md:py-12"
               style={{ borderColor: 'var(--color-secondary-dark)' }}
             >
               <AnimatedCounter

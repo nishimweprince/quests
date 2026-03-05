@@ -40,10 +40,10 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
         }}
       />
 
-      <div className="container-xl relative z-10 pb-14 pt-28 md:pt-36 md:pb-16">
+      <div className="container-xl relative z-10 pb-12 pt-24 md:pb-14 md:pt-28">
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-7">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[12px]">
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[11px]">
             {breadcrumbs.map((crumb, index) => (
               <li key={index} className="flex items-center gap-1.5">
                 {index > 0 && (
@@ -79,8 +79,8 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
           className="max-w-3xl text-white!"
           style={{
             fontFamily: "'Libre Baskerville', Georgia, serif",
-            fontSize: 'clamp(2.2rem, 5vw, 4rem)',
-            lineHeight: 1.1,
+            fontSize: 'clamp(1.9rem, 4.1vw, 3.2rem)',
+            lineHeight: 1.08,
             letterSpacing: '-0.025em',
           }}
         >
@@ -89,7 +89,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
 
         {subtitle && (
           <p
-            className="mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
+            className="mt-4 max-w-2xl text-sm leading-relaxed md:text-base"
             style={{ color: 'var(--color-grey-300)' }}
           >
             {subtitle}
@@ -97,9 +97,9 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
         )}
 
         {/* Bottom accent rule */}
-        <div className="mt-10 flex items-center gap-4">
+        <div className="mt-8 flex items-center gap-4">
           <div
-            className="h-px w-16"
+            className="h-px w-12"
             style={{ background: 'var(--color-accent)' }}
             aria-hidden="true"
           />

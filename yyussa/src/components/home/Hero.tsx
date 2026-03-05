@@ -67,7 +67,7 @@ export default function Hero() {
       />
 
       {/* Content — vertically centred in the viewport */}
-      <div className="container-xl relative z-10 flex flex-1 flex-col justify-center pb-36 pt-32 md:pb-40 md:pt-36">
+      <div className="container-xl relative z-10 flex flex-1 flex-col justify-center pb-28 pt-24 md:pb-32 md:pt-28">
         <motion.div
           variants={staggerContainer}
           initial="initial"
@@ -77,10 +77,10 @@ export default function Hero() {
           {/* Eyebrow label */}
           <motion.p
             variants={fadeUp}
-            className="mb-8 inline-flex items-center gap-4 text-[11px] uppercase tracking-[0.22em] text-white/40"
+            className="mb-6 inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-white/40"
           >
             <span
-              className="h-px w-12 shrink-0"
+              className="h-px w-10 shrink-0"
               style={{ background: 'var(--color-accent)' }}
               aria-hidden="true"
             />
@@ -93,8 +93,8 @@ export default function Hero() {
             className="text-balance text-white!"
             style={{
               fontFamily: "'Libre Baskerville', Georgia, serif",
-              fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
-              lineHeight: 1.03,
+              fontSize: 'clamp(2.3rem, 5.8vw, 4.5rem)',
+              lineHeight: 1.04,
               letterSpacing: '-0.025em',
             }}
           >
@@ -106,7 +106,7 @@ export default function Hero() {
           {/* Subtext */}
           <motion.p
             variants={fadeUp}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-white/50 md:text-lg"
+            className="mt-6 max-w-xl text-sm leading-relaxed text-white/50 md:text-base"
             style={{ color: 'var(--color-grey-300)' }}
           >
             YYUSSA Group delivers integrated leadership in real estate, logistics, and commercial
@@ -117,11 +117,11 @@ export default function Hero() {
           {/* CTAs — primary only on main CTA */}
           <motion.div
             variants={fadeUp}
-            className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+            className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-3 border px-8 py-4 text-sm font-medium uppercase tracking-[0.14em] transition-all duration-200 hover:opacity-95"
+              className="inline-flex items-center gap-2.5 border px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] transition-all duration-200 hover:opacity-95"
               style={{
                 background: 'var(--color-primary)',
                 borderColor: 'var(--color-primary)',
@@ -133,7 +133,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 border border-white/30 px-6 py-4 text-sm uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
+              className="inline-flex items-center gap-2 border border-white/30 px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
               style={{ borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = '#ffffff';
@@ -163,12 +163,12 @@ export default function Hero() {
             {heroStats.map((stat, i) => (
               <div
                 key={stat}
-                className={`flex items-center gap-3 py-5 text-[11px] uppercase tracking-[0.16em] text-white/35 ${
-                  i > 0 ? 'sm:border-l sm:border-white/[0.07] sm:pl-8' : ''
-                } ${i < heroStats.length - 1 ? 'sm:pr-8' : ''}`}
+                className={`flex items-center gap-3 py-4 text-[10px] uppercase tracking-[0.14em] text-white/35 ${
+                  i > 0 ? 'sm:border-l sm:border-white/[0.07] sm:pl-6' : ''
+                } ${i < heroStats.length - 1 ? 'sm:pr-6' : ''}`}
               >
                 <span
-                  className="h-px w-6 shrink-0"
+                  className="h-px w-5 shrink-0"
                   style={{ background: 'var(--color-accent)', opacity: 0.6 }}
                   aria-hidden="true"
                 />

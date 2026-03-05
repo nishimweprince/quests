@@ -6,21 +6,21 @@ import { SERVICES } from '@/lib/constants';
 export default function ServicesSection() {
   return (
     <section
-      className="py-24 md:py-32"
+      className="py-20 md:py-24"
       style={{ background: 'var(--bg-dark)' }}
       aria-labelledby="services-heading"
     >
       <div className="container-xl">
         {/* Section header */}
         <ScrollReveal direction="up">
-          <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
               <span className="section-label" style={{ color: 'var(--color-accent)' }}>
                 Our Services
               </span>
               <h2
                 id="services-heading"
-                className="mt-3 text-3xl text-white! md:text-5xl"
+                className="mt-2 text-2xl text-white! md:text-4xl"
                 style={{
                   fontFamily: "'Libre Baskerville', Georgia, serif",
                   letterSpacing: '-0.025em',
@@ -31,7 +31,7 @@ export default function ServicesSection() {
               </h2>
             </div>
             <p
-              className="max-w-sm text-sm leading-relaxed md:text-right"
+              className="max-w-sm text-[13px] leading-relaxed md:text-right"
               style={{ color: 'var(--color-grey-300)' }}
             >
               Three pillars of excellence — real estate, wholesale trading, and logistics — serving
@@ -49,7 +49,7 @@ export default function ServicesSection() {
             <ScrollReveal key={service.slug} direction="up" delay={index * 0.12}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative flex h-full flex-col overflow-hidden p-8 transition-colors duration-300 md:p-10"
+                className="group relative flex h-full flex-col overflow-hidden p-7 transition-colors duration-300 md:p-8"
                 style={{ background: 'var(--color-grey-800)' }}
                 aria-label={`Learn about our ${service.title} services`}
               >
@@ -75,7 +75,7 @@ export default function ServicesSection() {
 
                 {/* Division number */}
                 <div
-                  className="mb-8 text-sm font-medium uppercase tracking-[0.14em]"
+                  className="mb-6 text-[11px] font-medium uppercase tracking-[0.14em]"
                   style={{ color: 'var(--color-grey-600)' }}
                 >
                   0{index + 1}
@@ -83,7 +83,7 @@ export default function ServicesSection() {
 
                 {/* Service name */}
                 <h3
-                  className="mb-4 text-xl text-white! transition-colors group-hover:text-(--color-text-light)"
+                  className="mb-3 text-lg text-white! transition-colors group-hover:text-(--color-text-light)"
                   style={{
                     fontFamily: "'Libre Baskerville', Georgia, serif",
                     letterSpacing: '-0.02em',
@@ -94,7 +94,7 @@ export default function ServicesSection() {
 
                 {/* Description */}
                 <p
-                  className="flex-1 text-sm leading-relaxed"
+                  className="flex-1 text-[13px] leading-relaxed"
                   style={{ color: 'var(--color-grey-300)' }}
                 >
                   {service.shortDescription}
@@ -102,7 +102,7 @@ export default function ServicesSection() {
 
                 {/* CTA */}
                 <div
-                  className="mt-8 inline-flex items-center gap-2 text-sm transition-colors group-hover:gap-3"
+                  className="mt-6 inline-flex items-center gap-2 text-[11px] transition-colors group-hover:gap-2.5"
                   style={{ color: 'var(--color-accent)' }}
                 >
                   Read More
@@ -115,10 +115,10 @@ export default function ServicesSection() {
 
         {/* Bottom CTA */}
         <ScrollReveal direction="up" delay={0.35}>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] text-(--color-grey-300) transition-colors hover:text-(--color-accent)"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-(--color-grey-300) transition-colors hover:text-(--color-accent)"
             >
               View All Services
               <ArrowRight size={14} aria-hidden="true" />

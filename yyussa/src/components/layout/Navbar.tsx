@@ -57,7 +57,7 @@ export default function Navbar() {
         role="banner"
       >
         <div className="container-xl">
-          <div className="flex h-[74px] items-center justify-between md:h-[82px]">
+          <div className="flex h-[66px] items-center justify-between md:h-[72px]">
             {/* Logo */}
             <Link
               href="/"
@@ -65,13 +65,13 @@ export default function Navbar() {
               aria-label="YYUSSA Group Ltd — Home"
             >
               <span
-                className="text-xl font-bold tracking-[0.04em] text-white"
+                className="text-[1.05rem] font-bold tracking-[0.035em] text-white"
                 style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '0.04em' }}
               >
                 YYUSSA
               </span>
               <span
-                className="mt-0.5 text-[10px] uppercase tracking-[0.22em]"
+                className="mt-0.5 text-[9px] uppercase tracking-[0.2em]"
                 style={{ color: 'var(--color-grey-500)', fontFamily: 'DM Sans, sans-serif' }}
               >
                 Group Ltd
@@ -88,7 +88,7 @@ export default function Navbar() {
                   return (
                     <div key={link.href} className="relative cursor-pointer" ref={dropdownRef}>
                       <button
-                        className="flex cursor-pointer items-center gap-1.5 px-4 py-2 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200"
+                        className="flex cursor-pointer items-center gap-1 px-3 py-2 text-[10px] uppercase tracking-[0.14em] transition-colors duration-200"
                         style={{
                           color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
                           fontFamily: 'DM Sans, sans-serif',
@@ -113,7 +113,7 @@ export default function Navbar() {
                       {/* Active underline */}
                       {isActive(link.href) && (
                         <div
-                          className="absolute bottom-0 left-4 right-4 h-px"
+                          className="absolute bottom-0 left-3 right-3 h-px"
                           style={{ background: 'var(--color-accent)' }}
                           aria-hidden="true"
                         />
@@ -126,7 +126,7 @@ export default function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.18 }}
-                            className="absolute left-0 top-full mt-1 w-56 border"
+                            className="absolute left-0 top-full mt-1 w-52 border"
                             style={{
                               background: 'var(--color-grey-800)',
                               borderColor: 'var(--color-grey-800)',
@@ -139,7 +139,7 @@ export default function Navbar() {
                                 href={item.href}
                                 role="menuitem"
                                 onClick={() => setServicesOpen(false)}
-                                className="block border-b px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-colors last:border-0"
+                                className="block border-b px-4 py-3 text-[10px] uppercase tracking-[0.14em] transition-colors last:border-0"
                                 style={{
                                   borderColor: 'var(--color-grey-800)',
                                   color: pathname === item.href ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
@@ -166,7 +166,7 @@ export default function Navbar() {
                   <div key={link.href} className="relative">
                     <Link
                       href={link.href}
-                      className="block px-4 py-2 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200"
+                      className="block px-3 py-2 text-[10px] uppercase tracking-[0.14em] transition-colors duration-200"
                       style={{
                         color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
                         fontFamily: 'DM Sans, sans-serif',
@@ -182,7 +182,7 @@ export default function Navbar() {
                     </Link>
                     {isActive(link.href) && (
                       <div
-                        className="absolute bottom-0 left-4 right-4 h-px"
+                        className="absolute bottom-0 left-3 right-3 h-px"
                         style={{ background: 'var(--color-accent)' }}
                         aria-hidden="true"
                       />
@@ -193,10 +193,10 @@ export default function Navbar() {
             </nav>
 
             {/* CTA + hamburger */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <Link
                 href="/contact"
-                className="hidden border px-5 py-2.5 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200 lg:inline-flex"
+                className="hidden border px-4 py-2 text-[10px] uppercase tracking-[0.15em] transition-colors duration-200 lg:inline-flex"
                 style={{
                   borderColor: 'var(--color-primary)',
                   color: 'var(--color-primary)',
@@ -215,7 +215,7 @@ export default function Navbar() {
               </Link>
 
               <button
-                className="border p-2 cursor-pointer text-white transition-colors lg:hidden"
+                className="border p-1.5 cursor-pointer text-white transition-colors lg:hidden"
                 style={{ borderColor: 'var(--color-grey-700)' }}
                 onClick={() => setMobileOpen(true)}
                 aria-label="Open navigation menu"
@@ -257,18 +257,18 @@ export default function Navbar() {
             >
               {/* Header */}
               <div
-                className="flex items-center justify-between border-b p-6"
+                className="flex items-center justify-between border-b px-5 py-4"
                 style={{ borderColor: 'var(--color-grey-800)' }}
               >
                 <div className="leading-none">
                   <span
-                    className="block text-lg tracking-[0.04em] text-white"
+                    className="block text-base tracking-[0.035em] text-white"
                     style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
                   >
                     YYUSSA
                   </span>
                   <span
-                    className="mt-0.5 block text-[10px] uppercase tracking-[0.2em]"
+                    className="mt-0.5 block text-[9px] uppercase tracking-[0.18em]"
                     style={{ color: 'var(--color-grey-500)' }}
                   >
                     Group Ltd
@@ -284,7 +284,7 @@ export default function Navbar() {
               </div>
 
               {/* Links */}
-              <nav className="flex-1 overflow-y-auto p-6" aria-label="Mobile navigation">
+              <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile navigation">
                 <ul className="space-y-0">
                   {NAV_LINKS.map((link) => (
                     <li
@@ -295,18 +295,18 @@ export default function Navbar() {
                       {link.dropdown ? (
                         <div>
                           <span
-                            className="block py-4 text-sm uppercase tracking-[0.14em]"
+                            className="block py-3.5 text-[12px] uppercase tracking-[0.14em]"
                             style={{ color: 'var(--color-grey-500)', fontFamily: 'DM Sans, sans-serif' }}
                           >
                             {link.label}
                           </span>
-                          <ul className="mb-2 space-y-1 pl-4">
+                          <ul className="mb-2 space-y-1 pl-3">
                             {link.dropdown.map((item) => (
                               <li key={item.href}>
                                 <Link
                                   href={item.href}
                                   onClick={() => setMobileOpen(false)}
-                                  className="block py-2.5 text-sm uppercase tracking-[0.12em] transition-colors"
+                                  className="block py-2 text-[11px] uppercase tracking-[0.12em] transition-colors"
                                   style={{
                                     color: pathname === item.href ? 'var(--color-accent)' : 'rgba(245,242,237,0.65)',
                                     fontFamily: 'DM Sans, sans-serif',
@@ -322,7 +322,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block py-4 text-sm uppercase tracking-[0.14em] transition-colors"
+                          className="block py-3.5 text-[12px] uppercase tracking-[0.14em] transition-colors"
                           style={{
                             color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.65)',
                             fontFamily: 'DM Sans, sans-serif',
@@ -338,13 +338,13 @@ export default function Navbar() {
 
               {/* Bottom CTA */}
               <div
-                className="border-t p-6"
+                className="border-t px-5 py-4"
                 style={{ borderColor: 'var(--color-grey-800)' }}
               >
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full border py-3.5 text-center text-[11px] uppercase tracking-[0.16em] transition-colors"
+                  className="block w-full border py-3 text-center text-[10px] uppercase tracking-[0.15em] transition-colors"
                   style={{
                     borderColor: 'var(--color-accent)',
                     color: 'var(--color-accent)',

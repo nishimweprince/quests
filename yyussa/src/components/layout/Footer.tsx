@@ -62,13 +62,15 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3">
               {[
-                { Icon: Facebook, label: 'Facebook' },
-                { Icon: Linkedin, label: 'LinkedIn' },
-                { Icon: Twitter, label: 'Twitter / X' },
-              ].map(({ Icon, label }) => (
+                { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/nishimweprince' },
+                { Icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/nishimweprince' },
+                { Icon: Twitter, label: 'Twitter / X', href: 'https://x.com/nishimweprince' },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Follow YYUSSA on ${label}`}
                   className="flex h-9 w-9 items-center justify-center border transition-colors duration-200"
                   style={{ borderColor: 'var(--color-grey-800)', color: 'var(--color-grey-600)' }}

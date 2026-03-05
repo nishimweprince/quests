@@ -7,15 +7,15 @@
    ============================================================ */
 
 :root {
-  /* Primary brand — YYUSSA Orange */
-  --color-primary: #F84923;
-  --color-primary-dark: #C83A1B;
-  --color-primary-light: #FF795D;
+  /* Primary brand — YYUSSA Orange (used sparingly: hero CTA, nav CTA, glow) */
+  --color-primary: #F74923;
+  --color-primary-dark: #D6401E;
+  --color-primary-light: #FA6B4A;
 
-  /* Complementary accent — Slate Blue */
-  --color-accent: #3E5874;
-  --color-accent-light: #5E7A98;
-  --color-accent-dark: #2E455D;
+  /* Calmer complementary accent — Muted blue-grey (buttons, links, labels, focus) */
+  --color-accent: #526876;
+  --color-accent-light: #6B7D8C;
+  --color-accent-dark: #3D5263;
 
   /* Secondary surfaces */
   --color-secondary: #F4F2EF;
@@ -56,7 +56,7 @@
   --color-border: #DEE3EA;
   --color-border-dark: #253446;
 
-  --color-primary-brand: #F84923;
+  --color-primary-brand: #F74923;
 }
 
 @theme inline {

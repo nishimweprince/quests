@@ -19,13 +19,13 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
       style={{ background: 'var(--bg-dark)' }}
       aria-label={`Page header: ${title}`}
     >
-      {/* Subtle orange gradient bottom */}
+      {/* Subtle accent gradient bottom */}
       <div
         className="absolute inset-0"
         aria-hidden="true"
         style={{
           background:
-            'linear-gradient(180deg, transparent 38%, rgba(248,73,35,0.14) 100%)',
+            'linear-gradient(180deg, transparent 38%, color-mix(in srgb, var(--color-accent) 14%, transparent) 100%)',
         }}
       />
 

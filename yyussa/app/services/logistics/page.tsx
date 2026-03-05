@@ -229,7 +229,7 @@ export default function LogisticsPage() {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white hover:text-[var(--color-primary)]"
+                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white hover:text-[var(--color-accent)]"
                 style={{ borderColor: 'var(--color-grey-600)', color: 'var(--color-grey-300)' }}
               >
                 Contact Logistics Team

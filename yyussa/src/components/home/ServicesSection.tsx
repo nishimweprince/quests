@@ -118,7 +118,7 @@ export default function ServicesSection() {
           <div className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] text-(--color-grey-300) transition-colors hover:text-(--color-primary)"
+              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] text-(--color-grey-300) transition-colors hover:text-(--color-accent)"
             >
               View All Services
               <ArrowRight size={14} aria-hidden="true" />

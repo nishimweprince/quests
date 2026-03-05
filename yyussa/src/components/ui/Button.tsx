@@ -11,15 +11,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseStyles =
-  'inline-flex items-center justify-center gap-2 font-normal rounded-md transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] cursor-pointer';
+  'inline-flex items-center justify-center gap-2 font-normal rounded-md transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] cursor-pointer';
 
 const variants = {
   primary:
-    'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] active:scale-[0.98]',
+    'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] active:scale-[0.98]',
   outline:
     'border-2 border-white text-white hover:bg-white hover:text-[var(--color-text-primary)] active:scale-[0.98]',
   ghost:
-    'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline-offset-2 hover:underline',
+    'text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] underline-offset-2 hover:underline',
 };
 
 const sizes = {

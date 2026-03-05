@@ -47,7 +47,7 @@ export default function PartnersSection() {
               >
                 <div className="flex flex-col items-center gap-2">
                   <div
-                    className="flex h-10 w-10 items-center justify-center border transition-colors duration-200 group-hover:border-(--color-primary)"
+                    className="flex h-10 w-10 items-center justify-center border transition-colors duration-200 group-hover:border-(--color-accent)"
                     style={{ borderColor: 'var(--color-secondary-dark)' }}
                     aria-hidden="true"
                   >

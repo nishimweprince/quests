@@ -198,17 +198,17 @@ export default function Navbar() {
                 href="/contact"
                 className="hidden border px-5 py-2.5 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200 lg:inline-flex"
                 style={{
-                  borderColor: 'var(--color-accent)',
-                  color: 'var(--color-accent)',
+                  borderColor: 'var(--color-primary)',
+                  color: 'var(--color-primary)',
                   fontFamily: 'DM Sans, sans-serif',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'var(--color-accent)';
+                  e.currentTarget.style.background = 'var(--color-primary)';
                   e.currentTarget.style.color = 'white';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = 'var(--color-accent)';
+                  e.currentTarget.style.color = 'var(--color-primary)';
                 }}
               >
                 Get in Touch
@@ -248,7 +248,7 @@ export default function Navbar() {
               transition={{ type: 'tween', ease: 'easeOut', duration: 0.28 }}
               className="fixed right-0 top-0 bottom-0 z-50 flex w-80 flex-col border-l lg:hidden"
               style={{
-                background: 'var(--color-primary)',
+                background: 'var(--bg-dark)',
                 borderColor: 'var(--color-grey-800)',
               }}
               role="dialog"

@@ -141,7 +141,7 @@ export default function ContactPage() {
               <a
                 key={p}
                 href={`tel:${p.replace(/\s/g, '')}`}
-                className="text-sm font-medium text-(--color-grey-200) transition-colors hover:text-(--color-primary)"
+                className="text-sm font-medium text-(--color-grey-200) transition-colors hover:text-(--color-accent)"
               >
                 {p}
               </a>

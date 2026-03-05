@@ -54,7 +54,7 @@ export default function TeamPage() {
               >
                 <div
                   className="relative flex aspect-square w-full max-w-[260px] items-center justify-center border"
-                  style={{ background: 'var(--color-primary-light)', borderColor: 'var(--color-grey-800)' }}
+                  style={{ background: 'var(--color-grey-800)', borderColor: 'var(--color-grey-800)' }}
                 >
                   <User size={64} style={{ color: 'var(--color-grey-700)' }} aria-hidden="true" />
                   {/* Brass corner accent */}

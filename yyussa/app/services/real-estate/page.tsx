@@ -209,7 +209,7 @@ export default function RealEstatePage() {
               <ScrollReveal key={name} direction="up" delay={i * 0.04}>
                 <div
                   className="group flex aspect-square items-center justify-center p-4 text-center"
-                  style={{ background: 'var(--color-primary-light)' }}
+                  style={{ background: 'var(--color-grey-800)' }}
                 >
                   <span
                     className="text-[11px] font-medium uppercase leading-tight tracking-[0.06em] transition-colors duration-200 group-hover:text-[var(--color-accent)]"

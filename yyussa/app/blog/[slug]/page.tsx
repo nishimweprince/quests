@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                       <Link
                         key={tag}
                         href={`/blog?tag=${encodeURIComponent(tag)}`}
-                        className="border px-3 py-1 text-[10px] uppercase tracking-widest text-(--color-grey-500) transition-all duration-150 hover:border-(--color-primary) hover:text-(--color-primary)"
+                        className="border px-3 py-1 text-[10px] uppercase tracking-widest text-(--color-grey-500) transition-all duration-150 hover:border-(--color-accent) hover:text-(--color-accent)"
                         style={{
                           borderColor: 'var(--color-secondary-dark)',
                         }}

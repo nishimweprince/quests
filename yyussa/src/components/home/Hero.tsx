@@ -35,12 +35,12 @@ export default function Hero() {
         }}
       />
 
-      {/* Orange glow — upper right */}
+      {/* Orange glow — upper right (primary, subtle) */}
       <div
         className="pointer-events-none absolute -right-40 -top-20 h-[600px] w-[600px] opacity-20"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(circle at center, rgba(248,73,35,0.36) 0%, transparent 65%)',
+          background: 'radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 36%, transparent) 0%, transparent 65%)',
           filter: 'blur(60px)',
         }}
       />
@@ -56,12 +56,12 @@ export default function Hero() {
         }}
       />
 
-      {/* Slate glow — lower left */}
+      {/* Accent glow — lower left */}
       <div
         className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 opacity-15"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(circle at center, rgba(62,88,116,0.52) 0%, transparent 65%)',
+          background: 'radial-gradient(circle at center, color-mix(in srgb, var(--color-accent) 52%, transparent) 0%, transparent 65%)',
           filter: 'blur(70px)',
         }}
       />
@@ -114,17 +114,18 @@ export default function Hero() {
             partnerships.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTAs — primary only on main CTA */}
           <motion.div
             variants={fadeUp}
             className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-3 border px-8 py-4 text-sm font-medium uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
+              className="inline-flex items-center gap-3 border px-8 py-4 text-sm font-medium uppercase tracking-[0.14em] transition-all duration-200 hover:opacity-95"
               style={{
-                borderColor: 'var(--color-accent)',
-                color: 'var(--color-accent)',
+                background: 'var(--color-primary)',
+                borderColor: 'var(--color-primary)',
+                color: 'white',
               }}
             >
               Explore Divisions
@@ -132,8 +133,8 @@ export default function Hero() {
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] transition-colors hover:text-white/95"
-              style={{ color: 'var(--color-grey-300)' }}
+              className="inline-flex items-center gap-2 border border-white/30 px-6 py-4 text-sm uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
+              style={{ borderColor: 'var(--color-accent)', color: 'var(--color-accent)' }}
             >
               Our Corporate Story
               <ArrowRight size={14} aria-hidden="true" />

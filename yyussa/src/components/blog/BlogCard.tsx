@@ -44,7 +44,7 @@ export default function BlogCard({ post, index = 0, featured = false }: BlogCard
         {/* Image area */}
         <div
           className="relative flex h-72 md:h-80 items-end overflow-hidden"
-          style={{ background: 'var(--color-primary)' }}
+          style={{ background: 'var(--color-accent)' }}
           aria-hidden="true"
         >
           {/* Diagonal grid pattern */}
@@ -175,7 +175,7 @@ export default function BlogCard({ post, index = 0, featured = false }: BlogCard
       {/* Image area */}
       <div
         className="relative flex h-44 items-end overflow-hidden"
-        style={{ background: 'var(--color-primary-light)' }}
+        style={{ background: 'var(--color-accent)' }}
         aria-hidden="true"
       >
         {/* Fine dot grid */}

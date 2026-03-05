@@ -7,7 +7,7 @@ interface SectionLabelProps {
 export default function SectionLabel({ children, className = '', light = false }: SectionLabelProps) {
   return (
     <span
-      className={`section-label ${light ? 'text-[var(--color-primary-light)]' : 'text-[var(--color-primary)]'} ${className}`}
+      className={`section-label ${light ? 'text-[var(--color-accent-light)]' : 'text-[var(--color-accent)]'} ${className}`}
     >
       {children}
     </span>

@@ -286,7 +286,7 @@ export default function Navbar() {
               {/* Links */}
               <nav className="flex-1 overflow-y-auto p-6" aria-label="Mobile navigation">
                 <ul className="space-y-0">
-                  {NAV_LINKS.map((link, i) => (
+                  {NAV_LINKS.map((link) => (
                     <li
                       key={link.href}
                       className="border-b"

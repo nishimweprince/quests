@@ -1,6 +1,6 @@
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import { Image as ImageIcon } from 'lucide-react';
 import { PARTNERS } from '@/lib/constants';
+import Image from 'next/image';
 
 export default function PartnersSection() {
   return (
@@ -32,31 +32,25 @@ export default function PartnersSection() {
           <div className="h-px flex-1" style={{ background: 'var(--color-secondary-dark)' }} aria-hidden="true" />
         </div>
 
-        {/* Partner logo placeholders */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
+        {/* Partner logos from public/partners */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6">
           {PARTNERS.map((partner, index) => (
-            <ScrollReveal key={partner} direction="up" delay={index * 0.04}>
+            <ScrollReveal key={partner.name} direction="up" delay={index * 0.04}>
               <div
-                className="group flex aspect-[3/2] items-center justify-center border-r border-b p-4 transition-colors duration-200"
+                className="group flex aspect-3/2 cursor-pointer items-center justify-center border-r border-b p-4 transition-[opacity,background-color] duration-200 hover:opacity-95"
                 style={{
                   borderColor: 'var(--color-secondary-dark)',
                   background: 'var(--bg-white)',
                 }}
-                role="img"
-                aria-label={`Logo placeholder for ${partner}`}
               >
-                <div className="flex flex-col items-center gap-2">
-                  <div
-                    className="flex h-10 w-10 items-center justify-center border transition-colors duration-200 group-hover:border-(--color-accent)"
-                    style={{ borderColor: 'var(--color-secondary-dark)' }}
-                    aria-hidden="true"
-                  >
-                    <ImageIcon size={16} style={{ color: 'var(--color-grey-500)' }} />
-                  </div>
-                  <span className="text-[10px] uppercase tracking-[0.1em]" style={{ color: 'var(--color-grey-400)' }}>
-                    Logo
-                  </span>
-                </div>
+                <Image
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  width={140}
+                  height={60}
+                  className="max-h-12 w-auto object-contain transition-transform duration-200 ease-out group-hover:scale-110"
+                  sizes="(max-width: 640px) 80px, (max-width: 768px) 100px, 140px"
+                />
               </div>
             </ScrollReveal>
           ))}

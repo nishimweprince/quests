@@ -1,9 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Phone } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import { PROPERTIES, CONTACT_INFO } from '@/lib/constants';
+import { PROPERTIES, CONTACT_INFO, PARTNERS } from '@/lib/constants';
+
+/** Key tenants for real estate that have logos in public/partners */
+const tenantNames = [
+  'Vivo Energy', 'World Vision', 'Bank of Kigali', 'MTN', 'Rubis Energy',
+  'RRA', 'Oryx Energies', 'Ecobank',
+];
+const tenantLogos = PARTNERS.filter((p) => tenantNames.includes(p.name));
 
 export const metadata: Metadata = {
   title: 'Real Estate Services',
@@ -16,11 +24,6 @@ const highlights = [
   { value: '$32M', label: 'Kigali Heights', sub: 'Flagship property acquisition' },
   { value: '8+', label: 'Multinational Tenants', sub: 'Energy, finance, health & tech' },
   { value: '30+', label: 'Years in Property', sub: 'Consistent management excellence' },
-];
-
-const tenants = [
-  'Vivo Energy', 'World Vision', 'Bank of Kigali', 'MTN', 'Rubis Energy',
-  'Mastercard Foundation', 'RRA', 'Oryx Energies', 'Ecobank', 'I&M Bank', 'UGHE',
 ];
 
 export default function RealEstatePage() {
@@ -125,37 +128,38 @@ export default function RealEstatePage() {
       {/* ── Property Portfolio ── */}
       <section
         className="py-24 md:py-28"
-        style={{ background: 'var(--bg-white)' }}
+        style={{ background: 'var(--bg-dark)' }}
         aria-labelledby="portfolio-heading"
       >
         <div className="container-xl">
           <ScrollReveal direction="up">
-            <span className="section-label">Our Portfolio</span>
+            <span className="section-label" style={{ color: 'var(--color-accent)' }}>
+              Our Portfolio
+            </span>
             <h2
               id="portfolio-heading"
-              className="mt-3 mb-12 text-3xl md:text-4xl"
+              className="mt-3 mb-12 text-3xl md:text-4xl text-white!"
               style={{
                 fontFamily: "'Libre Baskerville', Georgia, serif",
                 letterSpacing: '-0.025em',
-                color: 'var(--color-text-dark)',
               }}
             >
               Featured Properties
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 gap-px border [grid-auto-rows:1fr] sm:grid-cols-2 lg:grid-cols-3"
-            style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+          <div className="grid grid-cols-1 gap-px border auto-rows-[1fr] sm:grid-cols-2 lg:grid-cols-3"
+            style={{ borderColor: 'var(--color-grey-600)', background: 'var(--color-grey-600)' }}>
             {PROPERTIES.map((property, index) => (
               <ScrollReveal key={property.name} direction="up" delay={index * 0.07}>
                 <div
-                  className="group flex h-full flex-col p-8 transition-colors duration-200 hover:bg-(--bg-light)"
-                  style={{ background: 'var(--bg-white)' }}
+                  className="group flex h-full flex-col p-8 transition-colors duration-200 hover:bg-(--color-grey-700)"
+                  style={{ background: 'var(--color-grey-800)' }}
                 >
                   {/* Number */}
                   <div
                     className="mb-5 text-[11px] uppercase tracking-[0.14em]"
-                    style={{ color: 'var(--color-grey-400)' }}
+                    style={{ color: 'var(--color-grey-500)' }}
                   >
                     {String(index + 1).padStart(2, '0')}
                   </div>
@@ -166,15 +170,12 @@ export default function RealEstatePage() {
                     aria-hidden="true"
                   />
                   <h3
-                    className="mb-1 text-base font-semibold"
-                    style={{
-                      fontFamily: "'Libre Baskerville', Georgia, serif",
-                      color: 'var(--color-text-dark)',
-                    }}
+                    className="mb-1 text-base font-semibold text-white!"
+                    style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
                   >
                     {property.name}
                   </h3>
-                  <p className="mt-auto text-sm" style={{ color: 'var(--color-grey-500)' }}>
+                  <p className="mt-auto text-sm" style={{ color: 'var(--color-grey-400)' }}>
                     {property.location}
                   </p>
                 </div>
@@ -186,37 +187,43 @@ export default function RealEstatePage() {
 
       {/* ── Tenants ── */}
       <section
-        className="py-20 grain-overlay"
-        style={{ background: 'var(--bg-dark)' }}
+        className="py-20"
+        style={{ background: 'var(--bg-light)' }}
         aria-labelledby="tenants-heading"
       >
         <div className="container-xl">
           <ScrollReveal direction="up">
-            <span className="section-label" style={{ color: 'var(--color-accent)' }}>
+            <span className="section-label" style={{ color: 'var(--color-text-dark)' }}>
               Key Tenants
             </span>
             <h2
               id="tenants-heading"
-              className="mt-3 mb-10 text-2xl text-white! md:text-3xl"
-              style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
+              className="mt-3 mb-10 text-2xl md:text-3xl"
+              style={{
+                fontFamily: "'Libre Baskerville', Georgia, serif",
+                letterSpacing: '-0.02em',
+                color: 'var(--color-text-dark)',
+              }}
             >
               Trusted by Industry Leaders
             </h2>
           </ScrollReveal>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-px"
-            style={{ background: 'var(--color-grey-800)' }}>
-            {tenants.map((name, i) => (
-              <ScrollReveal key={name} direction="up" delay={i * 0.04}>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8 gap-px border"
+            style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+            {tenantLogos.map((tenant, i) => (
+              <ScrollReveal key={tenant.name} direction="up" delay={i * 0.04}>
                 <div
-                  className="group flex aspect-square items-center justify-center p-4 text-center"
-                  style={{ background: 'var(--color-grey-800)' }}
+                  className="group flex aspect-square cursor-pointer items-center justify-center p-4 transition-[opacity,background-color] duration-200 hover:opacity-95"
+                  style={{ background: 'var(--bg-white)' }}
                 >
-                  <span
-                    className="text-[11px] font-medium uppercase leading-tight tracking-[0.06em] transition-colors duration-200 group-hover:text-[var(--color-accent)]"
-                    style={{ color: 'var(--color-grey-500)' }}
-                  >
-                    {name}
-                  </span>
+                  <Image
+                    src={tenant.logo}
+                    alt={`${tenant.name} logo`}
+                    width={120}
+                    height={60}
+                    className="max-h-10 w-auto object-contain opacity-90 transition-[opacity,transform] duration-200 ease-out group-hover:scale-110 group-hover:opacity-100"
+                    sizes="(max-width: 640px) 70px, (max-width: 768px) 90px, 120px"
+                  />
                 </div>
               </ScrollReveal>
             ))}

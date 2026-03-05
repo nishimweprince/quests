@@ -54,19 +54,26 @@ export const SERVICES = [
   },
 ];
 
-export const PARTNERS = [
-  'Vivo Energy',
-  'World Vision',
-  'Bank of Kigali',
-  'GTBank',
-  'Rubis Energy',
-  'Mastercard Foundation',
-  'MTN',
-  'RRA',
-  'Oryx Energies',
-  'Ecobank',
-  'I&M Bank',
-  'UGHE',
+/** Partner logos from public/partners. Name used for alt text and accessibility. */
+export const PARTNERS: { name: string; logo: string }[] = [
+  { name: 'Vivo Energy', logo: '/partners/vivo-energy-logo.svg' },
+  { name: 'World Vision', logo: '/partners/world-vision-logo.png' },
+  { name: 'Bank of Kigali', logo: '/partners/bank-of-kigali.png' },
+  { name: 'Rubis Energy', logo: '/partners/rubis-logo.jpg' },
+  { name: 'MTN', logo: '/partners/mtn-logo.jpg' },
+  { name: 'RRA', logo: '/partners/rra-logo.jpeg' },
+  { name: 'Oryx Energies', logo: '/partners/oryx-energies-logo.png' },
+  { name: 'Ecobank', logo: '/partners/ecobank-logo.png' },
+  { name: 'Azam', logo: '/partners/azam-logo.png' },
+  { name: 'Bakhresa Grain', logo: '/partners/bakhresa-grain-logo.png' },
+  { name: 'Bourbon Coffee', logo: '/partners/bourbon-coffee-logo.png' },
+  { name: 'Cimerwa Cement', logo: '/partners/cimerwa-cement-logo.png' },
+  { name: 'Equity Bank', logo: '/partners/equity-bank-logo.png' },
+  { name: 'Irembo', logo: '/partners/irembo-logo.png' },
+  { name: 'Kapa Oil Refineries', logo: '/partners/kapa-oil-refineries-logo.webp' },
+  { name: 'NCBA', logo: '/partners/ncba-logo.jpg' },
+  { name: 'Savannah Cement', logo: '/partners/savannah-cement-logo.png' },
+  { name: 'Twiga Cement', logo: '/partners/twiga-cement-logo.jpg' },
 ];
 
 export const TEAM = {

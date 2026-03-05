@@ -177,7 +177,7 @@ export default function LogisticsPage() {
               </h2>
               <ul className="space-y-0 border"
                 style={{ borderColor: 'var(--color-secondary-dark)' }}>
-                {routes.map(({ city, country }, i) => (
+                {routes.map(({ city, country }) => (
                   <li
                     key={`${city}-${country}`}
                     className="flex items-center justify-between border-b px-5 py-4 last:border-0"

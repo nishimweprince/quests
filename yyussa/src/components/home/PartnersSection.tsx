@@ -1,47 +1,76 @@
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { Image as ImageIcon } from 'lucide-react';
 import { PARTNERS } from '@/lib/constants';
 
 export default function PartnersSection() {
   return (
     <section
-      className="grain-overlay py-20 md:py-24"
-      style={{ background: 'var(--color-surface-dark)' }}
+      className="py-24 md:py-28"
+      style={{ background: 'var(--bg-light)' }}
       aria-labelledby="partners-heading"
     >
       <div className="container-xl">
-        <ScrollReveal direction="up">
-          <div className="mb-12 text-center">
-            <SectionLabel light>Our Partners</SectionLabel>
-            <h2
-              id="partners-heading"
-              className="text-3xl md:text-4xl font-bold mt-2 text-white"
-              style={{ letterSpacing: '-0.03em' }}
-            >
-              Trusted by <span className="serif-accent" style={{ color: 'var(--color-primary-light)' }}>Industry Leaders</span>
-            </h2>
-            <p className="mx-auto mt-3 max-w-lg text-(--color-text-muted-light)">
-              We are proud to serve and partner with some of East Africa&apos;s most respected
-              organizations.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {PARTNERS.map((partner, index) => (
-            <ScrollReveal key={partner} direction="up" delay={index * 0.05}>
-              <div
-                className="flex h-full items-center justify-center rounded-xl border border-(--color-border-dark) bg-(--color-surface-card-dark) px-4 py-5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-(--color-primary)/60 hover:bg-black/30"
-                role="img"
-                aria-label={partner}
+        {/* Top rule */}
+        <div className="mb-14 flex items-center gap-6">
+          <div className="h-px flex-1" style={{ background: 'var(--color-secondary-dark)' }} aria-hidden="true" />
+          <ScrollReveal direction="none">
+            <div className="text-center">
+              <span className="section-label">Our Partners</span>
+              <h2
+                id="partners-heading"
+                className="mt-2 text-2xl md:text-3xl"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  letterSpacing: '-0.02em',
+                  color: 'var(--color-text-dark)',
+                }}
               >
-                <span className="text-xs font-semibold leading-tight text-(--color-text-light)">
-                  {partner}
-                </span>
+                Trusted by Industry Leaders
+              </h2>
+            </div>
+          </ScrollReveal>
+          <div className="h-px flex-1" style={{ background: 'var(--color-secondary-dark)' }} aria-hidden="true" />
+        </div>
+
+        {/* Partner logo placeholders */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7">
+          {PARTNERS.map((partner, index) => (
+            <ScrollReveal key={partner} direction="up" delay={index * 0.04}>
+              <div
+                className="group flex aspect-[3/2] items-center justify-center border-r border-b p-4 transition-colors duration-200"
+                style={{
+                  borderColor: 'var(--color-secondary-dark)',
+                  background: 'var(--bg-white)',
+                }}
+                role="img"
+                aria-label={`Logo placeholder for ${partner}`}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center border transition-colors duration-200 group-hover:border-(--color-primary)"
+                    style={{ borderColor: 'var(--color-secondary-dark)' }}
+                    aria-hidden="true"
+                  >
+                    <ImageIcon size={16} style={{ color: 'var(--color-grey-500)' }} />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.1em]" style={{ color: 'var(--color-grey-400)' }}>
+                    Logo
+                  </span>
+                </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Bottom note */}
+        <ScrollReveal direction="up" delay={0.3}>
+          <p
+            className="mt-10 text-center text-xs uppercase tracking-[0.14em]"
+            style={{ color: 'var(--color-grey-400)' }}
+          >
+            And many more trusted organizations across East Africa
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );

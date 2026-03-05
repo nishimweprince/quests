@@ -2,63 +2,118 @@ import type { Metadata } from 'next';
 import PageHeader from '@/components/layout/PageHeader';
 import BlogCard from '@/components/blog/BlogCard';
 import BlogSidebar from '@/components/blog/BlogSidebar';
-import SectionLabel from '@/components/ui/SectionLabel';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog — Latest News',
+  title: 'Insights',
   description:
-    'Insights, updates, and expertise from YYUSSA Group on real estate, logistics, and commercial excellence in East Africa.',
+    'News, updates, and perspectives from YYUSSA Group on real estate, logistics, and commercial excellence in East Africa.',
 };
 
 export default function BlogPage() {
   const posts = getAllPosts();
+  const [featured, ...rest] = posts;
 
   return (
     <>
       <PageHeader
-        title="Corporate Insights"
+        title="Insights"
+        subtitle="News, updates, and perspectives from YYUSSA Group."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog' }]}
       />
 
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-surface-light)' }}
+        className="py-24 md:py-28"
+        style={{ background: 'var(--bg-light)' }}
         aria-labelledby="blog-heading"
       >
         <div className="container-xl">
-          <div className="mb-12 md:mb-14">
-            <SectionLabel>Publications</SectionLabel>
-            <h2
-              id="blog-heading"
-              className="text-3xl md:text-4xl mt-2"
-              style={{ letterSpacing: '-0.015em', color: 'var(--color-text-primary)' }}
-            >
-              Market Analysis & Strategic Updates
-            </h2>
-            <p className="mt-4 max-w-3xl text-[var(--color-text-secondary)]">
-              Explore commentary and practical insights across logistics, real estate, and regional
-              trade from YYUSSA leadership.
-            </p>
+
+          {/* Section label row */}
+          <div className="mb-10 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <span
+                className="h-px w-8 shrink-0"
+                style={{ background: 'var(--color-accent)' }}
+                aria-hidden="true"
+              />
+              <h2
+                id="blog-heading"
+                className="text-[11px] uppercase tracking-[0.18em]"
+                style={{ color: 'var(--color-grey-500)' }}
+              >
+                {posts.length > 0
+                  ? `${posts.length} Article${posts.length !== 1 ? 's' : ''}`
+                  : 'No posts yet'}
+              </h2>
+            </div>
+            {posts.length > 1 && (
+              <span
+                className="hidden text-[10px] uppercase tracking-[0.14em] md:block"
+                style={{ color: 'var(--color-grey-400)' }}
+              >
+                Latest first
+              </span>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-9 lg:gap-12">
-            <div>
-              {posts.length === 0 ? (
-                <p className="text-[var(--color-text-secondary)]">No posts yet. Check back soon.</p>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
-                  {posts.map((post) => (
-                    <BlogCard key={post.slug} post={post} />
-                  ))}
-                </div>
-              )}
-            </div>
+          {posts.length === 0 ? (
+            <p className="text-sm" style={{ color: 'var(--color-grey-500)' }}>
+              No posts yet. Check back soon for insights from the YYUSSA team.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr] lg:gap-16">
 
-            <div>
+              {/* Left column: featured + grid */}
+              <div>
+                {/* Featured post */}
+                {featured && (
+                  <div className="mb-px">
+                    <BlogCard post={featured} index={0} featured={true} />
+                  </div>
+                )}
+
+                {/* Divider with label */}
+                {rest.length > 0 && (
+                  <div
+                    className="my-8 flex items-center gap-4"
+                    aria-hidden="true"
+                  >
+                    <div
+                      className="h-px flex-1"
+                      style={{ background: 'var(--color-secondary-dark)' }}
+                    />
+                    <span
+                      className="text-[9px] uppercase tracking-[0.2em]"
+                      style={{ color: 'var(--color-grey-400)' }}
+                    >
+                      More Articles
+                    </span>
+                    <div
+                      className="h-px flex-1"
+                      style={{ background: 'var(--color-secondary-dark)' }}
+                    />
+                  </div>
+                )}
+
+                {/* Remaining posts grid */}
+                {rest.length > 0 && (
+                  <div
+                    className="grid grid-cols-1 gap-px sm:grid-cols-2"
+                    style={{ background: 'var(--color-secondary-dark)' }}
+                  >
+                    {rest.map((post, i) => (
+                      <BlogCard key={post.slug} post={post} index={i + 1} />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Sidebar */}
               <BlogSidebar recentPosts={posts} />
             </div>
-          </div>
+          )}
+
         </div>
       </section>
     </>

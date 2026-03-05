@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { MapPin, Phone, Clock } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
 import ContactForm from '@/components/contact/ContactForm';
 import { CONTACT_INFO } from '@/lib/constants';
 
@@ -12,141 +11,141 @@ export const metadata: Metadata = {
     'Get in touch with YYUSSA Group Ltd — real estate, logistics, and import/export inquiries. Located in Gikondo, Kigali, Rwanda.',
 };
 
-const contactCards = [
-  {
-    icon: MapPin,
-    title: 'Our Address',
-    lines: [CONTACT_INFO.address],
-  },
-  {
-    icon: Phone,
-    title: 'Transport & Logistics',
-    lines: CONTACT_INFO.phones.logistics,
-  },
-  {
-    icon: Phone,
-    title: 'Real Estate',
-    lines: CONTACT_INFO.phones.realEstate,
-  },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    lines: [CONTACT_INFO.hours],
-  },
-];
-
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        title="Contact Us"
+        title="Get in Touch"
+        subtitle="We're here to discuss partnerships, property inquiries, or logistics solutions."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Contact Us' }]}
       />
 
+      {/* ── Main contact section ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-surface-light)' }}
+        className="py-24 md:py-32"
+        style={{ background: 'var(--bg-light)' }}
         aria-labelledby="contact-heading"
       >
         <div className="container-xl">
-          <ScrollReveal direction="up">
-            <div className="text-center mb-14">
-              <SectionLabel>Reach Out</SectionLabel>
-              <h2
-                id="contact-heading"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2"
-                style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-              >
-                Get In Touch
-              </h2>
-              <p className="mt-4 max-w-xl mx-auto text-[var(--color-text-secondary)]">
-                Whether you have a logistics inquiry, real estate question, or business partnership
-                opportunity — our team is ready to help.
-              </p>
-            </div>
-          </ScrollReveal>
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-[3fr_2fr] lg:gap-20">
+            {/* Form */}
+            <ScrollReveal direction="left">
+              <ContactForm />
+            </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-            {/* Form — spans 3 columns */}
-            <div className="lg:col-span-3">
-              <ScrollReveal direction="left">
-                <ContactForm />
-              </ScrollReveal>
-            </div>
-
-            {/* Contact info — spans 2 columns */}
-            <div className="lg:col-span-2">
-              <ScrollReveal direction="right" delay={0.15}>
-                <div className="space-y-4">
-                  {contactCards.map((card) => {
-                    const Icon = card.icon;
-                    return (
+            {/* Info */}
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="space-y-0 border"
+                style={{ borderColor: 'var(--color-secondary-dark)' }}>
+                {[
+                  {
+                    Icon: MapPin,
+                    title: 'Our Address',
+                    lines: [CONTACT_INFO.address],
+                  },
+                  {
+                    Icon: Phone,
+                    title: 'Transport & Logistics',
+                    lines: CONTACT_INFO.phones.logistics,
+                    isPhone: true,
+                  },
+                  {
+                    Icon: Phone,
+                    title: 'Real Estate',
+                    lines: CONTACT_INFO.phones.realEstate,
+                    isPhone: true,
+                  },
+                  {
+                    Icon: Clock,
+                    title: 'Working Hours',
+                    lines: [CONTACT_INFO.hours],
+                  },
+                ].map((card, i, arr) => {
+                  const Icon = card.Icon;
+                  return (
+                    <div
+                      key={card.title}
+                      className={`flex gap-5 p-7 ${i < arr.length - 1 ? 'border-b' : ''}`}
+                      style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--bg-white)' }}
+                    >
                       <div
-                        key={card.title}
-                        className="rounded-xl border border-[var(--color-border)] p-6 flex gap-4"
-                        style={{ background: 'var(--color-surface-white)' }}
+                        className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border"
+                        style={{ borderColor: 'var(--color-accent)' }}
+                        aria-hidden="true"
                       >
-                        <div
-                          className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                          style={{ background: 'var(--color-primary)', opacity: 1 }}
-                          aria-hidden="true"
+                        <Icon size={15} style={{ color: 'var(--color-accent)' }} />
+                      </div>
+                      <div>
+                        <p
+                          className="mb-2 text-[10px] uppercase tracking-[0.14em]"
+                          style={{ color: 'var(--color-grey-500)' }}
                         >
-                          <Icon size={18} className="text-white" />
-                        </div>
-                        <div>
-                          <h3
-                            className="font-normal text-sm mb-1.5"
-                            style={{ color: 'var(--color-text-primary)' }}
-                          >
-                            {card.title}
-                          </h3>
-                          {card.lines.map((line) => (
-                            <p
+                          {card.title}
+                        </p>
+                        {card.lines.map((line) =>
+                          card.isPhone ? (
+                            <a
                               key={line}
-                              className="text-sm text-[var(--color-text-secondary)]"
+                              href={`tel:${line.replace(/\s/g, '')}`}
+                              className="block text-sm text-(--color-text-dark) transition-colors hover:text-(--color-accent)"
                             >
                               {line}
+                            </a>
+                          ) : (
+                            <p key={line} className="text-sm" style={{ color: 'var(--color-text-dark)' }}>
+                              {line}
                             </p>
-                          ))}
-                        </div>
+                          )
+                        )}
                       </div>
-                    );
-                  })}
-                </div>
-              </ScrollReveal>
-            </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Map section */}
+      {/* ── Map ── */}
       <section
-        className="py-12"
-        style={{ background: 'var(--color-surface-white)' }}
+        className="py-0"
+        style={{ background: 'var(--bg-white)' }}
         aria-label="Office location"
       >
-        <div className="container-xl">
-          <div
-            className="rounded-2xl overflow-hidden border border-[var(--color-border)] h-72 md:h-96 flex items-center justify-center"
-            style={{ background: 'var(--color-surface-light)' }}
-            aria-label="Map showing YYUSSA office location in Gikondo, Kigali, Rwanda"
-          >
-            <div className="text-center">
-              <MapPin size={40} className="mx-auto mb-3" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-              <p className="font-normal" style={{ color: 'var(--color-text-primary)' }}>
-                Gikondo KK 4 AV 7
-              </p>
-              <p className="text-sm text-[var(--color-text-secondary)]">Kigali, Rwanda</p>
+        <div className="container-xl pb-24">
+          <div className="overflow-hidden border" style={{ borderColor: 'var(--color-secondary-dark)' }}>
+            <iframe
+              title="YYUSSA Group Office Location - Gikondo KK 4 AV 7, Kigali, Rwanda"
+              src="https://www.google.com/maps?q=Gikondo+KK+4+AV+7,+Kigali,+Rwanda&z=15&output=embed"
+              className="h-72 w-full md:h-96"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Strip ── */}
+      <section
+        className="border-t py-10 grain-overlay"
+        style={{ background: 'var(--bg-dark)', borderColor: 'var(--color-grey-800)' }}
+        aria-label="Phone contact strip"
+      >
+        <div className="container-xl flex flex-col items-center justify-between gap-6 md:flex-row">
+          <p className="text-sm" style={{ color: 'var(--color-grey-400)' }}>
+            Prefer to call? Reach our team directly —
+          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-6">
+            {[...CONTACT_INFO.phones.logistics, ...CONTACT_INFO.phones.realEstate].map((p) => (
               <a
-                href="https://maps.google.com/?q=Gikondo+KK+4+AV+7,+Kigali,+Rwanda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-normal"
-                style={{ color: 'var(--color-primary)' }}
+                key={p}
+                href={`tel:${p.replace(/\s/g, '')}`}
+                className="text-sm font-medium text-(--color-grey-200) transition-colors hover:text-(--color-primary)"
               >
-                Open in Google Maps →
+                {p}
               </a>
-            </div>
+            ))}
           </div>
         </div>
       </section>

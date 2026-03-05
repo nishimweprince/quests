@@ -4,31 +4,30 @@ import { STATS } from '@/lib/constants';
 export default function StatsBar() {
   return (
     <section
-      className="relative z-10 -mt-1 grain-overlay"
-      style={{ background: 'var(--color-surface-darker)' }}
+      className="relative z-10"
+      style={{ background: 'var(--bg-light)' }}
       aria-label="Company statistics"
     >
-      <div className="container-xl py-10 md:py-14">
-        <div className="rounded-3xl border border-(--color-border-dark) bg-black/40 px-6 py-8 shadow-[0_18px_55px_rgba(0,0,0,0.7)] backdrop-blur-md md:px-10 md:py-9">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 md:gap-10">
-            {STATS.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col items-center text-center ${
-                  index > 0 ? 'sm:border-l sm:border-white/10' : ''
-                } sm:pl-6`}
-              >
-                <div className="mb-3 h-px w-8 bg-(--color-primary)" aria-hidden="true" />
-                <AnimatedCounter
-                  target={stat.value}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                />
-              </div>
-            ))}
-          </div>
+      <div className="container-xl">
+        <div className="grid grid-cols-1 divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+          style={{ borderColor: 'var(--color-secondary-dark)' }}>
+          {STATS.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center py-14 md:py-16"
+              style={{ borderColor: 'var(--color-secondary-dark)' }}
+            >
+              <AnimatedCounter
+                target={stat.value}
+                suffix={stat.suffix}
+                label={stat.label}
+              />
+            </div>
+          ))}
         </div>
       </div>
+      {/* Bottom border */}
+      <div className="h-px w-full" style={{ background: 'var(--color-secondary-dark)' }} aria-hidden="true" />
     </section>
   );
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Globe2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Import & Export Services',
@@ -14,19 +13,28 @@ export const metadata: Metadata = {
 const commodities = [
   { name: 'Wheat Flour', desc: 'Bulk grain flour imported and distributed regionally.' },
   { name: 'Petroleum Products', desc: 'Fuel and petroleum goods for industrial and commercial use.' },
-  { name: 'Cement', desc: 'High-grade construction cement for Rwanda\'s growing infrastructure.' },
+  { name: 'Cement', desc: "High-grade construction cement for Rwanda's growing infrastructure." },
   { name: 'Sugar', desc: 'Refined and raw sugar for food industry distribution.' },
   { name: 'Salt', desc: 'Industrial and consumer-grade salt products.' },
   { name: 'Cooking Oil', desc: 'Bulk vegetable and cooking oils for retail and wholesale.' },
 ];
 
 const origins = [
-  { country: 'Zambia', flag: '🇿🇲' },
-  { country: 'China', flag: '🇨🇳' },
-  { country: 'Tanzania', flag: '🇹🇿' },
-  { country: 'Kenya', flag: '🇰🇪' },
-  { country: 'Dubai, UAE', flag: '🇦🇪' },
-  { country: 'Pakistan', flag: '🇵🇰' },
+  { country: 'Zambia', code: 'ZM' },
+  { country: 'China', code: 'CN' },
+  { country: 'Tanzania', code: 'TZ' },
+  { country: 'Kenya', code: 'KE' },
+  { country: 'UAE / Dubai', code: 'AE' },
+  { country: 'Pakistan', code: 'PK' },
+];
+
+const strengths = [
+  'Strategic sourcing from 6+ countries',
+  'Essential commodity focus: food, fuel, construction',
+  'Seamless integration with YYUSSA Logistics',
+  'Competitive pricing for bulk orders',
+  'Established supplier relationships since 1994',
+  'East & Central Africa distribution network',
 ];
 
 export default function ImportExportPage() {
@@ -34,6 +42,7 @@ export default function ImportExportPage() {
     <>
       <PageHeader
         title="Import & Export"
+        subtitle="Commercial wholesale powering regional supply chains with essential commodities."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -41,85 +50,94 @@ export default function ImportExportPage() {
         ]}
       />
 
-      {/* Overview */}
+      {/* ── Overview ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-surface-light)' }}
-        aria-labelledby="ie-overview-heading"
+        className="py-24 md:py-32"
+        style={{ background: 'var(--bg-light)' }}
+        aria-labelledby="ie-heading"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[3fr_2fr] lg:gap-20">
             <ScrollReveal direction="left">
-              <SectionLabel>YYUSSA Services</SectionLabel>
+              <span className="section-label">Commercial Wholesale</span>
               <h2
-                id="ie-overview-heading"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-6"
-                style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
+                id="ie-heading"
+                className="mt-3 mb-7 text-3xl md:text-4xl"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  letterSpacing: '-0.025em',
+                  color: 'var(--color-text-dark)',
+                }}
               >
-                Export &amp; Import
+                Powering Regional<br />Supply Chains
               </h2>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5 text-base md:text-lg">
-                Our import and export unit is the commercial backbone of YYUSSA Group. We
-                specialize in the procurement, importation, and regional distribution of essential
-                commodities — ensuring consistent supply and competitive value for our clients.
-              </p>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-                Operating across multiple source countries, we maintain strong supplier
-                relationships and leverage our logistics network to deliver goods efficiently
-                across East and Central Africa.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--color-grey-600)' }}>
+                <p>
+                  Our import and export unit is the commercial backbone of YYUSSA Group. We
+                  specialize in the procurement, importation, and regional distribution of
+                  essential commodities — ensuring consistent supply and competitive value
+                  across East and Central Africa.
+                </p>
+                <p>
+                  Operating across six source countries, we maintain strong supplier relationships
+                  and leverage our logistics network to deliver goods efficiently — from the port
+                  of Mombasa to markets deep in Central Africa.
+                </p>
+              </div>
 
-              <div className="space-y-3 mb-10">
-                {[
-                  'Strategic sourcing from 6+ countries',
-                  'Essential commodity focus: food, fuel, construction',
-                  'Seamless integration with YYUSSA Logistics',
-                  'Competitive pricing for bulk orders',
-                ].map((point) => (
-                  <div key={point} className="flex gap-3 items-start">
-                    <CheckCircle2
-                      size={18}
-                      className="shrink-0 mt-0.5"
-                      style={{ color: 'var(--color-primary)' }}
+              {/* Strengths list */}
+              <ul className="mt-8 space-y-3">
+                {strengths.map((point) => (
+                  <li key={point} className="flex items-start gap-3">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0"
+                      style={{ background: 'var(--color-accent)' }}
                       aria-hidden="true"
                     />
-                    <span className="text-sm text-[var(--color-text-secondary)]">{point}</span>
-                  </div>
+                    <span className="text-sm" style={{ color: 'var(--color-grey-600)' }}>{point}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-md text-sm font-normal transition-all hover:scale-[1.02] active:scale-95"
+                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white"
+                style={{ borderColor: 'var(--color-text-dark)', color: 'var(--color-text-dark)' }}
               >
-                Enquire Now <ArrowRight size={16} aria-hidden="true" />
+                Discuss Partnerships
+                <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </ScrollReveal>
 
+            {/* Trade origins */}
             <ScrollReveal direction="right" delay={0.2}>
-              <div
-                className="rounded-2xl p-10 grain-overlay"
-                style={{ background: 'var(--color-surface-dark)' }}
-              >
-                <Globe2 size={48} className="mb-6" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-                <div
-                  className="text-4xl font-bold mb-3 text-white"
-                  style={{ letterSpacing: '-0.04em' }}
+              <div className="sticky top-28">
+                <p
+                  className="mb-5 text-[11px] uppercase tracking-[0.16em]"
+                  style={{ color: 'var(--color-grey-500)' }}
                 >
-                  6 Countries
-                </div>
-                <div className="text-[var(--color-text-muted-light)] text-sm mb-6">
-                  Strategic import origins across Asia, Middle East &amp; Africa.
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {origins.map((o) => (
+                  Import Origins
+                </p>
+                <div className="grid grid-cols-2 gap-px border"
+                  style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+                  {origins.map(({ country, code }) => (
                     <div
-                      key={o.country}
-                      className="text-center rounded-lg border border-[var(--color-border-dark)] py-3 px-2"
-                      style={{ background: 'rgba(255,255,255,0.04)' }}
+                      key={country}
+                      className="flex flex-col justify-between p-6"
+                      style={{ background: 'var(--bg-white)' }}
                     >
-                      <div className="text-xl mb-1" aria-hidden="true">{o.flag}</div>
-                      <div className="text-xs text-[var(--color-text-muted-light)] leading-tight">{o.country}</div>
+                      <span
+                        className="mb-2 text-xs font-bold"
+                        style={{ color: 'var(--color-grey-300)', letterSpacing: '0.08em' }}
+                      >
+                        {code}
+                      </span>
+                      <span
+                        className="text-sm font-medium"
+                        style={{ color: 'var(--color-text-dark)' }}
+                      >
+                        {country}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -129,42 +147,53 @@ export default function ImportExportPage() {
         </div>
       </section>
 
-      {/* Commodities */}
+      {/* ── Commodities ── */}
       <section
-        className="py-20 md:py-24"
-        style={{ background: 'var(--color-surface-white)' }}
+        className="py-24 md:py-28"
+        style={{ background: 'var(--bg-white)' }}
         aria-labelledby="commodities-heading"
       >
         <div className="container-xl">
           <ScrollReveal direction="up">
-            <div className="text-center mb-12">
-              <SectionLabel>What We Trade</SectionLabel>
-              <h2
-                id="commodities-heading"
-                className="text-3xl md:text-4xl font-bold mt-2"
-                style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-              >
-                Our Key Commodities
-              </h2>
-            </div>
+            <span className="section-label">What We Trade</span>
+            <h2
+              id="commodities-heading"
+              className="mt-3 mb-12 text-3xl md:text-4xl"
+              style={{
+                fontFamily: "'Libre Baskerville', Georgia, serif",
+                letterSpacing: '-0.025em',
+                color: 'var(--color-text-dark)',
+              }}
+            >
+              Core Commodities
+            </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {commodities.map((item, index) => (
-              <ScrollReveal key={item.name} direction="up" delay={index * 0.1}>
+          <div className="grid grid-cols-1 gap-px border [grid-auto-rows:1fr] sm:grid-cols-2 lg:grid-cols-3"
+            style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+            {commodities.map(({ name, desc }, i) => (
+              <ScrollReveal key={name} direction="up" delay={i * 0.08}>
                 <div
-                  className="rounded-xl border border-[var(--color-border)] p-6 hover:border-[var(--color-primary)]/40 hover:shadow-md transition-all duration-300"
-                  style={{ background: 'var(--color-surface-light)' }}
+                  className="group flex h-full flex-col p-8 transition-colors duration-200 hover:bg-(--bg-light)"
+                  style={{ background: 'var(--bg-white)' }}
                 >
                   <div
-                    className="w-8 h-1 rounded mb-4"
-                    style={{ background: 'var(--color-primary)' }}
+                    className="mb-5 h-px w-8 transition-all duration-300 group-hover:w-14"
+                    style={{ background: 'var(--color-accent)' }}
                     aria-hidden="true"
                   />
-                  <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--color-text-primary)' }}>
-                    {item.name}
+                  <h3
+                    className="mb-2 text-lg"
+                    style={{
+                      fontFamily: "'Libre Baskerville', Georgia, serif",
+                      color: 'var(--color-text-dark)',
+                    }}
+                  >
+                    {name}
                   </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)]">{item.desc}</p>
+                  <p className="mt-auto text-sm leading-relaxed" style={{ color: 'var(--color-grey-600)' }}>
+                    {desc}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -172,29 +201,35 @@ export default function ImportExportPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section
-        className="py-16 md:py-20 grain-overlay"
-        style={{ background: 'var(--color-surface-dark)' }}
+        className="py-20 grain-overlay"
+        style={{ background: 'var(--bg-dark)' }}
         aria-label="Contact call to action"
       >
-        <div className="container-xl text-center">
+        <div className="container-xl">
           <ScrollReveal direction="up">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4 text-white"
-              style={{ letterSpacing: '-0.03em' }}
-            >
-              Ready to Partner with Us?
-            </h2>
-            <p className="text-[var(--color-text-muted-light)] mb-8 max-w-lg mx-auto">
-              Contact our commercial team to discuss import, export, and wholesale opportunities.
-            </p>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-md font-normal transition-all hover:scale-[1.02] active:scale-95"
-            >
-              Get in Touch
-            </Link>
+            <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2
+                  className="text-2xl text-white md:text-3xl"
+                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
+                >
+                  Ready to Partner with Us?
+                </h2>
+                <p className="mt-2 text-sm" style={{ color: 'var(--color-grey-500)' }}>
+                  Contact our commercial team to discuss import, export, and wholesale opportunities.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white hover:text-[var(--color-primary)]"
+                style={{ borderColor: 'var(--color-grey-600)', color: 'var(--color-grey-300)' }}
+              >
+                Get in Touch
+                <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>

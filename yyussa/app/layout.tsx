@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Libre_Baskerville } from 'next/font/google';
+import { Libre_Baskerville, DM_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
-  const libreBaskerville = Libre_Baskerville({
+const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
   weight: ['400', '700'],
   style: ['normal', 'italic'],
@@ -12,10 +12,17 @@ import Footer from '@/components/layout/Footer';
   display: 'swap',
 });
 
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: {
     default: 'YYUSSA Group Ltd — Real Estate, Import & Export, Logistics',
-    template: '%s | YYUSSA Group Ltd',
+    template: '%s — YYUSSA Group Ltd',
   },
   description:
     'YYUSSA Group Ltd is a leading Rwandan conglomerate with 30+ years of excellence in real estate, commercial wholesale, and logistics across East Africa.',
@@ -33,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={libreBaskerville.variable}>
+    <html lang="en" className={`${libreBaskerville.variable} ${dmSans.variable}`}>
       <body className="antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to main content

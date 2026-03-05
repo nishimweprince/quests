@@ -2,126 +2,174 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+const staggerContainer = {
+  animate: { transition: { staggerChildren: 0.15 } },
+};
+
+const fadeUp = {
+  initial: { opacity: 0, y: 32 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.4, 0, 0.2, 1] as const } },
+};
+
+const heroStats = [
+  '3 Strategic Divisions',
+  '30+ Years of Excellence',
+  'Regional Presence in East Africa',
+];
 
 export default function Hero() {
   return (
     <section
-      className="relative flex min-h-screen items-end overflow-hidden grain-overlay"
-      style={{ background: 'var(--color-surface-dark)' }}
+      className="relative flex min-h-[100svh] flex-col overflow-hidden grain-overlay"
+      style={{ background: 'var(--bg-dark)' }}
       aria-label="Hero section"
     >
+      {/* Base dark gradient */}
       <div
         className="absolute inset-0"
         aria-hidden="true"
         style={{
-          background:
-            'linear-gradient(130deg, #0b0b0e 0%, #111014 48%, #1a1110 100%)',
+          background: 'linear-gradient(160deg, #0b1522 0%, #121f2f 52%, #0e1826 100%)',
         }}
       />
 
+      {/* Orange glow — upper right */}
       <div
-        className="absolute inset-0"
+        className="pointer-events-none absolute -right-40 -top-20 h-[600px] w-[600px] opacity-20"
         aria-hidden="true"
         style={{
-          background:
-            'radial-gradient(circle at 18% 78%, rgba(154,52,36,0.32) 0%, transparent 56%), radial-gradient(circle at 82% 18%, rgba(255,255,255,0.14) 0%, transparent 52%)',
+          background: 'radial-gradient(circle at center, rgba(248,73,35,0.36) 0%, transparent 65%)',
+          filter: 'blur(60px)',
         }}
       />
 
+      {/* Subtle grid lines */}
       <div
-        className="pointer-events-none absolute -right-20 top-10 h-80 w-80 rounded-full opacity-70"
+        className="pointer-events-none absolute inset-0 opacity-[0.02]"
         aria-hidden="true"
         style={{
-          background:
-            'radial-gradient(circle at center, rgba(255,255,255,0.24) 0, transparent 60%)',
-          filter: 'blur(2px)',
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.9) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
         }}
       />
 
+      {/* Slate glow — lower left */}
       <div
-        className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full opacity-70"
+        className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 opacity-15"
         aria-hidden="true"
         style={{
-          background:
-            'radial-gradient(circle at center, rgba(154,52,36,0.4) 0, transparent 60%)',
-          filter: 'blur(4px)',
+          background: 'radial-gradient(circle at center, rgba(62,88,116,0.52) 0%, transparent 65%)',
+          filter: 'blur(70px)',
         }}
       />
 
-      <div className="container-xl relative z-10 pt-32 pb-20 md:pt-40 md:pb-32">
+      {/* Content — vertically centred in the viewport */}
+      <div className="container-xl relative z-10 flex flex-1 flex-col justify-center pb-36 pt-32 md:pb-40 md:pt-36">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
           className="max-w-5xl"
         >
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.23em] text-(--color-text-muted-light)">
-              <span className="h-px w-10 bg-(--color-primary-light)" aria-hidden="true" />
-              Established 1994 · Kigali, Rwanda
-            </p>
+          {/* Eyebrow label */}
+          <motion.p
+            variants={fadeUp}
+            className="mb-8 inline-flex items-center gap-4 text-[11px] uppercase tracking-[0.22em] text-white/40"
+          >
+            <span
+              className="h-px w-12 shrink-0"
+              style={{ background: 'var(--color-accent)' }}
+              aria-hidden="true"
+            />
+            Established 1994 &middot; Kigali, Rwanda
+          </motion.p>
 
-            <div className="hidden items-center gap-3 text-right text-xs uppercase tracking-[0.22em] text-(--color-text-muted-light) sm:flex">
-              <span className="h-px w-10 bg-linear-to-r from-transparent via-(--color-primary-light) to-transparent" />
-              East African Enterprise Group
-            </div>
-          </div>
-
-          <h1
-            className="text-balance text-4xl text-white sm:text-6xl md:text-7xl lg:text-8xl"
-            style={{ letterSpacing: '-0.02em', lineHeight: 1.02 }}
+          {/* Main heading */}
+          <motion.h1
+            variants={fadeUp}
+            className="text-balance text-white!"
+            style={{
+              fontFamily: "'Libre Baskerville', Georgia, serif",
+              fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
+              lineHeight: 1.03,
+              letterSpacing: '-0.025em',
+            }}
           >
             Building Reliable
-            <span className="mt-3 inline-block rounded-full bg-black/30 px-3 py-1 text-sm font-normal uppercase tracking-[0.32em] text-(--color-text-muted-light) align-middle sm:ml-3 sm:mt-0">
-              YYUSSA Group
-            </span>
-            <span
-              className="mt-3 block text-(--color-primary-light)"
-              style={{ textShadow: '0 26px 55px rgba(0,0,0,0.8)' }}
-            >
-              Regional Enterprise
-            </span>
-          </h1>
+            <br />
+            <span style={{ color: 'var(--color-accent)' }}>Regional Enterprise</span>
+          </motion.h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-(--color-text-light)/90 md:text-lg">
+          {/* Subtext */}
+          <motion.p
+            variants={fadeUp}
+            className="mt-8 max-w-2xl text-base leading-relaxed text-white/50 md:text-lg"
+            style={{ color: 'var(--color-grey-300)' }}
+          >
             YYUSSA Group delivers integrated leadership in real estate, logistics, and commercial
-            wholesale, enabling sustainable growth across East Africa through disciplined execution
-            and long-term partnerships.
-          </p>
+            wholesale across East Africa — thirty years of disciplined execution and long-term
+            partnerships.
+          </motion.p>
 
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+          >
             <Link
               href="/services"
-              className="btn-primary inline-flex items-center justify-center rounded-full border border-transparent px-8 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-white shadow-[0_18px_55px_rgba(0,0,0,0.65)] transition-all duration-200 hover:-translate-y-px hover:border-white/20"
+              className="inline-flex items-center gap-3 border px-8 py-4 text-sm font-medium uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5"
+              style={{
+                borderColor: 'var(--color-accent)',
+                color: 'var(--color-accent)',
+              }}
             >
               Explore Divisions
+              <ArrowRight size={15} aria-hidden="true" />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-(--color-text-light) transition-all duration-200 hover:border-white/50 hover:bg-white/5"
+              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] transition-colors hover:text-white/95"
+              style={{ color: 'var(--color-grey-300)' }}
             >
               Our Corporate Story
+              <ArrowRight size={14} aria-hidden="true" />
             </Link>
-          </div>
-
-          <div className="mt-8 inline-flex flex-wrap gap-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-xs uppercase tracking-[0.18em] text-(--color-text-muted-light) backdrop-blur-sm">
-            <div className="flex items-center gap-2">
-              <span className="h-px w-6 bg-(--color-primary-light)" aria-hidden="true" />
-              <span>3 Strategic Divisions</span>
-            </div>
-            <div className="h-px w-6 bg-white/10 sm:h-6 sm:w-px" aria-hidden="true" />
-            <div className="flex items-center gap-2">
-              <span className="h-px w-6 bg-(--color-primary-light)" aria-hidden="true" />
-              <span>30+ Years of Excellence</span>
-            </div>
-            <div className="h-px w-6 bg-white/10 sm:h-6 sm:w-px" aria-hidden="true" />
-            <div className="flex items-center gap-2">
-              <span className="h-px w-6 bg-(--color-primary-light)" aria-hidden="true" />
-              <span>Regional Presence in East Africa</span>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Stat strip — pinned to very bottom of hero */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.9, ease: [0.4, 0, 0.2, 1] as const }}
+        className="absolute inset-x-0 bottom-0 z-10 border-t border-white/[0.12]"
+        aria-label="Company highlights"
+      >
+        <div className="container-xl">
+          <div className="flex flex-col sm:flex-row">
+            {heroStats.map((stat, i) => (
+              <div
+                key={stat}
+                className={`flex items-center gap-3 py-5 text-[11px] uppercase tracking-[0.16em] text-white/35 ${
+                  i > 0 ? 'sm:border-l sm:border-white/[0.07] sm:pl-8' : ''
+                } ${i < heroStats.length - 1 ? 'sm:pr-8' : ''}`}
+              >
+                <span
+                  className="h-px w-6 shrink-0"
+                  style={{ background: 'var(--color-accent)', opacity: 0.6 }}
+                  aria-hidden="true"
+                />
+                {stat}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

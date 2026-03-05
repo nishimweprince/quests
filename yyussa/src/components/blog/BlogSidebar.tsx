@@ -1,102 +1,169 @@
+'use client';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
 import type { BlogPost } from '@/lib/blog';
-import { BLOG_CATEGORIES, BLOG_TAGS } from '@/lib/constants';
+import { BLOG_CATEGORIES } from '@/lib/constants';
 
 interface BlogSidebarProps {
   recentPosts: BlogPost[];
 }
 
-const panelClass = 'rounded-xl border border-[var(--color-border)] p-5 md:p-6';
-
 export default function BlogSidebar({ recentPosts }: BlogSidebarProps) {
   return (
-    <aside aria-label="Blog sidebar" className="space-y-6">
-      <div className={panelClass} style={{ background: 'var(--color-surface-white)' }}>
-        <h3 className="text-sm uppercase tracking-[0.15em] mb-3" style={{ color: 'var(--color-text-primary)' }}>
-          Search
-        </h3>
-        <div className="relative">
-          <input
-            type="search"
-            placeholder="Search posts..."
-            className="w-full rounded-lg border border-[var(--color-border)] px-4 py-2.5 pr-10 text-sm bg-[var(--color-surface-white)] text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
-            aria-label="Search blog posts"
-          />
-          <Search
-            size={16}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)]"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
+    <aside aria-label="Blog sidebar" className="space-y-10 lg:sticky lg:top-28 lg:self-start">
 
-      <div className={panelClass} style={{ background: 'var(--color-surface-white)' }}>
-        <h3 className="text-sm uppercase tracking-[0.15em] mb-4" style={{ color: 'var(--color-text-primary)' }}>
-          Recent Posts
-        </h3>
-        <ul className="space-y-4">
-          {recentPosts.slice(0, 5).map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="text-sm text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors leading-snug line-clamp-2"
+      {/* Recent posts */}
+      <div
+        className="border p-7"
+        style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--bg-white)' }}
+      >
+        {/* Section header */}
+        <div className="mb-6">
+          <div
+            className="mb-3 h-px w-full"
+            style={{ background: 'var(--color-secondary-dark)' }}
+          />
+          <div className="flex items-center justify-between">
+            <h3
+              className="text-[10px] uppercase tracking-[0.22em] font-medium"
+              style={{ color: 'var(--color-text-dark)' }}
+            >
+              Recent Posts
+            </h3>
+            <Link
+              href="/blog"
+              className="text-[9px] uppercase tracking-[0.14em] transition-colors"
+              style={{ color: 'var(--color-grey-400)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-grey-400)')}
+            >
+              All →
+            </Link>
+          </div>
+        </div>
+
+        <ol className="space-y-0">
+          {recentPosts.slice(0, 5).map((post, i) => (
+            <li
+              key={post.slug}
+              className="group flex items-start gap-4 py-4"
+              style={{
+                borderBottom: i < Math.min(recentPosts.length, 5) - 1
+                  ? '1px solid var(--color-secondary-dark)'
+                  : 'none',
+              }}
+            >
+              {/* Number */}
+              <span
+                className="shrink-0 pt-0.5 font-bold leading-none select-none"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  fontSize: '0.75rem',
+                  color: 'var(--color-secondary-dark)',
+                  letterSpacing: '-0.02em',
+                  minWidth: '1.25rem',
+                }}
+                aria-hidden="true"
               >
-                {post.title}
-              </Link>
-              <p className="text-xs text-[var(--color-text-secondary)] mt-1">
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  month: 'short', day: 'numeric', year: 'numeric',
-                })}
-              </p>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+
+              <div className="min-w-0 flex-1">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="block text-sm font-medium leading-snug line-clamp-2 transition-colors"
+                  style={{
+                    fontFamily: "'Libre Baskerville', Georgia, serif",
+                    color: 'var(--color-grey-700)',
+                    letterSpacing: '-0.01em',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-grey-700)')}
+                >
+                  {post.title}
+                </Link>
+                <p
+                  className="mt-1.5 text-[10px] uppercase tracking-[0.1em]"
+                  style={{ color: 'var(--color-grey-400)' }}
+                >
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    month: 'short', day: 'numeric', year: 'numeric',
+                  })}
+                </p>
+              </div>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
 
-      <div className={panelClass} style={{ background: 'var(--color-surface-white)' }}>
-        <h3 className="text-sm uppercase tracking-[0.15em] mb-4" style={{ color: 'var(--color-text-primary)' }}>
-          Categories
-        </h3>
-        <ul className="space-y-2.5">
+      {/* Categories */}
+      <div
+        className="border p-7"
+        style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--bg-white)' }}
+      >
+        {/* Section header */}
+        <div className="mb-6">
+          <div
+            className="mb-3 h-px w-full"
+            style={{ background: 'var(--color-secondary-dark)' }}
+          />
+          <h3
+            className="text-[10px] uppercase tracking-[0.22em] font-medium"
+            style={{ color: 'var(--color-text-dark)' }}
+          >
+            Categories
+          </h3>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
           {BLOG_CATEGORIES.map((cat) => (
-            <li key={cat.name} className="flex items-center justify-between gap-2">
-              <Link
-                href={`/blog?category=${encodeURIComponent(cat.name)}`}
-                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-              >
-                {cat.name}
-              </Link>
+            <Link
+              key={cat.name}
+              href={`/blog?category=${encodeURIComponent(cat.name)}`}
+              className="inline-flex items-center gap-1.5 border px-3 py-1.5 text-[10px] uppercase tracking-[0.1em] transition-all duration-150"
+              style={{
+                borderColor: 'var(--color-secondary-dark)',
+                color: 'var(--color-grey-600)',
+                background: 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-accent)';
+                e.currentTarget.style.color = 'var(--color-accent)';
+                e.currentTarget.style.background = 'color-mix(in srgb, var(--color-accent) 6%, transparent)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-secondary-dark)';
+                e.currentTarget.style.color = 'var(--color-grey-600)';
+                e.currentTarget.style.background = 'transparent';
+              }}
+            >
+              {cat.name}
               <span
-                className="text-xs px-2 py-0.5 rounded-full"
-                style={{
-                  background: 'color-mix(in srgb, var(--color-primary) 15%, transparent)',
-                  color: 'var(--color-primary)',
-                }}
+                className="tabular-nums"
+                style={{ color: 'var(--color-grey-400)' }}
               >
                 {cat.count}
               </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className={panelClass} style={{ background: 'var(--color-surface-white)' }}>
-        <h3 className="text-sm uppercase tracking-[0.15em] mb-4" style={{ color: 'var(--color-text-primary)' }}>
-          Popular Tags
-        </h3>
-        <div className="flex flex-wrap gap-2">
-          {BLOG_TAGS.map((tag) => (
-            <Link
-              key={tag}
-              href={`/blog?tag=${encodeURIComponent(tag)}`}
-              className="text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
-            >
-              {tag}
             </Link>
           ))}
         </div>
       </div>
+
+      {/* Editorial note */}
+      <div
+        className="border-l-[3px] pl-5 py-1"
+        style={{ borderColor: 'var(--color-accent)' }}
+      >
+        <p
+          className="text-sm italic leading-relaxed"
+          style={{
+            fontFamily: "'Libre Baskerville', Georgia, serif",
+            color: 'var(--color-grey-500)',
+          }}
+        >
+          Perspectives on commerce, logistics, and real estate in East Africa — from the YYUSSA team.
+        </p>
+      </div>
+
     </aside>
   );
 }

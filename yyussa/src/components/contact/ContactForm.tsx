@@ -10,11 +10,16 @@ const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  subject: z.string().min(3, 'Subject must be at least 3 characters'),
+  subject: z.enum(['General Inquiry', 'Real Estate', 'Import & Export', 'Logistics', 'Partnership', 'Other']),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
 type FormData = z.infer<typeof schema>;
+
+const inputBase =
+  'w-full border-0 border-b bg-transparent focus:ring-0 focus:border-none pb-3 pt-1 text-sm text-[var(--color-text-dark)] placeholder-[var(--color-grey-400)] outline-none transition-colors';
+
+const labelBase = 'mb-2 block text-[10px] uppercase tracking-[0.14em] text-[var(--color-grey-500)]';
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -23,10 +28,12 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: { subject: 'General Inquiry' },
+  });
 
   const onSubmit = async (data: FormData) => {
-    // Simulate form submission delay
     await new Promise((resolve) => setTimeout(resolve, 800));
     console.log('Form submitted:', data);
     setSubmitted(true);
@@ -36,22 +43,30 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div
-        className="rounded-2xl border border-[var(--color-border)] p-10 text-center"
-        style={{ background: 'var(--color-surface-white)' }}
+        className="flex flex-col items-center justify-center border p-14 text-center"
+        style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--bg-white)' }}
         role="alert"
         aria-live="polite"
       >
-        <CheckCircle size={48} className="mx-auto mb-4" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-        <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
-          Message Sent!
+        <div
+          className="mb-4 flex h-14 w-14 items-center justify-center border"
+          style={{ borderColor: 'var(--color-accent)' }}
+        >
+          <CheckCircle size={24} style={{ color: 'var(--color-accent)' }} aria-hidden="true" />
+        </div>
+        <h3
+          className="mb-2 text-xl"
+          style={{ fontFamily: "'Libre Baskerville', Georgia, serif", color: 'var(--color-text-dark)' }}
+        >
+          Message Sent
         </h3>
-        <p className="text-[var(--color-text-secondary)] mb-6">
-          Thank you for reaching out. Our team will get back to you within 24 hours.
+        <p className="mb-6 text-sm" style={{ color: 'var(--color-grey-600)' }}>
+          Thank you for reaching out. Our team will respond within 24 hours.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="text-sm font-normal"
-          style={{ color: 'var(--color-primary)' }}
+          className="text-[11px] uppercase tracking-[0.14em] transition-colors"
+          style={{ color: 'var(--color-accent)' }}
         >
           Send another message
         </button>
@@ -59,140 +74,160 @@ export default function ContactForm() {
     );
   }
 
-  const inputStyles =
-    'w-full rounded-lg border border-[var(--color-border)] px-4 py-3 text-sm bg-[var(--color-surface-white)] text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors';
-
-  const errorStyles = 'mt-1 text-xs text-red-500';
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-2xl border border-[var(--color-border)] p-8"
-      style={{ background: 'var(--color-surface-white)' }}
+      className="border p-8 md:p-10"
+      style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--bg-white)' }}
       noValidate
       aria-label="Contact form"
     >
-      <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>
+      <h2
+        className="mb-8 text-xl"
+        style={{ fontFamily: "'Libre Baskerville', Georgia, serif", color: 'var(--color-text-dark)' }}
+      >
         Send Us a Message
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-primary)' }}>
-            Full Name <span aria-hidden="true" className="text-red-500">*</span>
+          <label htmlFor="name" className={labelBase}>
+            Full Name <span className="text-[var(--color-accent)]" aria-hidden="true">*</span>
           </label>
           <input
             id="name"
             type="text"
             autoComplete="name"
             placeholder="Your full name"
-            className={inputStyles}
+            className={inputBase}
+            style={{ borderBottomColor: errors.name ? '#ef4444' : 'var(--color-secondary-dark)' }}
             aria-required="true"
             aria-describedby={errors.name ? 'name-error' : undefined}
             {...register('name')}
           />
           {errors.name && (
-            <p id="name-error" className={errorStyles} role="alert">
+            <p id="name-error" className="mt-1 text-xs text-red-500" role="alert">
               {errors.name.message}
             </p>
           )}
         </div>
 
+        {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-primary)' }}>
-            Email Address <span aria-hidden="true" className="text-red-500">*</span>
+          <label htmlFor="email" className={labelBase}>
+            Email Address <span className="text-[var(--color-accent)]" aria-hidden="true">*</span>
           </label>
           <input
             id="email"
             type="email"
             autoComplete="email"
             placeholder="your@email.com"
-            className={inputStyles}
+            className={inputBase}
+            style={{ borderBottomColor: errors.email ? '#ef4444' : 'var(--color-secondary-dark)' }}
             aria-required="true"
             aria-describedby={errors.email ? 'email-error' : undefined}
             {...register('email')}
           />
           {errors.email && (
-            <p id="email-error" className={errorStyles} role="alert">
+            <p id="email-error" className="mt-1 text-xs text-red-500" role="alert">
               {errors.email.message}
             </p>
           )}
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
-            Phone Number <span className="text-xs">(optional)</span>
+          <label htmlFor="phone" className={labelBase}>
+            Phone Number <span style={{ color: 'var(--color-grey-400)' }}>(optional)</span>
           </label>
           <input
             id="phone"
             type="tel"
             autoComplete="tel"
             placeholder="+250 7XX XXX XXX"
-            className={inputStyles}
+            className={inputBase}
+            style={{ borderBottomColor: 'var(--color-secondary-dark)' }}
             {...register('phone')}
           />
         </div>
 
+        {/* Subject */}
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-primary)' }}>
-            Subject <span aria-hidden="true" className="text-red-500">*</span>
+          <label htmlFor="subject" className={labelBase}>
+            Subject <span className="text-[var(--color-accent)]" aria-hidden="true">*</span>
           </label>
-          <input
+          <select
             id="subject"
-            type="text"
-            placeholder="How can we help?"
-            className={inputStyles}
+            className={inputBase}
+            style={{
+              borderBottomColor: 'var(--color-secondary-dark)',
+              appearance: 'none',
+              cursor: 'pointer',
+            }}
             aria-required="true"
-            aria-describedby={errors.subject ? 'subject-error' : undefined}
             {...register('subject')}
+          >
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Import & Export">Import &amp; Export</option>
+            <option value="Logistics">Logistics</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        {/* Message */}
+        <div className="sm:col-span-2">
+          <label htmlFor="message" className={labelBase}>
+            Message <span className="text-[var(--color-accent)]" aria-hidden="true">*</span>
+          </label>
+          <textarea
+            id="message"
+            rows={5}
+            placeholder="Tell us about your inquiry..."
+            className={`${inputBase} resize-none`}
+            style={{ borderBottomColor: errors.message ? '#ef4444' : 'var(--color-secondary-dark)' }}
+            aria-required="true"
+            aria-describedby={errors.message ? 'message-error' : undefined}
+            {...register('message')}
           />
-          {errors.subject && (
-            <p id="subject-error" className={errorStyles} role="alert">
-              {errors.subject.message}
+          {errors.message && (
+            <p id="message-error" className="mt-1 text-xs text-red-500" role="alert">
+              {errors.message.message}
             </p>
           )}
         </div>
       </div>
 
-      <div className="mb-6">
-        <label htmlFor="message" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-primary)' }}>
-          Message <span aria-hidden="true" className="text-red-500">*</span>
-        </label>
-        <textarea
-          id="message"
-          rows={5}
-          placeholder="Tell us about your inquiry..."
-          className={`${inputStyles} resize-none`}
-          aria-required="true"
-          aria-describedby={errors.message ? 'message-error' : undefined}
-          {...register('message')}
-        />
-        {errors.message && (
-          <p id="message-error" className={errorStyles} role="alert">
-            {errors.message.message}
-          </p>
-        )}
-      </div>
-
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg font-normal text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.99]"
-        style={{ background: 'var(--color-primary)' }}
-        onMouseEnter={(e) => !isSubmitting && (e.currentTarget.style.background = 'var(--color-primary-dark)')}
-        onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--color-primary)')}
+        className="mt-10 cursor-pointer inline-flex items-center gap-3 border px-8 py-4 text-sm font-medium uppercase tracking-[0.14em] text-white transition-all duration-200 disabled:opacity-50"
+        style={{ background: 'var(--color-text-dark)', borderColor: 'var(--color-text-dark)' }}
+        onMouseEnter={(e) => {
+          if (!isSubmitting) {
+            (e.currentTarget as HTMLElement).style.background = 'var(--color-accent)';
+            (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-accent)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.background = 'var(--color-text-dark)';
+          (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-text-dark)';
+        }}
         aria-busy={isSubmitting}
       >
         {isSubmitting ? (
           <>
-            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" aria-hidden="true" />
+            <span
+              className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin"
+              aria-hidden="true"
+            />
             Sending...
           </>
         ) : (
           <>
-            <Send size={16} aria-hidden="true" />
+            <Send size={15} aria-hidden="true" />
             Send Message
           </>
         )}

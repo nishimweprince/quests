@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-import type { LucideProps } from 'lucide-react';
 import Link from 'next/link';
-import { Building2, Globe2, Truck, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import PartnersSection from '@/components/home/PartnersSection';
 import { SERVICES, STATS } from '@/lib/constants';
@@ -12,100 +10,166 @@ import { SERVICES, STATS } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Explore YYUSSA Group\'s three core services: Real Estate, Import & Export, and Logistics across East Africa.',
+    "Explore YYUSSA Group's three core divisions: Real Estate, Import & Export, and Logistics across East Africa.",
 };
 
-const iconMap: Record<string, React.ComponentType<LucideProps>> = {
-  Building2, Globe2, Truck,
-};
+// Decorative pattern backgrounds for each division card
+const divisionThemes = [
+  {
+    slug: 'real-estate',
+    number: '01',
+    // Architectural / geometric pattern
+    pattern: 'repeating-linear-gradient(45deg, rgba(184,150,90,0.04) 0px, rgba(184,150,90,0.04) 1px, transparent 1px, transparent 50%)',
+    patternSize: '20px 20px',
+  },
+  {
+    slug: 'import-export',
+    number: '02',
+    // Grid dots pattern
+    pattern: 'radial-gradient(circle, rgba(184,150,90,0.08) 1px, transparent 1px)',
+    patternSize: '24px 24px',
+  },
+  {
+    slug: 'logistics',
+    number: '03',
+    // Horizontal lines pattern
+    pattern: 'repeating-linear-gradient(0deg, rgba(184,150,90,0.04) 0px, rgba(184,150,90,0.04) 1px, transparent 1px, transparent 32px)',
+    patternSize: 'auto',
+  },
+];
 
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        title="Services"
+        title="Our Divisions"
+        subtitle="Three integrated pillars driving enterprise growth across East Africa."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
       />
 
-      {/* Services grid */}
+      {/* ── Division Cards ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-surface-light)' }}
-        aria-labelledby="services-heading"
+        className="py-24 md:py-32"
+        style={{ background: 'var(--bg-dark)' }}
+        aria-labelledby="divisions-heading"
       >
         <div className="container-xl">
           <ScrollReveal direction="up">
-            <div className="text-center mb-14">
-              <SectionLabel>YYUSSA Services</SectionLabel>
-              <h2
-                id="services-heading"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2"
-                style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-              >
-                Our Key Services
-              </h2>
-              <p className="mt-4 max-w-xl mx-auto text-[var(--color-text-secondary)]">
-                Three decades of expertise across three critical sectors — all operating under one
-                trusted name.
-              </p>
-            </div>
+            <span className="section-label" style={{ color: 'var(--color-accent)' }}>
+              YYUSSA Group
+            </span>
+            <h2
+              id="divisions-heading"
+              className="mt-3 mb-16 text-3xl text-white md:text-5xl"
+              style={{
+                fontFamily: "'Libre Baskerville', Georgia, serif",
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Three Decades,<br />Three Pillars
+            </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-sm leading-relaxed md:text-base" style={{ color: 'var(--color-grey-300)' }}>
+              Explore YYUSSA Group&apos;s three divisions. Each service line is integrated into one
+              execution model: sourcing, movement, and long-term asset development.
+            </p>
+          </div>
+
+          <div className="space-y-4">
             {SERVICES.map((service, index) => {
-              const Icon = iconMap[service.icon];
+              const theme = divisionThemes.find((t) => t.slug === service.slug)!;
               return (
-                <ScrollReveal key={service.slug} direction="up" delay={index * 0.12}>
+                <ScrollReveal key={service.slug} direction="up" delay={index * 0.1}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="group block rounded-2xl border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full"
-                    style={{ background: 'var(--color-surface-white)' }}
+                    className="group relative flex min-h-[380px] flex-col justify-between overflow-hidden border p-10 transition-colors duration-300 hover:bg-(--color-grey-700) md:p-14"
+                    style={{
+                      background: 'var(--color-grey-800)',
+                      borderColor: 'var(--color-grey-700)',
+                    }}
+                    aria-label={`${service.title} — learn more`}
                   >
-                    {/* Image placeholder */}
+                    {/* Decorative pattern fill */}
                     <div
-                      className="h-44 flex items-center justify-center"
-                      style={{ background: 'var(--color-surface-dark)' }}
+                      className="pointer-events-none absolute inset-0 opacity-100"
+                      style={{
+                        backgroundImage: theme.pattern,
+                        backgroundSize: theme.patternSize,
+                      }}
                       aria-hidden="true"
-                    >
-                      {Icon && (
-                        <Icon size={48} className="opacity-30 text-white group-hover:opacity-60 transition-opacity" />
-                      )}
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{
+                        background:
+                          'linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 18%, transparent) 0%, transparent 64%)',
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Brass left accent */}
+                    <div
+                      className="absolute left-0 top-0 w-[3px] h-0 transition-all duration-500 group-hover:h-full"
+                      style={{ background: 'var(--color-accent)' }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Top row: number + arrow */}
+                    <div className="relative flex items-start justify-between">
+                      <span
+                        className="text-[4.5rem] font-bold leading-none"
+                        style={{
+                          fontFamily: "'Libre Baskerville', Georgia, serif",
+                          color: 'transparent',
+                          WebkitTextStroke: '1px var(--color-grey-700)',
+                          transition: 'color 0.3s',
+                        }}
+                      >
+                        {theme.number}
+                      </span>
+                      <div
+                        className="flex h-12 w-12 items-center justify-center border transition-colors duration-300 group-hover:border-[var(--color-accent)]"
+                        style={{ borderColor: 'var(--color-grey-700)' }}
+                      >
+                        <ArrowRight
+                          size={18}
+                          className="transition-transform duration-300 group-hover:translate-x-0.5"
+                          style={{ color: 'var(--color-grey-300)' }}
+                        />
+                      </div>
                     </div>
 
-                    <div className="p-8">
-                      {Icon && (
-                        <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 -mt-12 relative z-10 border-4 border-[var(--color-surface-white)] group-hover:bg-[var(--color-primary)] transition-colors"
-                          style={{ background: 'var(--color-surface-light)' }}
-                        >
-                          <Icon
-                            size={22}
-                            className="text-[var(--color-primary)] group-hover:text-white transition-colors"
-                          />
-                        </div>
-                      )}
-
+                    {/* Bottom row: title + description */}
+                    <div className="relative mt-auto">
+                      <div
+                        className="mb-3 h-px w-12"
+                        style={{ background: 'var(--color-accent)', opacity: 0.4 }}
+                        aria-hidden="true"
+                      />
                       <h3
-                        className="text-xl font-bold mb-3 group-hover:text-[var(--color-primary)] transition-colors"
-                        style={{ color: 'var(--color-text-primary)' }}
+                        className="mb-4 text-2xl text-white md:text-3xl"
+                        style={{
+                          fontFamily: "'Libre Baskerville', Georgia, serif",
+                          letterSpacing: '-0.02em',
+                        }}
                       >
                         {service.title}
                       </h3>
-                      <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-6">
+                      <p
+                        className="max-w-xl text-sm leading-relaxed md:text-base"
+                        style={{ color: 'var(--color-grey-300)' }}
+                      >
                         {service.description}
                       </p>
-
-                      <div
-                        className="inline-flex items-center gap-2 text-sm font-normal"
-                        style={{ color: 'var(--color-primary)' }}
+                      <span
+                        className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] transition-colors duration-300"
+                        style={{ color: 'var(--color-grey-500)' }}
                       >
-                        Read More
-                        <ArrowRight
-                          size={16}
-                          className="transition-transform group-hover:translate-x-1"
-                          aria-hidden="true"
-                        />
-                      </div>
+                        Learn More
+                        <ArrowRight size={13} aria-hidden="true" />
+                      </span>
                     </div>
                   </Link>
                 </ScrollReveal>
@@ -115,22 +179,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* ── Stats ── */}
       <section
-        className="py-16 md:py-20 grain-overlay"
-        style={{ background: 'var(--color-surface-darker)' }}
+        className="py-20"
+        style={{ background: 'var(--bg-light)' }}
         aria-label="Company statistics"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8">
-            {STATS.map((stat, index) => (
+          <div className="grid grid-cols-1 divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+            style={{ borderColor: 'var(--color-secondary-dark)' }}>
+            {STATS.map((stat) => (
               <div
                 key={stat.label}
-                className={`flex flex-col items-center ${
-                  index < STATS.length - 1
-                    ? 'sm:border-r sm:border-[var(--color-border-dark)]'
-                    : ''
-                }`}
+                className="flex flex-col items-center py-14"
+                style={{ borderColor: 'var(--color-secondary-dark)' }}
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} label={stat.label} />
               </div>
@@ -139,7 +201,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Clients */}
       <PartnersSection />
     </>
   );

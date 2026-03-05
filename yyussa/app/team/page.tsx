@@ -2,99 +2,216 @@ import type { Metadata } from 'next';
 import { User } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
 import { TEAM } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Our Team',
   description:
-    'Meet the leadership team behind YYUSSA Group Ltd — management, finance, and operations.',
+    'Meet the leadership team behind YYUSSA Group Ltd — management, finance, and operations across East Africa.',
 };
 
-type DepartmentKey = keyof typeof TEAM;
+type DeptKey = keyof typeof TEAM;
 
-const departmentDescriptions: Record<DepartmentKey, string> = {
-  Management: 'Guiding YYUSSA\'s vision, strategy, and long-term growth across all business units.',
-  Finance: 'Ensuring financial integrity, property administration, and operational efficiency.',
-  Operations: 'Driving day-to-day execution in transport, procurement, and health & safety.',
+const deptMeta: Record<DeptKey, { label: string; desc: string }> = {
+  Management: {
+    label: 'Senior Leadership',
+    desc: "Guiding YYUSSA's vision, strategy, and long-term growth across all business units.",
+  },
+  Finance: {
+    label: 'Finance & Administration',
+    desc: 'Ensuring financial integrity, property administration, and operational efficiency.',
+  },
+  Operations: {
+    label: 'Operations',
+    desc: 'Driving day-to-day execution in transport, procurement, and health & safety.',
+  },
 };
+
+// The founder is always displayed first in Management
+const founder = { name: 'Kalinganire Yusuf', title: 'Founder & Chairman' };
 
 export default function TeamPage() {
   return (
     <>
       <PageHeader
-        title="Our Team"
+        title="Leadership"
+        subtitle="The people driving YYUSSA Group's vision forward across East Africa."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Team' }]}
       />
 
-      <div style={{ background: 'var(--color-surface-light)' }}>
-        {(Object.entries(TEAM) as [DepartmentKey, typeof TEAM[DepartmentKey]][]).map(
-          ([department, members], deptIndex) => (
-            <section
-              key={department}
-              className="py-20 md:py-24"
-              style={{
-                background: deptIndex % 2 === 0
-                  ? 'var(--color-surface-light)'
-                  : 'var(--color-surface-white)',
-              }}
-              aria-labelledby={`dept-${department.toLowerCase()}`}
-            >
-              <div className="container-xl">
-                <ScrollReveal direction="up">
-                  <div className="mb-12">
-                    <SectionLabel>Department</SectionLabel>
-                    <h2
-                      id={`dept-${department.toLowerCase()}`}
-                      className="text-3xl md:text-4xl font-bold mt-2 mb-3"
-                      style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-                    >
-                      {department}
-                    </h2>
-                    <p className="text-[var(--color-text-secondary)] max-w-xl">
-                      {departmentDescriptions[department]}
-                    </p>
-                    <div
-                      className="mt-4 h-px max-w-xs"
-                      style={{ background: 'var(--color-border)' }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </ScrollReveal>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {members.map((member, index) => (
-                    <ScrollReveal key={member.name} direction="up" delay={index * 0.07}>
-                      <div className="text-center group">
-                        {/* Avatar */}
-                        <div
-                          className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 border-2 border-[var(--color-border)] group-hover:border-[var(--color-primary)] transition-colors duration-300"
-                          style={{ background: 'var(--color-surface-dark)' }}
-                          aria-hidden="true"
-                        >
-                          <User
-                            size={32}
-                            className="text-[var(--color-text-muted-light)] group-hover:text-[var(--color-primary)] transition-colors"
-                          />
-                        </div>
-                        <h3
-                          className="font-bold text-sm leading-tight mb-1"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        >
-                          {member.name}
-                        </h3>
-                        <p className="text-xs text-[var(--color-text-secondary)] leading-tight">
-                          {member.title}
-                        </p>
-                      </div>
-                    </ScrollReveal>
-                  ))}
+      {/* ── Founder Feature ── */}
+      <section
+        className="py-24 grain-overlay"
+        style={{ background: 'var(--bg-dark)' }}
+        aria-label="Founder feature"
+      >
+        <div className="container-xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+            <ScrollReveal direction="left">
+              {/* Founder avatar — large */}
+              <div
+                className="relative mx-auto flex max-w-xs flex-col items-center lg:mx-0"
+              >
+                <div
+                  className="relative flex aspect-square w-full max-w-[260px] items-center justify-center border"
+                  style={{ background: 'var(--color-primary-light)', borderColor: 'var(--color-grey-800)' }}
+                >
+                  <User size={64} style={{ color: 'var(--color-grey-700)' }} aria-hidden="true" />
+                  {/* Brass corner accent */}
+                  <div
+                    className="absolute bottom-0 left-0 h-1 w-16"
+                    style={{ background: 'var(--color-accent)' }}
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="mt-5 text-center lg:text-left">
+                  <h2
+                    className="text-xl text-white"
+                    style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
+                  >
+                    {founder.name}
+                  </h2>
+                  <p
+                    className="mt-1 text-sm uppercase tracking-[0.12em]"
+                    style={{ color: 'var(--color-accent)' }}
+                  >
+                    {founder.title}
+                  </p>
                 </div>
               </div>
-            </section>
-          )
-        )}
-      </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="flex h-full flex-col justify-center">
+                <span className="section-label" style={{ color: 'var(--color-accent)' }}>
+                  Founding Vision
+                </span>
+                <h3
+                  className="mt-3 mb-6 text-2xl text-white md:text-3xl"
+                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
+                >
+                  Building an Enterprise<br />That Outlasts Its Founder
+                </h3>
+                <p className="mb-4 text-base leading-relaxed" style={{ color: 'var(--color-grey-500)' }}>
+                  In 1994, Yusuf Kalinganire founded YYUSSA Group with a singular conviction:
+                  that Rwanda and East Africa needed a reliable, homegrown enterprise to power
+                  its supply chains, house its institutions, and move its goods.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: 'var(--color-grey-500)' }}>
+                  Three decades later, that conviction has become a 300-trailer fleet, 100+
+                  properties, and a $32 million landmark acquisition — all anchored in the
+                  same commitment to excellence that founded it.
+                </p>
+                {/* Pull quote */}
+                <blockquote
+                  className="mt-8 border-l-2 pl-5"
+                  style={{ borderColor: 'var(--color-accent)' }}
+                >
+                  <p
+                    className="italic text-white/70"
+                    style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+                  >
+                    &ldquo;Bringing the difference isn&apos;t just a dream.
+                    It is YYUSSA&apos;s mission.&rdquo;
+                  </p>
+                </blockquote>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Department Sections ── */}
+      {(Object.entries(TEAM) as [DeptKey, typeof TEAM[DeptKey]][]).map(([dept, members], deptIdx) => {
+        const meta = deptMeta[dept];
+        const isLight = deptIdx % 2 === 0;
+        return (
+          <section
+            key={dept}
+            className="py-24 md:py-28"
+            style={{ background: isLight ? 'var(--bg-light)' : 'var(--bg-white)' }}
+            aria-labelledby={`dept-${dept.toLowerCase()}`}
+          >
+            <div className="container-xl">
+              <ScrollReveal direction="up">
+                <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                  <div>
+                    <span className="section-label">{meta.label}</span>
+                    <h2
+                      id={`dept-${dept.toLowerCase()}`}
+                      className="mt-2 text-2xl md:text-3xl"
+                      style={{
+                        fontFamily: "'Libre Baskerville', Georgia, serif",
+                        letterSpacing: '-0.02em',
+                        color: 'var(--color-text-dark)',
+                      }}
+                    >
+                      {dept}
+                    </h2>
+                  </div>
+                  <p
+                    className="max-w-md text-sm leading-relaxed md:text-right"
+                    style={{ color: 'var(--color-grey-600)' }}
+                  >
+                    {meta.desc}
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <div className="grid grid-cols-2 gap-px border [grid-auto-rows:1fr] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+                style={{
+                  borderColor: isLight ? 'var(--color-secondary-dark)' : 'var(--color-secondary-dark)',
+                  background: isLight ? 'var(--color-secondary-dark)' : 'var(--color-secondary-dark)',
+                }}>
+                {members.map((member, i) => (
+                  <ScrollReveal key={member.name} direction="up" delay={i * 0.06}>
+                    <div
+                      className="group flex h-full flex-col items-center p-7 text-center transition-colors duration-200 hover:bg-(--bg-light)"
+                      style={{ background: isLight ? 'var(--bg-light)' : 'var(--bg-white)' }}
+                    >
+                      {/* Avatar */}
+                      <div
+                        className="relative mb-4 flex h-16 w-16 items-center justify-center border transition-colors duration-200"
+                        style={{
+                          background: 'var(--color-grey-100)',
+                          borderColor: 'var(--color-secondary-dark)',
+                        }}
+                      >
+                        <User
+                          size={26}
+                          style={{ color: 'var(--color-grey-400)' }}
+                          aria-hidden="true"
+                        />
+                        {/* Brass bottom accent on hover */}
+                        <div
+                          className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
+                          style={{ background: 'var(--color-accent)' }}
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <h3
+                        className="min-h-[2.5rem] text-sm font-semibold leading-tight"
+                        style={{
+                          fontFamily: "'Libre Baskerville', Georgia, serif",
+                          color: 'var(--color-text-dark)',
+                        }}
+                      >
+                        {member.name}
+                      </h3>
+                      <p
+                        className="mt-1.5 text-xs leading-tight uppercase tracking-[0.08em]"
+                        style={{ color: 'var(--color-grey-500)' }}
+                      >
+                        {member.title}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })}
     </>
   );
 }

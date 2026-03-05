@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Truck, CheckCircle2, ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Logistics Services',
@@ -11,30 +10,27 @@ export const metadata: Metadata = {
     'YYUSSA Logistics — 25+ years of cargo transport expertise with 300+ tank trailers and 50+ flatbed trailers serving East and Central Africa.',
 };
 
-const fleet = [
-  { count: '300+', label: 'Tank Trailers', desc: 'Petroleum, chemicals & liquid cargo' },
-  { count: '50+', label: 'Flatbed Trailers', desc: 'Bulk dry goods & heavy cargo' },
-  { count: '25+', label: 'Years of Service', desc: 'Proven track record since the 1990s' },
+const fleetStats = [
+  { value: '300+', label: 'Tank Trailers', desc: 'Petroleum, chemicals & liquid cargo' },
+  { value: '50+', label: 'Flatbed Trailers', desc: 'Bulk dry goods & heavy cargo' },
+  { value: '25+', label: 'Years of Service', desc: 'Proven operations since the 1990s' },
+  { value: '2M+', label: 'Tonnes Shipped', desc: 'Cargo moved across the region' },
 ];
 
 const specializations = [
-  'Petroleum Products',
-  'Wheat Flour',
-  'Cement & Clinker',
-  'Coal',
-  'Sugar',
-  'Consumer Goods',
+  'Petroleum Products', 'Wheat Flour', 'Cement & Clinker',
+  'Coal', 'Sugar', 'Consumer Goods',
 ];
 
 const routes = [
-  { city: 'Nairobi', country: 'Kenya', flag: '🇰🇪' },
-  { city: 'Mombasa', country: 'Kenya', flag: '🇰🇪' },
-  { city: 'Dar es Salaam', country: 'Tanzania', flag: '🇹🇿' },
-  { city: 'Tanga', country: 'Tanzania', flag: '🇹🇿' },
-  { city: 'Songea', country: 'Tanzania', flag: '🇹🇿' },
-  { city: 'Lusaka', country: 'Zambia', flag: '🇿🇲' },
-  { city: 'Goma', country: 'DRC', flag: '🇨🇩' },
-  { city: 'Lubumbashi', country: 'DRC', flag: '🇨🇩' },
+  { city: 'Nairobi', country: 'Kenya' },
+  { city: 'Mombasa', country: 'Kenya' },
+  { city: 'Dar es Salaam', country: 'Tanzania' },
+  { city: 'Tanga', country: 'Tanzania' },
+  { city: 'Lusaka', country: 'Zambia' },
+  { city: 'Goma', country: 'DRC' },
+  { city: 'Lubumbashi', country: 'DRC' },
+  { city: 'Bujumbura', country: 'Burundi' },
 ];
 
 export default function LogisticsPage() {
@@ -42,6 +38,7 @@ export default function LogisticsPage() {
     <>
       <PageHeader
         title="Logistics"
+        subtitle="25+ years of cargo expertise with a fleet built for East and Central Africa."
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
@@ -49,80 +46,76 @@ export default function LogisticsPage() {
         ]}
       />
 
-      {/* Overview */}
+      {/* ── Overview ── */}
       <section
-        className="py-20 md:py-28"
-        style={{ background: 'var(--color-surface-light)' }}
-        aria-labelledby="logistics-overview-heading"
+        className="py-24 md:py-32"
+        style={{ background: 'var(--bg-light)' }}
+        aria-labelledby="logistics-heading"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[3fr_2fr] lg:gap-20">
             <ScrollReveal direction="left">
-              <SectionLabel>YYUSSA Services</SectionLabel>
+              <span className="section-label">Cargo Transport</span>
               <h2
-                id="logistics-overview-heading"
-                className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-6"
-                style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
+                id="logistics-heading"
+                className="mt-3 mb-7 text-3xl md:text-4xl"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  letterSpacing: '-0.025em',
+                  color: 'var(--color-text-dark)',
+                }}
               >
-                Logistics &amp; Cargo Transport
+                Built for Scale,<br />Driven by Reliability
               </h2>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5 text-base md:text-lg">
-                We have more than 25 years of expertise in cargo shipping with a strong fleet of
-                300+ tank trailers and more than 50 flatbed trailers. Our transport division is
-                built on reliability, safety, and scale.
-              </p>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-                Operating across East and Central Africa, YYUSSA Logistics moves millions of tonnes
-                of cargo annually — connecting suppliers, refineries, and distributors with
-                precision and zero-accident commitment.
-              </p>
-
-              <div className="space-y-3 mb-10">
-                {[
-                  'Zero-accident operations mandate',
-                  '300+ specialized tank trailers',
-                  'Coverage across 4 countries',
-                  'HSSEQ certified operations',
-                ].map((point) => (
-                  <div key={point} className="flex gap-3 items-start">
-                    <CheckCircle2
-                      size={18}
-                      className="shrink-0 mt-0.5"
-                      style={{ color: 'var(--color-primary)' }}
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm text-[var(--color-text-secondary)]">{point}</span>
-                  </div>
-                ))}
+              <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--color-grey-600)' }}>
+                <p>
+                  We have more than 25 years of expertise in cargo shipping with a strong fleet
+                  of 300+ tank trailers and 50+ flatbed trailers. Our transport division is
+                  built on reliability, safety, and an unwavering zero-accident commitment.
+                </p>
+                <p>
+                  Operating across East and Central Africa, YYUSSA Logistics moves millions of
+                  tonnes of cargo annually — connecting suppliers, refineries, and distributors
+                  with precision and HSSEQ-certified operations.
+                </p>
               </div>
-
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-md text-sm font-normal transition-all hover:scale-[1.02] active:scale-95"
+                className="mt-10 inline-flex items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-[var(--color-text-dark)] hover:text-white"
+                style={{ borderColor: 'var(--color-text-dark)', color: 'var(--color-text-dark)' }}
               >
-                Get a Quote <ArrowRight size={16} aria-hidden="true" />
+                Request a Quote
+                <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </ScrollReveal>
 
+            {/* Fleet stats grid */}
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="grid grid-cols-1 gap-4">
-                {fleet.map((item) => (
+              <div className="grid grid-cols-2 gap-px border"
+                style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+                {fleetStats.map(({ value, label, desc }) => (
                   <div
-                    key={item.label}
-                    className="rounded-xl border border-[var(--color-border-dark)] p-6 flex items-center gap-6 grain-overlay"
-                    style={{ background: 'var(--color-surface-dark)' }}
+                    key={label}
+                    className="flex flex-col justify-between p-7"
+                    style={{ background: 'var(--bg-white)' }}
                   >
-                    <div>
-                      <div
-                        className="text-3xl font-bold mb-1"
-                        style={{ color: 'var(--color-primary)', letterSpacing: '-0.04em' }}
-                      >
-                        {item.count}
-                      </div>
-                      <div className="font-normal text-white">{item.label}</div>
+                    <div
+                      className="mb-2 text-3xl font-bold leading-none"
+                      style={{
+                        fontFamily: "'Libre Baskerville', Georgia, serif",
+                        color: 'var(--color-accent)',
+                      }}
+                    >
+                      {value}
                     </div>
-                    <div className="w-px self-stretch bg-[var(--color-border-dark)]" aria-hidden="true" />
-                    <p className="text-sm text-[var(--color-text-muted-light)]">{item.desc}</p>
+                    <div>
+                      <div className="text-sm font-semibold" style={{ color: 'var(--color-text-dark)' }}>
+                        {label}
+                      </div>
+                      <div className="mt-0.5 text-xs" style={{ color: 'var(--color-grey-500)' }}>
+                        {desc}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -131,93 +124,118 @@ export default function LogisticsPage() {
         </div>
       </section>
 
-      {/* Specializations */}
+      {/* ── Cargo & Routes ── */}
       <section
-        className="py-20 md:py-24"
-        style={{ background: 'var(--color-surface-white)' }}
-        aria-labelledby="specializations-heading"
+        className="py-24 md:py-28"
+        style={{ background: 'var(--bg-white)' }}
+        aria-labelledby="cargo-heading"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <ScrollReveal direction="left">
-                <SectionLabel>What We Move</SectionLabel>
-                <h2
-                  id="specializations-heading"
-                  className="text-3xl md:text-4xl font-bold mt-2 mb-8"
-                  style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-                >
-                  Cargo Specializations
-                </h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {specializations.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-xl border border-[var(--color-border)] p-4 flex items-center gap-3"
-                      style={{ background: 'var(--color-surface-light)' }}
-                    >
-                      <Truck size={16} style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-                      <span className="text-sm font-medium text-[var(--color-text-primary)]">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
+            <ScrollReveal direction="left">
+              <span className="section-label">Cargo Expertise</span>
+              <h2
+                id="cargo-heading"
+                className="mt-3 mb-8 text-2xl md:text-3xl"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  letterSpacing: '-0.02em',
+                  color: 'var(--color-text-dark)',
+                }}
+              >
+                What We Move
+              </h2>
+              <div className="grid grid-cols-2 gap-px border"
+                style={{ borderColor: 'var(--color-secondary-dark)', background: 'var(--color-secondary-dark)' }}>
+                {specializations.map((item) => (
+                  <div
+                    key={item}
+                    className="group flex items-center gap-3 bg-(--bg-white) p-5 text-sm text-(--color-grey-600) transition-colors duration-200 hover:bg-(--bg-light) hover:text-(--color-text-dark)"
+                  >
+                    <span
+                      className="h-1.5 w-1.5 shrink-0"
+                      style={{ background: 'var(--color-accent)' }}
+                      aria-hidden="true"
+                    />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
 
-            <div>
-              <ScrollReveal direction="right" delay={0.15}>
-                <SectionLabel>Coverage</SectionLabel>
-                <h2
-                  className="text-3xl md:text-4xl font-bold mt-2 mb-8"
-                  style={{ letterSpacing: '-0.03em', color: 'var(--color-text-primary)' }}
-                >
-                  Route Network
-                </h2>
-                <div className="space-y-3">
-                  {routes.map((route) => (
-                    <div
-                      key={`${route.city}-${route.country}`}
-                      className="flex items-center gap-4 rounded-xl border border-[var(--color-border)] p-4"
-                      style={{ background: 'var(--color-surface-light)' }}
-                    >
-                      <MapPin size={16} style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-                      <span className="text-sm font-medium text-[var(--color-text-primary)]">{route.city}</span>
-                      <span className="ml-auto text-xs text-[var(--color-text-secondary)] flex items-center gap-1">
-                        <span aria-hidden="true">{route.flag}</span>
-                        {route.country}
+            <ScrollReveal direction="right" delay={0.15}>
+              <span className="section-label">Route Network</span>
+              <h2
+                className="mt-3 mb-8 text-2xl md:text-3xl"
+                style={{
+                  fontFamily: "'Libre Baskerville', Georgia, serif",
+                  letterSpacing: '-0.02em',
+                  color: 'var(--color-text-dark)',
+                }}
+              >
+                Coverage
+              </h2>
+              <ul className="space-y-0 border"
+                style={{ borderColor: 'var(--color-secondary-dark)' }}>
+                {routes.map(({ city, country }, i) => (
+                  <li
+                    key={`${city}-${country}`}
+                    className="flex items-center justify-between border-b px-5 py-4 last:border-0"
+                    style={{ borderColor: 'var(--color-secondary-dark)' }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <MapPin
+                        size={14}
+                        style={{ color: 'var(--color-accent)' }}
+                        aria-hidden="true"
+                      />
+                      <span className="text-sm font-medium" style={{ color: 'var(--color-text-dark)' }}>
+                        {city}
                       </span>
                     </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+                    <span
+                      className="text-xs uppercase tracking-[0.1em]"
+                      style={{ color: 'var(--color-grey-500)' }}
+                    >
+                      {country}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <section
-        className="py-16 md:py-20 grain-overlay"
-        style={{ background: 'var(--color-surface-dark)' }}
+        className="py-20 grain-overlay"
+        style={{ background: 'var(--bg-dark)' }}
         aria-label="Contact call to action"
       >
-        <div className="container-xl text-center">
+        <div className="container-xl">
           <ScrollReveal direction="up">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4 text-white"
-              style={{ letterSpacing: '-0.03em' }}
-            >
-              Move Your Cargo with Confidence
-            </h2>
-            <p className="text-[var(--color-text-muted-light)] mb-8 max-w-lg mx-auto">
-              Talk to our logistics team about fleet capacity, routes, and tailored transport solutions.
-            </p>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-md font-normal transition-all hover:scale-[1.02] active:scale-95"
-            >
-              Contact Logistics Team
-            </Link>
+            <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2
+                  className="text-2xl text-white md:text-3xl"
+                  style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '-0.02em' }}
+                >
+                  Move Your Cargo with Confidence
+                </h2>
+                <p className="mt-2 text-sm" style={{ color: 'var(--color-grey-500)' }}>
+                  Talk to our logistics team about fleet capacity, routes, and tailored solutions.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex shrink-0 items-center gap-3 border px-7 py-4 text-sm font-medium uppercase tracking-[0.12em] transition-all duration-200 hover:bg-white hover:text-[var(--color-primary)]"
+                style={{ borderColor: 'var(--color-grey-600)', color: 'var(--color-grey-300)' }}
+              >
+                Contact Logistics Team
+                <ArrowRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>

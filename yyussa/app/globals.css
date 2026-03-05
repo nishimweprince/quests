@@ -1,32 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
    YYUSSA GROUP — Global Styles
+   Industrial Corporate Minimalism
    ============================================================ */
 
 :root {
-  --color-primary: #9A3424;
-  --color-primary-dark: #7E271B;
-  --color-primary-light: #B34A35;
-  --color-surface-dark: #0A0A0C;
-  --color-surface-darker: #060608;
-  --color-surface-light: #F7F7F5;
-  --color-surface-white: #FEFEFE;
-  --color-surface-card-dark: rgba(255, 255, 255, 0.09);
-  --color-text-primary: #1A1A1F;
-  --color-text-secondary: #6B6B76;
-  --color-text-light: #F4F4F6;
-  --color-text-muted-light: #C9C9D2;
-  --color-border: #E2E2E5;
-  --color-border-dark: #2A2A30;
+  /* Primary brand — YYUSSA Orange */
+  --color-primary: #F84923;
+  --color-primary-dark: #C83A1B;
+  --color-primary-light: #FF795D;
+
+  /* Complementary accent — Slate Blue */
+  --color-accent: #3E5874;
+  --color-accent-light: #5E7A98;
+  --color-accent-dark: #2E455D;
+
+  /* Secondary surfaces */
+  --color-secondary: #F4F2EF;
+  --color-secondary-dark: #DEE3EA;
+
+  /* Neutrals */
+  --color-grey-900: #0E1621;
+  --color-grey-800: #1B2735;
+  --color-grey-700: #2B3B4F;
+  --color-grey-600: #4B5F75;
+  --color-grey-500: #6F8298;
+  --color-grey-400: #95A5B6;
+  --color-grey-300: #BCC7D2;
+  --color-grey-200: #D8E0E8;
+  --color-grey-100: #EEF3F7;
+
+  /* Semantic text */
+  --color-text-dark: #162231;
+  --color-text-light: #F7FAFD;
+  --color-text-muted: #5E7389;
+
+  /* Backgrounds */
+  --bg-dark: #0F1A27;
+  --bg-light: #F4F2EF;
+  --bg-white: #FAFBFC;
+
+  /* ── Legacy aliases (keep for compatibility with existing components) ── */
+  --color-surface-dark: #0F1A27;
+  --color-surface-darker: #0B131F;
+  --color-surface-light: #F4F2EF;
+  --color-surface-white: #FAFBFC;
+  --color-surface-card-dark: rgba(255, 255, 255, 0.06);
+
+  --color-text-primary: #162231;
+  --color-text-secondary: #50657D;
+  --color-text-muted-light: #B7C3CF;
+
+  --color-border: #DEE3EA;
+  --color-border-dark: #253446;
+
+  --color-primary-brand: #F84923;
 }
 
 @theme inline {
   --color-background: var(--color-surface-white);
   --color-foreground: var(--color-text-primary);
-  --font-display: var(--font-libre-baskerville);
-  --font-body: var(--font-libre-baskerville);
-  --font-serif: var(--font-libre-baskerville);
+  --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
 }
 
 /* Base */
@@ -41,18 +79,18 @@ html {
 body {
   background: var(--color-surface-white);
   color: var(--color-text-primary);
-  font-family: var(--font-libre-baskerville), Georgia, 'Times New Roman', serif;
-  font-size: 17px;
-  line-height: 1.7;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.625;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-libre-baskerville), Georgia, 'Times New Roman', serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   color: inherit;
 }
@@ -66,18 +104,18 @@ a:not([class]) {
 }
 
 ::selection {
-  background: var(--color-primary);
-  color: #000;
+  background: var(--color-accent);
+  color: #fff;
 }
 
 ::-moz-selection {
-  background: var(--color-primary);
-  color: #000;
+  background: var(--color-accent);
+  color: #fff;
 }
 
 /* Focus visible */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 3px;
 }
@@ -100,8 +138,8 @@ a:not([class]) {
   z-index: 1;
 }
 
+/* Only set z-index so absolute background layers stay behind; do not set position (would override absolute and push content down). */
 .grain-overlay > * {
-  position: relative;
   z-index: 2;
 }
 
@@ -110,7 +148,7 @@ a:not([class]) {
   position: absolute;
   top: -100%;
   left: 1rem;
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: white;
   padding: 0.5rem 1rem;
   font-weight: 600;
@@ -123,15 +161,16 @@ a:not([class]) {
   top: 0;
 }
 
-/* Primary button/link — for server components (no JS handlers) */
+/* Primary button/link — brass accent */
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: white;
-  font-weight: 400;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 500;
   transition: background 0.2s ease;
 }
 .btn-primary:hover {
-  background: var(--color-primary-dark);
+  background: var(--color-accent-dark);
 }
 
 /* Reduced motion */
@@ -159,7 +198,7 @@ a:not([class]) {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 /* Utility classes */
@@ -174,15 +213,15 @@ a:not([class]) {
 
 @media (min-width: 768px) {
   .container-xl {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container-xl {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
@@ -191,45 +230,65 @@ a:not([class]) {
   display: block;
   width: 3rem;
   height: 3px;
-  background: var(--color-primary);
+  background: var(--color-accent);
   border-radius: 2px;
   margin-bottom: 1rem;
 }
 
 /* Section label */
 .section-label {
-  display: inline-block;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-accent);
   margin-bottom: 0.75rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
 }
 
 /* Serif editorial accent */
 .serif-accent {
-  font-family: var(--font-libre-baskerville), Georgia, 'Times New Roman', serif;
+  font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   font-style: italic;
-  color: var(--color-primary);
-  font-weight: 600;
+  color: var(--color-accent);
+  font-weight: 400;
 }
 
-/* Badge with primary color (auto-tracks CSS variable) */
+/* Badge with accent color */
 .badge-primary {
-  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
-  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  color: var(--color-accent);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
 }
 
 /* Blog prose overrides */
 .prose-dark {
   --tw-prose-body: var(--color-text-secondary);
   --tw-prose-headings: var(--color-text-primary);
-  --tw-prose-links: var(--color-primary);
+  --tw-prose-links: var(--color-accent);
   --tw-prose-bold: var(--color-text-primary);
   --tw-prose-quotes: var(--color-text-secondary);
   --tw-prose-hr: var(--color-border);
   --tw-prose-th-borders: var(--color-border);
+  font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 1.05rem;
   line-height: 1.9;
 }
@@ -237,6 +296,7 @@ a:not([class]) {
 .prose-dark h2,
 .prose-dark h3,
 .prose-dark h4 {
+  font-family: 'Libre Baskerville', Georgia, serif;
   margin-top: 2rem;
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -251,4 +311,11 @@ a:not([class]) {
   text-decoration: underline;
   text-underline-offset: 0.16em;
   text-decoration-thickness: 1px;
+}
+
+.prose-dark blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
 }

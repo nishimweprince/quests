@@ -14,10 +14,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const isHeroPage = pathname === '/';
-
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 48);
+    const handleScroll = () => setScrolled(window.scrollY > 56);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,82 +32,105 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
-
-  const navBg =
-    !isHeroPage || scrolled
-      ? 'bg-[rgba(10,10,12,0.92)] border-b border-(--color-border-dark) backdrop-blur-md'
-      : 'bg-transparent';
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
+  const navBg = scrolled
+    ? 'border-b'
+    : 'border-b border-transparent';
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-transparent/0 transition-all duration-300 ${navBg}`}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${navBg}`}
+        style={{
+          background: scrolled ? 'rgba(10,10,10,0.96)' : 'rgba(10,10,10,0.0)',
+          borderColor: scrolled ? 'var(--color-grey-800)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(12px)' : 'none',
+          boxShadow: scrolled ? '0 1px 0 rgba(184,150,90,0.08)' : 'none',
+        }}
         role="banner"
       >
         <div className="container-xl">
           <div className="flex h-[74px] items-center justify-between md:h-[82px]">
+            {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 focus-visible:outline-(--color-primary)"
+              className="flex flex-col leading-none focus-visible:outline-none"
               aria-label="YYUSSA Group Ltd — Home"
             >
-              <div
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-(--color-primary) text-sm text-white shadow-[0_10px_30px_rgba(0,0,0,0.55)]"
-                style={{ background: 'var(--color-primary)' }}
-                aria-hidden="true"
+              <span
+                className="text-xl font-bold tracking-[0.04em] text-white"
+                style={{ fontFamily: "'Libre Baskerville', Georgia, serif", letterSpacing: '0.04em' }}
               >
-                Y
-              </div>
-              <div className="leading-none">
-                <span className="block text-xl tracking-[0.06em] text-white">YYUSSA</span>
-                <span className="mt-1 block text-[10px] uppercase tracking-[0.22em] text-(--color-text-muted-light)">
-                  Group Ltd
-                </span>
-              </div>
+                YYUSSA
+              </span>
+              <span
+                className="mt-0.5 text-[10px] uppercase tracking-[0.22em]"
+                style={{ color: 'var(--color-grey-500)', fontFamily: 'DM Sans, sans-serif' }}
+              >
+                Group Ltd
+              </span>
             </Link>
 
+            {/* Desktop nav */}
             <nav
-              className="hidden items-center gap-1 rounded-full border border-white/5 bg-black/20 px-1.5 py-1 text-[11px] uppercase tracking-[0.18em] backdrop-blur-sm lg:flex"
+              className="hidden items-center gap-0.5 lg:flex"
               aria-label="Main navigation"
             >
               {NAV_LINKS.map((link) => {
-                if (link.dropdown) {
+                if (link?.dropdown) {
                   return (
-                    <div key={link.href} className="relative" ref={dropdownRef}>
+                    <div key={link.href} className="relative cursor-pointer" ref={dropdownRef}>
                       <button
-                        className={`flex items-center gap-1.5 rounded-full px-3 py-2 transition-colors ${
-                          isActive(link.href)
-                            ? 'bg-white/10 text-(--color-primary-light)'
-                            : 'text-(--color-text-light) hover:bg-white/5 hover:text-white'
-                        }`}
+                        className="flex cursor-pointer items-center gap-1.5 px-4 py-2 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200"
+                        style={{
+                          color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
+                          fontFamily: 'DM Sans, sans-serif',
+                        }}
                         onClick={() => setServicesOpen((v) => !v)}
                         aria-expanded={servicesOpen}
                         aria-haspopup="true"
+                        onMouseEnter={(e) => {
+                          if (!isActive(link.href)) e.currentTarget.style.color = 'var(--color-text-light)';
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive(link.href)) e.currentTarget.style.color = 'rgba(245,242,237,0.55)';
+                        }}
                       >
                         {link.label}
                         <ChevronDown
-                          size={14}
-                          className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
+                          size={13}
+                          className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
                         />
                       </button>
+
+                      {/* Active underline */}
+                      {isActive(link.href) && (
+                        <div
+                          className="absolute bottom-0 left-4 right-4 h-px"
+                          style={{ background: 'var(--color-accent)' }}
+                          aria-hidden="true"
+                        />
+                      )}
+
                       <AnimatePresence>
                         {servicesOpen && (
                           <motion.div
-                            initial={{ opacity: 0, y: 6 }}
+                            initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 6 }}
-                            transition={{ duration: 0.2 }}
-                          className="absolute left-0 top-full mt-2 w-64 overflow-hidden rounded-2xl border border-(--color-border-dark) bg-[rgba(10,10,12,0.98)] shadow-2xl backdrop-blur-xl"
-                            style={{ background: 'var(--color-surface-dark)' }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.18 }}
+                            className="absolute left-0 top-full mt-1 w-56 border"
+                            style={{
+                              background: 'var(--color-grey-800)',
+                              borderColor: 'var(--color-grey-800)',
+                            }}
                             role="menu"
                           >
                             {link.dropdown.map((item) => (
@@ -117,11 +138,19 @@ export default function Navbar() {
                                 key={item.href}
                                 href={item.href}
                                 role="menuitem"
-                                className={`block border-b border-(--color-border-dark) px-4 py-3 text-xs tracking-[0.14em] transition-colors last:border-0 ${
-                                  pathname === item.href
-                                    ? 'bg-white/5 text-(--color-primary-light)'
-                                    : 'text-(--color-text-light) hover:bg-white/5 hover:text-white'
-                                }`}
+                                onClick={() => setServicesOpen(false)}
+                                className="block border-b px-5 py-3.5 text-[11px] uppercase tracking-[0.14em] transition-colors last:border-0"
+                                style={{
+                                  borderColor: 'var(--color-grey-800)',
+                                  color: pathname === item.href ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
+                                  fontFamily: 'DM Sans, sans-serif',
+                                }}
+                                onMouseEnter={(e) => {
+                                  if (pathname !== item.href) e.currentTarget.style.color = 'var(--color-text-light)';
+                                }}
+                                onMouseLeave={(e) => {
+                                  if (pathname !== item.href) e.currentTarget.style.color = 'rgba(245,242,237,0.55)';
+                                }}
                               >
                                 {item.label}
                               </Link>
@@ -134,42 +163,72 @@ export default function Navbar() {
                 }
 
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`rounded-full px-3 py-2 transition-colors ${
-                      isActive(link.href)
-                        ? 'bg-white/10 text-(--color-primary-light)'
-                        : 'text-(--color-text-light) hover:bg-white/5 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                  <div key={link.href} className="relative">
+                    <Link
+                      href={link.href}
+                      className="block px-4 py-2 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200"
+                      style={{
+                        color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.55)',
+                        fontFamily: 'DM Sans, sans-serif',
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActive(link.href)) e.currentTarget.style.color = 'var(--color-text-light)';
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive(link.href)) e.currentTarget.style.color = 'rgba(245,242,237,0.55)';
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                    {isActive(link.href) && (
+                      <div
+                        className="absolute bottom-0 left-4 right-4 h-px"
+                        style={{ background: 'var(--color-accent)' }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
                 );
               })}
             </nav>
 
-            <div className="hidden lg:block">
+            {/* CTA + hamburger */}
+            <div className="flex items-center gap-4">
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center gap-2 rounded-full border border-transparent px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-white shadow-[0_12px_35px_rgba(0,0,0,0.55)] transition-all duration-200 hover:-translate-y-px hover:border-white/20 active:scale-95"
+                className="hidden border px-5 py-2.5 text-[11px] uppercase tracking-[0.16em] transition-colors duration-200 lg:inline-flex"
+                style={{
+                  borderColor: 'var(--color-accent)',
+                  color: 'var(--color-accent)',
+                  fontFamily: 'DM Sans, sans-serif',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'var(--color-accent)';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = 'var(--color-accent)';
+                }}
               >
                 Get in Touch
               </Link>
-            </div>
 
-            <button
-              className="rounded-full border border-white/10 bg-black/40 p-2 text-white backdrop-blur-sm lg:hidden"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open navigation menu"
-              aria-expanded={mobileOpen}
-            >
-              <Menu size={24} />
-            </button>
+              <button
+                className="border p-2 text-white transition-colors lg:hidden"
+                style={{ borderColor: 'var(--color-grey-700)' }}
+                onClick={() => setMobileOpen(true)}
+                aria-label="Open navigation menu"
+                aria-expanded={mobileOpen}
+              >
+                <Menu size={22} />
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -177,7 +236,8 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden"
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 bg-black/70 lg:hidden"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
             />
@@ -185,17 +245,37 @@ export default function Navbar() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'tween', ease: 'easeOut', duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 z-50 flex w-80 flex-col shadow-2xl lg:hidden"
-              style={{ background: 'var(--color-surface-dark)' }}
+              transition={{ type: 'tween', ease: 'easeOut', duration: 0.28 }}
+              className="fixed right-0 top-0 bottom-0 z-50 flex w-80 flex-col border-l lg:hidden"
+              style={{
+                background: 'var(--color-primary)',
+                borderColor: 'var(--color-grey-800)',
+              }}
               role="dialog"
               aria-label="Navigation menu"
               aria-modal="true"
             >
-              <div className="flex items-center justify-between border-b border-(--color-border-dark) p-5">
-                <span className="text-lg tracking-[0.06em] text-(--color-text-light)">YYUSSA</span>
+              {/* Header */}
+              <div
+                className="flex items-center justify-between border-b p-6"
+                style={{ borderColor: 'var(--color-grey-800)' }}
+              >
+                <div className="leading-none">
+                  <span
+                    className="block text-lg tracking-[0.04em] text-white"
+                    style={{ fontFamily: "'Libre Baskerville', Georgia, serif" }}
+                  >
+                    YYUSSA
+                  </span>
+                  <span
+                    className="mt-0.5 block text-[10px] uppercase tracking-[0.2em]"
+                    style={{ color: 'var(--color-grey-500)' }}
+                  >
+                    Group Ltd
+                  </span>
+                </div>
                 <button
-                  className="rounded-full p-2 text-(--color-text-muted-light) hover:bg-white/5 hover:text-white"
+                  className="p-1 text-white/50 transition-colors hover:text-white"
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close navigation menu"
                 >
@@ -203,31 +283,34 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <nav className="flex-1 overflow-y-auto p-5" aria-label="Mobile navigation">
-                <ul className="space-y-1">
-                  {NAV_LINKS.map((link) => (
-                    <li key={link.href}>
+              {/* Links */}
+              <nav className="flex-1 overflow-y-auto p-6" aria-label="Mobile navigation">
+                <ul className="space-y-0">
+                  {NAV_LINKS.map((link, i) => (
+                    <li
+                      key={link.href}
+                      className="border-b"
+                      style={{ borderColor: 'var(--color-grey-800)' }}
+                    >
                       {link.dropdown ? (
                         <div>
-                          <div
-                            className={`px-4 py-3 text-xs uppercase tracking-[0.18em] ${
-                              isActive(link.href)
-                                ? 'text-(--color-primary-light)'
-                                : 'text-(--color-text-muted-light)'
-                            }`}
+                          <span
+                            className="block py-4 text-sm uppercase tracking-[0.14em]"
+                            style={{ color: 'var(--color-grey-500)', fontFamily: 'DM Sans, sans-serif' }}
                           >
                             {link.label}
-                          </div>
-                          <ul className="ml-4 space-y-1">
+                          </span>
+                          <ul className="mb-2 space-y-1 pl-4">
                             {link.dropdown.map((item) => (
                               <li key={item.href}>
                                 <Link
                                   href={item.href}
-                                  className={`block rounded px-4 py-2 text-sm transition-colors ${
-                                    pathname === item.href
-                                      ? 'bg-white/5 text-(--color-primary-light)'
-                                      : 'text-(--color-text-light) hover:bg-white/5 hover:text-white'
-                                  }`}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="block py-2.5 text-sm uppercase tracking-[0.12em] transition-colors"
+                                  style={{
+                                    color: pathname === item.href ? 'var(--color-accent)' : 'rgba(245,242,237,0.65)',
+                                    fontFamily: 'DM Sans, sans-serif',
+                                  }}
                                 >
                                   {item.label}
                                 </Link>
@@ -238,11 +321,12 @@ export default function Navbar() {
                       ) : (
                         <Link
                           href={link.href}
-                          className={`block rounded px-4 py-3 text-sm transition-colors ${
-                            isActive(link.href)
-                              ? 'bg-white/5 text-(--color-primary-light)'
-                              : 'text-(--color-text-light) hover:bg-white/5 hover:text-white'
-                          }`}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-4 text-sm uppercase tracking-[0.14em] transition-colors"
+                          style={{
+                            color: isActive(link.href) ? 'var(--color-accent)' : 'rgba(245,242,237,0.65)',
+                            fontFamily: 'DM Sans, sans-serif',
+                          }}
                         >
                           {link.label}
                         </Link>
@@ -252,10 +336,20 @@ export default function Navbar() {
                 </ul>
               </nav>
 
-              <div className="p-5 border-t border-(--color-border-dark)">
+              {/* Bottom CTA */}
+              <div
+                className="border-t p-6"
+                style={{ borderColor: 'var(--color-grey-800)' }}
+              >
                 <Link
                   href="/contact"
-                  className="btn-primary block w-full rounded-full py-3 text-center text-xs font-medium uppercase tracking-[0.18em] text-white"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full border py-3.5 text-center text-[11px] uppercase tracking-[0.16em] transition-colors"
+                  style={{
+                    borderColor: 'var(--color-accent)',
+                    color: 'var(--color-accent)',
+                    fontFamily: 'DM Sans, sans-serif',
+                  }}
                 >
                   Get in Touch
                 </Link>

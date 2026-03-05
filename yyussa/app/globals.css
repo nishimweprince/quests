@@ -41,7 +41,7 @@
   --bg-dark: #0F1A27;
   --bg-light: #F4F2EF;
   --bg-white: #FAFBFC;
-  --bg-grey-100: #BCC7D2;
+  --bg-grey-100: #E8ECF1;
 
   /* ── Legacy aliases (keep for compatibility with existing components) ── */
   --color-surface-dark: #0F1A27;
@@ -310,7 +310,7 @@ a:not([class]) {
 
 .prose-dark a {
   text-decoration: underline;
-  text-underline-offset: 0.16em;
+  text-underline-offset: 0.28em;
   text-decoration-thickness: 1px;
 }
 

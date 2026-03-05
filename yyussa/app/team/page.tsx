@@ -1,8 +1,28 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { User } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { TEAM } from '@/lib/constants';
+
+/** Map team member full name to image path in public/team/ */
+const TEAM_IMAGES: Record<string, string> = {
+  'Kalinganire Yusuf': '/team/kalinganire-yusuf.jpg',
+  'Ugirase Zabibu': '/team/ugirase-zabibu.jpg',
+  'Kayumba Godfrey': '/team/kayumba-godfrey.jpg',
+  'Rwagarinde Is-Haq': '/team/rwanganire-is-haq.jpg',
+  'Munyandekwe Trésor': '/team/munyandekwe-tresor.jpg',
+  'Kalinganire Yousra': '/team/kalinganire-yousra.jpg',
+  'Kalinganire Nouriat': '/team/kalinganire-nouriat.jpg',
+  'Hitimana Monique': '/team/hitimana-monique.jpg',
+  'Kayitesi Liliane': '/team/kayitesi-liliane.jpg',
+  'Bizimana Hassan': '/team/bizimana-hassan.jpg',
+  'Musabyemariya Yvette': '/team/musabyemariya-yvette.jpg',
+  'Kagamba Fabrice': '/team/kabagamba-fabrice.jpg',
+  'Abdul Djabar': '/team/abdoul-jabar.jpg',
+  'Kayumba Kayitesi Flavia': '/team/kayumba-kayitesi-flavia.jpg',
+  'Iradukunda Aliance': '/team/iradukunda-alliance.jpg',
+};
 
 export const metadata: Metadata = {
   title: 'Our Team',
@@ -53,10 +73,18 @@ export default function TeamPage() {
                 className="relative mx-auto flex max-w-xs flex-col items-center lg:mx-0"
               >
                 <div
-                  className="relative flex aspect-square w-full max-w-[260px] items-center justify-center border"
-                  style={{ background: 'var(--color-grey-800)', borderColor: 'var(--color-grey-800)' }}
+                  className="relative flex aspect-square w-full max-w-[260px] items-center justify-center overflow-hidden"
+                  style={{ background: 'var(--color-grey-800)' }}
                 >
-                  <User size={64} style={{ color: 'var(--color-grey-700)' }} aria-hidden="true" />
+                  <Image
+                    src={TEAM_IMAGES[founder.name] ?? '/team/kalinganire-yusuf.jpg'}
+                    alt=""
+                    width={260}
+                    height={260}
+                    className="h-full w-full object-cover object-top"
+                    sizes="260px"
+                    priority
+                  />
                   {/* Brass corner accent */}
                   <div
                     className="absolute bottom-0 left-0 h-1 w-16"
@@ -158,38 +186,45 @@ export default function TeamPage() {
                 </div>
               </ScrollReveal>
 
-              <div className="grid grid-cols-2 gap-px border [grid-auto-rows:1fr] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
-                style={{
-                  borderColor: isLight ? 'var(--color-grey-100)' : 'var(--color-secondary-dark)',
-                }}>
+              <div className="grid auto-rows-[1fr] grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {members.map((member, i) => (
                   <ScrollReveal key={member.name} direction="up" delay={i * 0.06}>
                     <div
-                      className="group flex h-full flex-col items-center p-7 text-center transition-colors duration-200 hover:bg-(--bg-light)"
+                      className="group flex h-full cursor-pointer flex-col items-center rounded-lg p-7 text-center transition-all duration-300 ease-out hover:scale-[1.02] hover:bg-(--bg-light) hover:shadow-lg"
                       style={{ background: isLight ? 'var(--bg-grey-100)' : 'var(--bg-white)' }}
                     >
                       {/* Avatar */}
                       <div
-                        className="relative mb-4 flex h-16 w-16 items-center justify-center border transition-colors duration-200"
+                        className="relative mb-4 flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover:ring-2 group-hover:ring-(--color-accent)/30"
                         style={{
                           background: 'var(--color-grey-100)',
-                          borderColor: 'var(--color-secondary-dark)',
                         }}
                       >
-                        <User
-                          size={26}
-                          style={{ color: 'var(--color-grey-400)' }}
-                          aria-hidden="true"
-                        />
+                        {TEAM_IMAGES[member.name] ? (
+                          <Image
+                            src={TEAM_IMAGES[member.name]}
+                            alt=""
+                            width={64}
+                            height={64}
+                            className="h-full w-full object-cover object-top"
+                            sizes="64px"
+                          />
+                        ) : (
+                          <User
+                            size={26}
+                            style={{ color: 'var(--color-grey-400)' }}
+                            aria-hidden="true"
+                          />
+                        )}
                         {/* Brass bottom accent on hover */}
                         <div
-                          className="absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
+                          className="absolute -bottom-1.5 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
                           style={{ background: 'var(--color-accent)' }}
                           aria-hidden="true"
                         />
                       </div>
                       <h3
-                        className="min-h-[2.5rem] text-sm font-semibold leading-tight"
+                        className="min-h-10 text-sm font-semibold leading-tight"
                         style={{
                           fontFamily: "'Libre Baskerville', Georgia, serif",
                           color: 'var(--color-text-dark)',

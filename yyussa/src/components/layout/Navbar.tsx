@@ -113,7 +113,7 @@ export default function Navbar() {
                       {/* Active underline */}
                       {isActive(link.href) && (
                         <div
-                          className="absolute bottom-0 left-3 right-3 h-px"
+                          className="absolute -bottom-1 left-1 right-3 h-px"
                           style={{ background: 'var(--color-accent)' }}
                           aria-hidden="true"
                         />
@@ -182,7 +182,7 @@ export default function Navbar() {
                     </Link>
                     {isActive(link.href) && (
                       <div
-                        className="absolute bottom-0 left-3 right-3 h-px"
+                        className="absolute -bottom-1 left-3 right-3 h-px"
                         style={{ background: 'var(--color-accent)' }}
                         aria-hidden="true"
                       />

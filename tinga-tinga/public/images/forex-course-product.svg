@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#111827"/>
+  <rect x="72" y="72" width="1056" height="756" rx="28" fill="#0A0E17" stroke="#1E293B"/>
+  <rect x="180" y="200" width="840" height="500" rx="24" fill="#1A2332"/>
+  <text x="220" y="300" fill="#D4A853" font-size="58" font-family="serif">BILLIONAIRE FX ACADEMY</text>
+  <text x="220" y="360" fill="#94A3B8" font-size="34" font-family="sans-serif">Forex Training Course</text>
+  <path d="M240 430h720" stroke="#334155"/>
+  <path d="M240 500h720" stroke="#334155"/>
+  <path d="M240 570h720" stroke="#334155"/>
+  <circle cx="270" cy="430" r="9" fill="#22C55E"/>
+  <circle cx="270" cy="500" r="9" fill="#D4A853"/>
+  <circle cx="270" cy="570" r="9" fill="#EF4444"/>
+</svg>

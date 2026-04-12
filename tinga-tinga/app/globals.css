@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0c0f14;
+  --bg-secondary: #141920;
+  --bg-tertiary: #1c2128;
+  --accent-primary: #10b981;
+  --accent-gold: #34d399;
+  --accent-green: #10b981;
+  --accent-red: #dc2626;
+  --text-primary: #e5e7eb;
+  --text-secondary: #6b7280;
+  --text-tertiary: #4b5563;
+  --border: #1f2937;
+  --glow-green: rgba(16, 185, 129, 0.12);
+  --glow-red: rgba(248, 113, 113, 0.1);
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-badge: 6px;
+  --nav-height: 72px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.section-shell {
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* User Selection Styling */
+::selection {
+  background: var(--accent-primary, #eab308);
+  color: #121213;
+}
+::-moz-selection {
+  background: var(--accent-primary, #eab308);
+  color: #121213;
+}
+
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(107, 114, 128, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 114, 128, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --nav-height: 68px;
+  }
+}

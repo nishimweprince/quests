@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#111827"/>
+  <rect x="60" y="60" width="1080" height="780" rx="28" fill="#0A0E17" stroke="#1E293B"/>
+  <path d="M140 620h920" stroke="#1E293B"/>
+  <path d="M140 500h920" stroke="#1E293B"/>
+  <path d="M140 380h920" stroke="#1E293B"/>
+  <rect x="240" y="490" width="24" height="120" rx="8" fill="#22C55E"/>
+  <rect x="390" y="430" width="24" height="180" rx="8" fill="#22C55E"/>
+  <rect x="540" y="380" width="24" height="230" rx="8" fill="#EF4444"/>
+  <rect x="690" y="455" width="24" height="155" rx="8" fill="#22C55E"/>
+  <rect x="840" y="330" width="24" height="280" rx="8" fill="#EF4444"/>
+  <text x="140" y="180" fill="#D4A853" font-size="60" font-family="monospace">TINGA TINGA EA</text>
+  <text x="140" y="250" fill="#94A3B8" font-size="32" font-family="sans-serif">Plug &amp; Play Forex Robot Dashboard</text>
+</svg>

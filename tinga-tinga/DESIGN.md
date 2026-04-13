@@ -1,0 +1,85 @@
+## Typography
+
+**Headings:**
+  - **Primary:**
+    - **Font Family:** System Font
+    - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    - **Font Class:** font-sans
+    - **Font Size:** 277.68px
+    - **Font Weight:** 800
+    - **Line Height:** 236.028px
+    - **Letter Spacing:** -0.0029em
+    - **Text Transform:** uppercase
+  - **Variants:**
+    - **Item 1:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 277.68px
+      - **Font Weight:** 800
+      - **Line Height:** 236.028px
+      - **Letter Spacing:** -0.0029em
+      - **Text Transform:** uppercase
+      - **Count:** 1
+    - **Item 2:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 170.88px
+      - **Font Weight:** 800
+      - **Line Height:** 145.248px
+      - **Letter Spacing:** -0.0047em
+      - **Text Transform:** uppercase
+      - **Count:** 13
+
+**Body:**
+  - **Primary:**
+    - **Font Family:** System Font
+    - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    - **Font Class:** font-sans
+    - **Font Size:** 12px
+    - **Font Weight:** 600
+    - **Line Height:** 15px
+    - **Letter Spacing:** 0.1em
+    - **Text Transform:** uppercase
+  - **Variants:**
+    - **Item 1:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 12px
+      - **Font Weight:** 600
+      - **Line Height:** 15px
+      - **Letter Spacing:** 0.1em
+      - **Text Transform:** uppercase
+      - **Count:** 2
+    - **Item 2:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 12px
+      - **Font Weight:** 800
+      - **Line Height:** 16px
+      - **Letter Spacing:** 0.1em
+      - **Text Transform:** uppercase
+      - **Count:** 2
+    - **Item 3:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 12px
+      - **Font Weight:** 600
+      - **Line Height:** 16px
+      - **Letter Spacing:** 0.1em
+      - **Text Transform:** uppercase
+      - **Count:** 1
+    - **Item 4:**
+      - **Font Family:** System Font
+      - **Font Family Stack:** ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      - **Font Class:** font-sans
+      - **Font Size:** 14px
+      - **Font Weight:** 800
+      - **Line Height:** 20px
+      - **Letter Spacing:** normal
+      - **Text Transform:** lowercase
+      - **Count:** 1

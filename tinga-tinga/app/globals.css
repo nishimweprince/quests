@@ -14,10 +14,10 @@
   --border: #1f2937;
   --glow-green: rgba(16, 185, 129, 0.12);
   --glow-red: rgba(248, 113, 113, 0.1);
-  --radius-card: 12px;
-  --radius-button: 8px;
+  --radius-card: 10px;
+  --radius-button: 7px;
   --radius-badge: 6px;
-  --nav-height: 72px;
+  --nav-height: 64px;
 }
 
 body {
@@ -35,6 +35,7 @@ body {
 }
 
 html {
+  font-size: 15px;
   scroll-behavior: smooth;
 }
 
@@ -63,7 +64,7 @@ section[id] {
 }
 
 .section-shell {
-  padding-block: clamp(3rem, 6vw, 6rem);
+  padding-block: clamp(2.75rem, 5vw, 5rem);
 }
 
 .font-display {
@@ -90,6 +91,6 @@ section[id] {
 
 @media (max-width: 767px) {
   :root {
-    --nav-height: 68px;
+    --nav-height: 60px;
   }
 }

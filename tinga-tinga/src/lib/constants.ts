@@ -1,21 +1,36 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faFacebookF,
+  faInstagram,
+  faTiktok,
+  faWhatsapp,
+  faXTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import type { LucideIcon } from "lucide-react";
 import {
   Bot,
   BookOpen,
+  Briefcase,
   CircleDollarSign,
   Globe,
   GraduationCap,
+  Layers,
   MessageCircle,
   PlayCircle,
+  Settings,
+  Shield,
   TrendingUp,
   Users,
   Video,
+  Zap,
 } from "lucide-react";
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Community", href: "#community" },
-  { label: "Brokers", href: "#brokers" },
-  { label: "Subscribe", href: "#subscribe" },
+  { label: "Features", href: "#features" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Get Started", href: "#subscribe" },
 ] as const;
 
 export const ctaLinks = {
@@ -178,14 +193,18 @@ export const brokers = [
 ] as const;
 
 export const socialLinks = [
-  { href: "#", label: "WhatsApp", icon: MessageCircle },
-  { href: "#", label: "YouTube", icon: PlayCircle },
-  { href: "mailto:hello@godfatherofforex.com", label: "Email", icon: Globe },
-  { href: "#", label: "X", icon: Globe },
-  { href: "#", label: "Instagram", icon: Globe },
-  { href: "#", label: "TikTok", icon: Video },
-  { href: "#", label: "Facebook", icon: Globe },
-] as const;
+  { href: "https://whatsapp.com/channel/0029Vb5ZFQTHAdNcCXSdtg0E", label: "WhatsApp", icon: faWhatsapp },
+  { href: "https://www.youtube.com/@GODFATHEROFFOREX", label: "YouTube", icon: faYoutube },
+  { href: "mailto:vicentkibo@gmail.com", label: "Email", icon: faEnvelope },
+  { href: "https://twitter.com/Godfatheroffore", label: "X", icon: faXTwitter },
+  { href: "https://instagram.com/Billionairesforexacademy__", label: "Instagram", icon: faInstagram },
+  { href: "https://tiktok.com/@godfatherofforex", label: "TikTok", icon: faTiktok },
+  { href: "https://www.facebook.com/share/17E9U7sWVU/?mibextid=wwXIfr", label: "Facebook", icon: faFacebookF },
+] as const satisfies ReadonlyArray<{
+  href: string;
+  label: string;
+  icon: IconDefinition;
+}>;
 
 export const heroTrustItems = [
   "Works with MetaTrader 4 & 5",
@@ -208,3 +227,79 @@ export const sectionIcons = {
   video: PlayCircle,
   brokers: GraduationCap,
 } as const;
+
+export type FeatureGridItem = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+export const featureGridItems: FeatureGridItem[] = [
+  {
+    title: "Automated Trading",
+    description:
+      "Set it and forget it. Our EA runs 24/7, executing trades with institutional-grade precision across all sessions.",
+    icon: Zap,
+  },
+  {
+    title: "Custom Strategy",
+    description:
+      "Built on proven price-action frameworks, refined through thousands of hours of backtesting and live market data.",
+    icon: Settings,
+  },
+  {
+    title: "Risk Management",
+    description:
+      "Advanced position sizing and stop-loss logic built in. Protect your capital while maximizing upside potential.",
+    icon: Shield,
+  },
+  {
+    title: "All Currency Pairs",
+    description:
+      "Optimized for every major, minor, and exotic pair. One bot handles your entire forex portfolio.",
+    icon: Layers,
+  },
+  {
+    title: "Any Broker",
+    description:
+      "Compatible with MetaTrader 4 and 5 on any broker. No restrictions, no lock-ins, complete flexibility.",
+    icon: Briefcase,
+  },
+  {
+    title: "Full Support",
+    description:
+      "Step-by-step setup tutorials, live community groups, and direct support to get you trading within minutes.",
+    icon: Users,
+  },
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  title: string;
+  rating: number;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Tinga Tinga EA completely changed how I approach the markets. I went from spending hours analyzing charts to letting the bot handle everything while I focus on other things. The results have been remarkably consistent.",
+    name: "Marcus T.",
+    title: "Full-time Trader, London",
+    rating: 5,
+  },
+  {
+    quote:
+      "I was skeptical about automated trading, but after three months with Tinga Tinga the numbers speak for themselves. Setup was straightforward and the community support is world-class.",
+    name: "Adaeze K.",
+    title: "Part-time Trader, Lagos",
+    rating: 5,
+  },
+  {
+    quote:
+      "The Billionaire FX Academy gave me the foundations I was missing. Combined with the EA, I finally have a system I trust. Best investment I've made in my trading career.",
+    name: "James R.",
+    title: "Swing Trader, Dubai",
+    rating: 5,
+  },
+];

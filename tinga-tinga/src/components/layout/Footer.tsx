@@ -1,9 +1,10 @@
-import { navLinks, socialLinks } from "@/src/lib/constants";
+import { SocialIconRow } from "@/src/components/ui";
+import { navLinks } from "@/src/lib/constants";
 
 export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--bg-primary)]">
-      <div className="mx-auto grid w-[min(1180px,92vw)] gap-10 py-10 md:grid-cols-3">
+      <div className="mx-auto grid w-[min(1180px,92vw)] gap-8 py-9 md:grid-cols-3">
         <div>
           <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-tertiary)]">GODFATHER OF FOREX</p>
           <p className="mt-3 max-w-xs text-xs text-[var(--text-tertiary)]">
@@ -28,18 +29,11 @@ export function Footer() {
 
         <div>
           <p className="mb-3 font-mono text-[10px] font-medium uppercase tracking-widest text-[var(--text-tertiary)]">Social</p>
-          <div className="flex flex-wrap gap-2">
-            {socialLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-label={item.label}
-                className="inline-flex h-8 w-8 items-center justify-center rounded border border-[var(--border)] text-[var(--text-tertiary)] transition-colors hover:border-[var(--accent-primary)] hover:text-[var(--text-secondary)]"
-              >
-                <item.icon size={14} />
-              </a>
-            ))}
-          </div>
+          <SocialIconRow
+            className="justify-start gap-2"
+            linkClassName="h-8 w-8 rounded-[var(--radius-button)] border-[var(--border)] bg-transparent text-[var(--text-tertiary)] hover:border-[var(--accent-primary)] hover:bg-transparent hover:text-[var(--text-secondary)]"
+            iconClassName="h-3.5 w-3.5"
+          />
         </div>
       </div>
 

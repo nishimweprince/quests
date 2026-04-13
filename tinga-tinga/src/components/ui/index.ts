@@ -4,3 +4,4 @@ export * from "./Button";
 export * from "./Card";
 export * from "./FeatureCard";
 export * from "./SectionHeading";
+export * from "./SocialIconRow";

@@ -10,7 +10,7 @@ import { cn } from "@/src/lib/utils";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("products");
+  const [active, setActive] = useState("features");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -20,7 +20,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const ids = ["products", "community", "brokers", "subscribe"];
+    const ids = ["features", "testimonials", "subscribe"];
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((node): node is HTMLElement => Boolean(node));
@@ -64,12 +64,12 @@ export function Navbar() {
         scrolled ? "border-b border-[var(--border)] bg-[rgba(12,15,20,0.92)] backdrop-blur-md" : "bg-transparent",
       )}
     >
-      <nav className="mx-auto flex h-14 w-[min(1180px,92vw)] items-center justify-between">
+      <nav className="mx-auto flex h-12 w-[min(1180px,92vw)] items-center justify-between">
         <button onClick={() => onNavigate("#hero")} className="flex items-center gap-3 text-left">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-[var(--accent-primary)] font-mono text-[10px] font-bold text-[#052e16]">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-[var(--accent-primary)] font-mono text-[9px] font-bold text-[#052e16]">
             GOF
           </span>
-          <span className="font-mono text-[10px] font-medium tracking-[0.2em] text-[var(--text-secondary)] md:text-[11px]">
+          <span className="font-mono text-[9px] font-medium tracking-[0.18em] text-[var(--text-secondary)] md:text-[10px]">
             GODFATHER OF FOREX
           </span>
         </button>
@@ -80,10 +80,10 @@ export function Navbar() {
               key={item.href}
               onClick={() => onNavigate(item.href)}
               className={cn(
-                "text-xs font-medium transition-colors",
+                "text-[12px] font-medium transition-colors",
                 active === item.href.replace("#", "")
-                  ? "text-[var(--text-primary)]"
-                  : "text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]",
+                  ? "text-[var(--text-primary)] underline underline-offset-4"
+                  : "text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:underline hover:underline-offset-4",
               )}
             >
               {item.label}
@@ -101,7 +101,7 @@ export function Navbar() {
 
         <button
           aria-label="Open navigation menu"
-          className="inline-flex h-10 w-10 items-center justify-center rounded border border-[var(--border)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] lg:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] lg:hidden"
           onClick={() => setOpen((prev) => !prev)}
         >
           {open ? <X size={16} /> : <Menu size={16} />}

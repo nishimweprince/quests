@@ -25,7 +25,7 @@ const siteUrl = "https://godfatherofforex.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Godfather of Forex",
+    default: "TINGA TINGA Bot 🤖 | Forex Trading System by Godfather",
     template: "%s | Godfather of Forex",
   },
   description:

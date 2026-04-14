@@ -5,7 +5,7 @@ import { PlayCircle } from "lucide-react";
 import { useRef } from "react";
 import { CandlestickScene } from "@/src/components/three/CandlestickScene";
 import { Button, SocialIconRow } from "@/src/components/ui";
-import { ctaLinks, heroTrustItems } from "@/src/lib/constants";
+import { ctaLinks, heroTrustItems, socialLinks } from "@/src/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
@@ -112,7 +112,7 @@ export function Hero() {
           transition={{ duration: 0.4, delay: 0.5 }}
           className="mt-7 flex flex-col items-center justify-center gap-2.5 sm:flex-row"
         >
-          <a href={ctaLinks.botCheckout}>
+          <a href={socialLinks?.find((link) => link.label === "WhatsApp")?.href} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="w-full sm:w-auto">
               Get the Bot — £1,500
             </Button>

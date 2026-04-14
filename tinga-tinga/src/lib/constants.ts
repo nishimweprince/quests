@@ -203,6 +203,7 @@ export const socialLinks = [
 ] as const satisfies ReadonlyArray<{
   href: string;
   label: string;
+  target?: string;
   icon: IconDefinition;
 }>;
 

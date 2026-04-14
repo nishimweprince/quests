@@ -46,7 +46,7 @@ export function Subscribe() {
           />
 
           <div className="relative z-10 mx-auto max-w-[720px]">
-            <h2 className="font-serif text-3xl font-bold italic leading-[1.05] tracking-tight text-[var(--text-primary)] md:text-4xl">
+            <h2 className="font-serif text-3xl font-bold leading-[1.05] tracking-tight text-[var(--text-primary)] md:text-4xl">
               Subscribe to godfatherofforex
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-white/70">

@@ -19,11 +19,12 @@ function StarRating({ count }: { count: number }) {
 }
 
 export function Testimonials() {
-  const testimonialItems = testimonials.map((testimonial) => ({
+  const testimonialItems = testimonials.map(({ title: role, ...testimonial }) => ({
+    ...testimonial,
+    role,
     title: testimonial.name,
     description: testimonial.quote,
     icon: Star,
-    ...testimonial,
   }));
 
   return (
@@ -46,7 +47,7 @@ export function Testimonials() {
           </div>
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">{item.name}</p>
-            <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{item.title}</p>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{item.role}</p>
           </div>
         </div>
       )}
@@ -63,7 +64,7 @@ export function Testimonials() {
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">{item.name}</p>
-            <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{item.title}</p>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{item.role}</p>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--accent-primary)]/70">Verified trader</span>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Darker_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Cormorant_Garamond, Darker_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const darkerGrotesque = Darker_Grotesque({
@@ -18,6 +18,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 const siteUrl = "https://godfatherofforex.com";
@@ -72,9 +79,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${darkerGrotesque.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} h-full antialiased`}
+      className={`${darkerGrotesque.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="noise-overlay min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

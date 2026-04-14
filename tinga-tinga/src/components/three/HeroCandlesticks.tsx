@@ -147,7 +147,7 @@ function Candles({ maxCandles }: { maxCandles: number }) {
           <mesh key={`${particle.x}-${particle.z}-${index}`} position={[particle.x, particle.y, particle.z]}>
             <sphereGeometry args={[0.04, 8, 8]} />
             <meshBasicMaterial
-              color={index % 2 === 0 ? "#10B981" : "#DC2626"}
+              color={index % 3 === 0 ? "#d4a253" : index % 2 === 0 ? "#10B981" : "#DC2626"}
               transparent
               opacity={0.55}
               blending={AdditiveBlending}
@@ -185,11 +185,11 @@ export function HeroCandlesticks({ mobile }: { mobile: boolean }) {
         state.gl.setClearColor(new Color(0x000000), 0);
       }}
     >
-      <fog attach="fog" args={["#0c0f14", 8, 18]} />
+      <fog attach="fog" args={["#0f0e0c", 8, 18]} />
       <OrthographicCamera makeDefault zoom={55} position={[0, 0.2, 8]} />
       <ambientLight intensity={0.55} />
-      <directionalLight position={[4, 8, 6]} intensity={1.4} color="#34D399" />
-      <directionalLight position={[-5, 3, 3]} intensity={0.35} color="#10B981" />
+      <directionalLight position={[4, 8, 6]} intensity={1.4} color="#d4a253" />
+      <directionalLight position={[-5, 3, 3]} intensity={0.35} color="#b8860b" />
       <group rotation={[-0.26, 0.2, 0]}>
         <PriceGrid />
         <Candles maxCandles={visibleCandles} />

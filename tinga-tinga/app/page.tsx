@@ -46,8 +46,11 @@ export default function Home() {
         <main>
           <Hero />
           <FeaturesGrid />
+          <div className="section-divider" />
           <Testimonials />
+          <div className="section-divider" />
           <VideoSection />
+          <div className="section-divider" />
           <Subscribe />
         </main>
         <Footer />

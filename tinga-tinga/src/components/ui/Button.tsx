@@ -10,7 +10,7 @@ type ButtonSize = "sm" | "md" | "lg";
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--accent-primary)] text-[#052e16] font-semibold hover:bg-[#059669]",
+    "bg-gradient-to-r from-[#d4a253] to-[#b8860b] text-[#1a1207] font-normal hover:shadow-[0_0_24px_rgba(212,162,83,0.35)]",
   secondary:
     "border border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)]/10",
   ghost:
@@ -38,8 +38,10 @@ export function Button({
 }: Props) {
   return (
     <motion.button
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
       className={cn(
-        "inline-flex items-center justify-center rounded-[var(--radius-button)] font-medium cursor-pointer transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center rounded-[var(--radius-button)] font-normal cursor-pointer transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50",
         variantStyles[variant],
         sizeStyles[size],
         className,

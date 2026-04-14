@@ -14,7 +14,7 @@ export function CommunityLinks() {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 transition-colors duration-200 hover:border-[var(--accent-primary)]/30"
+            className="group rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 transition-all duration-300 hover:border-[var(--accent-primary)]/25 hover:shadow-[0_4px_24px_rgba(212,162,83,0.06)]"
           >
             <div className="flex items-start justify-between gap-4">
               <div

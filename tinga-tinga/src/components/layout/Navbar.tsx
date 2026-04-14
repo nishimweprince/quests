@@ -61,12 +61,12 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-200",
-        scrolled ? "border-b border-[var(--border)] bg-[rgba(12,15,20,0.92)] backdrop-blur-md" : "bg-transparent",
+        scrolled ? "border-b border-[var(--accent-primary)]/10 bg-[rgba(12,15,20,0.92)] backdrop-blur-md" : "bg-transparent",
       )}
     >
       <nav className="mx-auto flex h-12 w-[min(1180px,92vw)] items-center justify-between">
         <button onClick={() => onNavigate("#hero")} className="flex items-center gap-3 text-left">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-[var(--accent-primary)] font-mono text-[9px] font-bold text-[#052e16]">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded bg-gradient-to-br from-[#d4a253] to-[#b8860b] font-mono text-[9px] font-bold text-[#1a1207]">
             GOF
           </span>
           <span className="font-mono text-[9px] font-medium tracking-[0.18em] text-[var(--text-secondary)] md:text-[10px]">
@@ -82,7 +82,7 @@ export function Navbar() {
               className={cn(
                 "text-[12px] font-medium transition-colors",
                 active === item.href.replace("#", "")
-                  ? "text-[var(--text-primary)] underline underline-offset-4"
+                  ? "text-[var(--accent-primary)] underline decoration-[var(--accent-primary)]/40 underline-offset-4"
                   : "text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:underline hover:underline-offset-4",
               )}
             >

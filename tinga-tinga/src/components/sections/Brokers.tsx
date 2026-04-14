@@ -12,7 +12,7 @@ export function Brokers() {
         {brokers.map((broker) => (
           <article
             key={broker.name}
-            className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6 transition-colors duration-200 hover:bg-[var(--bg-tertiary)]"
+            className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6 transition-all duration-300 hover:border-[var(--accent-primary)]/20 hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)]"
           >
             <h3 className="text-2xl font-semibold text-[var(--text-primary)]">{broker.name}</h3>
             <p className="mt-2 text-sm text-[var(--text-secondary)]">{broker.description}</p>

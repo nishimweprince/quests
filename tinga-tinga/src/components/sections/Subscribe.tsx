@@ -30,7 +30,7 @@ export function Subscribe() {
           />
 
           <div
-            className="absolute inset-x-10 bottom-0 h-24 rounded-full bg-[linear-gradient(90deg,rgba(0,224,255,0.16),rgba(255,65,180,0.18),rgba(0,224,255,0.16))] blur-3xl"
+            className="absolute inset-x-10 bottom-0 h-24 rounded-full bg-[linear-gradient(90deg,rgba(212,162,83,0.14),rgba(245,200,66,0.12),rgba(212,162,83,0.14))] blur-3xl"
           />
 
           <div
@@ -46,7 +46,7 @@ export function Subscribe() {
           />
 
           <div className="relative z-10 mx-auto max-w-[720px]">
-            <h2 className="font-display text-3xl font-black leading-[1.05] tracking-tight text-[var(--text-primary)] md:text-4xl">
+            <h2 className="font-serif text-3xl font-bold italic leading-[1.05] tracking-tight text-[var(--text-primary)] md:text-4xl">
               Subscribe to godfatherofforex
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-white/70">
@@ -65,12 +65,12 @@ export function Subscribe() {
                 type="email"
                 inputMode="email"
                 placeholder="Email"
-                className="h-12 rounded-full border border-white/80 bg-[rgba(18,22,30,0.45)] px-5 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-white"
+                className="h-12 rounded-full border border-white/80 bg-[rgba(18,22,30,0.45)] px-5 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-[var(--accent-primary)]"
               />
               <Button
                 type="submit"
                 size="lg"
-                className="h-12 w-full rounded-full bg-[#ff5757] text-white hover:bg-[#ff4a4a]"
+                className="h-12 w-full rounded-full"
               >
                 Subscribe
               </Button>

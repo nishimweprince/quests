@@ -19,11 +19,11 @@ export function HowItWorks() {
             className="relative rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6"
           >
             {index < howItWorksSteps.length - 1 ? (
-              <span className="absolute right-[-32px] top-1/2 hidden -translate-y-1/2 font-mono text-sm text-[var(--text-tertiary)] lg:flex">
+              <span className="absolute right-[-32px] top-1/2 hidden -translate-y-1/2 font-mono text-sm text-[var(--accent-primary)]/40 lg:flex">
                 →
               </span>
             ) : null}
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[var(--accent-primary)] font-mono text-xs font-bold text-[#052e16]">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-[#d4a253] to-[#b8860b] font-mono text-xs font-bold text-[#1a1207]">
               {index + 1}
             </span>
             <div className="mt-5 text-[var(--accent-primary)]">

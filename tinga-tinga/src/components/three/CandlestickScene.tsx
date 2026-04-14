@@ -14,7 +14,7 @@ const HeroCandlesticks = dynamic(
 function GridFallback() {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.15),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(220,38,38,0.15),transparent_32%),linear-gradient(180deg,#0c0f14_5%,#0c0f14_45%,#141920_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,162,83,0.12),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(220,38,38,0.12),transparent_32%),linear-gradient(180deg,#0c0f14_5%,#0c0f14_45%,#16191f_100%)]" />
     </div>
   );
 }

@@ -3,10 +3,11 @@ import { navLinks } from "@/src/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--bg-primary)]">
+    <footer className="relative bg-[var(--bg-primary)]">
+      <div className="section-divider" />
       <div className="mx-auto grid w-[min(1180px,92vw)] gap-8 py-9 md:grid-cols-3">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--text-tertiary)]">GODFATHER OF FOREX</p>
+          <p className="font-mono text-[10px] tracking-[0.2em] text-[var(--accent-primary)]">GODFATHER OF FOREX</p>
           <p className="mt-3 max-w-xs text-xs text-[var(--text-tertiary)]">
             Institutional-grade forex automation.
           </p>

@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --wafaa-primary: #2f2c48;
+  --wafaa-primary-deep: #1a1830;
+  --wafaa-lilac: #e9e5f1;
+  --wafaa-paper: #fafaf8;
+  --wafaa-sage: #5d7868;
+  --wafaa-berry: #9b3d55;
+  --wafaa-text: #252337;
+  --wafaa-muted: #68657a;
+  --wafaa-line: #d8d4e1;
+  --background: var(--wafaa-paper);
+  --foreground: var(--wafaa-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-wafaa-primary: var(--wafaa-primary);
+  --color-wafaa-primary-deep: var(--wafaa-primary-deep);
+  --color-wafaa-lilac: var(--wafaa-lilac);
+  --color-wafaa-paper: var(--wafaa-paper);
+  --color-wafaa-sage: var(--wafaa-sage);
+  --color-wafaa-berry: var(--wafaa-berry);
+  --color-wafaa-text: var(--wafaa-text);
+  --color-wafaa-muted: var(--wafaa-muted);
+  --color-wafaa-line: var(--wafaa-line);
+  --font-sans: var(--font-atkinson), system-ui, sans-serif;
+  --font-display: var(--font-literata), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--wafaa-paper);
+  color: var(--wafaa-text);
+  font-family: var(--font-atkinson), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--wafaa-lilac);
+  color: var(--wafaa-primary);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--wafaa-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 0.375rem 0.375rem;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 0;
+  outline: 2px solid var(--wafaa-sage);
+  outline-offset: 2px;
+}
+
+/* Focus ring utility */
+:focus-visible {
+  outline: 2px solid var(--wafaa-sage);
+  outline-offset: 2px;
+}
+
+/* Support thread draw animation */
+@keyframes thread-draw {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.thread-animate {
+  stroke-dasharray: 200;
+  animation: thread-draw 1.2s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thread-animate {
+    stroke-dasharray: none;
+    animation: none;
+  }
+}
+
+/* Section container */
+.wafaa-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .wafaa-container {
+    padding-inline: 2rem;
+  }
+}

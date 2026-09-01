@@ -6,6 +6,7 @@ export type Person = {
   kind: PersonKind;
   slug: string;
   bio: string;
+  image: string;
 };
 
 const person = (name: string, role: string, kind: PersonKind, slug: string): Person => ({
@@ -13,7 +14,8 @@ const person = (name: string, role: string, kind: PersonKind, slug: string): Per
   role,
   kind,
   slug,
-  bio: `${name} serves as ${role.toLowerCase()} at Agaciro Development Fund.`,
+  bio: `${name} serves as ${role.toLowerCase()} at Agaciro Development Fund, helping steward national savings with discipline and long-term purpose.`,
+  image: slug === "ulrich-kayinamura" ? "/media/portrait-ulrich.jpg" : slug === "scott-t-ford" ? "/media/portrait-scott.jpg" : /^(Mrs\.|Lilian|Valentine|Elise|Sabine|Sandrine)/.test(name) ? "/media/portrait-female.jpg" : kind === "board" ? "/media/portrait-scott.jpg" : "/media/portrait-ulrich.jpg",
 });
 
 export const people: Person[] = [

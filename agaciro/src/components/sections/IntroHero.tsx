@@ -7,8 +7,8 @@ export function IntroHero({ title, breadcrumb, image = "/media/hero-about.jpg", 
       <div className="intro-content" data-reveal>
         <p className="breadcrumb">Home <span>•</span> {breadcrumb}</p>
         <h1>{title}</h1>
-        {subtitle ? <p className="intro-subtitle">{subtitle}</p> : null}
       </div>
+      {subtitle ? <p className="intro-subtitle" data-reveal>{subtitle}</p> : null}
       <a className="scroll-link" href="#content">Scroll to Explore <Arrow direction="down" /></a>
     </section>
   );

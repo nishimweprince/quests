@@ -12,13 +12,35 @@ const links = [["Home", "/"], ["About Us", "/about"], ["Investment Criteria", "/
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const isProfile = /^\/about\/(board|team)\/[^/]+$/.test(pathname);
   const light = pathname !== "/contact" && !pathname.includes("privacy") && !pathname.includes("terms") && !isProfile;
   useEffect(() => { document.documentElement.classList.toggle("menu-open", open); return () => document.documentElement.classList.remove("menu-open"); }, [open]);
+  useEffect(() => {
+    const routeTimer = window.setTimeout(() => { setOpen(false); setVisible(true); }, 0);
+    return () => window.clearTimeout(routeTimer);
+  }, [pathname]);
+  useEffect(() => {
+    let previous = window.scrollY;
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        const current = window.scrollY;
+        if (open || current < 80) setVisible(true);
+        else if (current > previous + 7) setVisible(false);
+        else if (current < previous - 5) setVisible(true);
+        previous = current;
+        frame = 0;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); if (frame) window.cancelAnimationFrame(frame); };
+  }, [open]);
   const active = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className={`site-nav ${light ? "site-nav--light" : "site-nav--dark"}`}>
+    <header className={`site-nav ${light ? "site-nav--light" : "site-nav--dark"} ${visible ? "" : "site-nav--hidden"} ${pathname === "/contact" ? "site-nav--contact" : ""} ${open ? "site-nav--menu-open" : ""}`}>
       <Link aria-label="Agaciro home" className="nav-logo" href="/"><span className="nav-logo-light"><Logo priority white /></span><span className="nav-logo-dark"><Logo priority /></span></Link>
       <nav aria-label="Primary" className="desktop-nav">
         {links.map(([label, href]) => <Link className={active(href) ? "active" : ""} href={href} key={href}>{label}</Link>)}
@@ -31,7 +53,7 @@ export function Nav() {
           {[...links, ["Contact Us", "/contact"] as const].map(([label, href]) => <Link className={active(href) ? "active" : ""} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>)}
         </nav>
         <div className="menu-wave" aria-hidden="true"><i /><i /></div>
-        <div className="mobile-contact"><a href="mailto:info@agaciro.rw">info@agaciro.rw</a><a href="https://maps.google.com/?q=BPR+PCD+Towers+Kigali">KN 67, Kigali, Rwanda</a></div>
+        <div className="mobile-contact"><a href="mailto:info@agaciro.rw"><span aria-hidden="true">✉</span> info@agaciro.rw</a><a href="https://maps.google.com/?q=BPR+PCD+Towers+Kigali"><span aria-hidden="true">●</span> KN 67, Kigali, Rwanda</a></div>
       </div>
     </header>
   );

@@ -15,8 +15,8 @@ export function PortfolioCarousel() {
       {featuredCompanies.map((company, index) => (
         <SwiperSlide key={company.id}>
           <article className={`portfolio-slide portfolio-slide--${index % 4}`}>
-            <div className="portfolio-mark">{company.name.split(" ").map((part) => part[0]).join("")}</div>
-            <div><h3>{company.name}</h3><p>{company.description}</p></div>
+            <div className="portfolio-brand-panel"><div className="portfolio-mark">{company.name.split(" ").map((part) => part[0]).join("")}</div><div><h3>{company.name}</h3><p>{company.sector}</p></div></div>
+            <div className={`portfolio-photo portfolio-photo--${(index % 4) + 1}`}><p>{company.description}</p></div>
           </article>
         </SwiperSlide>
       ))}

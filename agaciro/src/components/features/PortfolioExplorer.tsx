@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 import { portfolioCompanies, type PortfolioType } from "@/content/portfolio";
 import { Arrow } from "@/components/ui/Arrow";
-import { Select } from "@/components/ui/Select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select";
 
 const PAGE_SIZE = 9;
 const allTypes: PortfolioType[] = ["Direct Equity", "Direct Credit", "Fund Partnership", "Strategic Holding"];
@@ -24,8 +24,8 @@ export function PortfolioExplorer() {
       <div className="portfolio-heading"><h2>Explore Our Investments</h2><p>Browse a representative, fictional v1 portfolio built to demonstrate Agaciro&apos;s investment breadth.</p></div>
       <aside className="filter-panel">
         <div><span className="filter-label">Deal Type</span>{allTypes.map((type) => <label key={type}><input checked={types.includes(type)} onChange={() => toggleType(type)} type="checkbox" /><i />{type}</label>)}</div>
-        <Select label="Sector" options={[{ label: "All sectors", value: "All sectors" }, ...[...new Set(portfolioCompanies.map((item) => item.sector))].map((item) => ({ label: item, value: item }))]} value={sector} onChange={(event) => { setPage(1); setSector(event.target.value); }} />
-        <Select label="Status" options={[{ label: "All", value: "All" }, { label: "Current", value: "Current" }, { label: "Exited", value: "Exited" }]} value={status} onChange={(event) => { setPage(1); setStatus(event.target.value); }} />
+        <div className="mt-7 grid gap-2"><label className="text-sm font-medium" htmlFor="sector-filter">Sector</label><Select value={sector} onValueChange={(value) => { if (value !== null) { setPage(1); setSector(value); } }}><SelectTrigger className="w-full" id="sector-filter"><SelectValue /></SelectTrigger><SelectContent>{["All sectors", ...new Set(portfolioCompanies.map((item) => item.sector))].map((item) => <SelectItem key={item} value={item}>{item}</SelectItem>)}</SelectContent></Select></div>
+        <div className="mt-7 grid gap-2"><label className="text-sm font-medium" htmlFor="status-filter">Status</label><Select value={status} onValueChange={(value) => { if (value !== null) { setPage(1); setStatus(value); } }}><SelectTrigger className="w-full" id="status-filter"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="All">All</SelectItem><SelectItem value="Current">Current</SelectItem><SelectItem value="Exited">Exited</SelectItem></SelectContent></Select></div>
         <button className="clear-filter" onClick={() => { setTypes([]); setSector("All sectors"); setStatus("All"); setPage(1); }}>Clear filters</button>
       </aside>
       <div className="portfolio-grid">

@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Arrow } from "@/components/ui/Arrow";
-import { Select } from "@/components/ui/Select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -16,7 +16,7 @@ export function ContactForm() {
         <label>Full names*<input name="name" placeholder="Enter full names" required /></label>
         <label>Email*<input name="email" placeholder="Enter email" required type="email" /></label>
         <label>Phone<input name="phone" placeholder="Enter phone" /></label>
-        <Select label="Inquiry type*" name="subject" options={[{ label: "Select an inquiry", value: "" }, { label: "Investment opportunity", value: "Investment opportunity" }, { label: "Partnership", value: "Partnership" }, { label: "Media", value: "Media" }, { label: "General enquiry", value: "General enquiry" }]} required value={inquiry} onChange={(event) => setInquiry(event.target.value)} />
+        <div className="grid gap-4"><label htmlFor="inquiry-type">Inquiry type*</label><Select name="subject" required value={inquiry} onValueChange={(value) => { if (value !== null) setInquiry(value); }}><SelectTrigger className="w-full" id="inquiry-type"><SelectValue placeholder="Select an inquiry" /></SelectTrigger><SelectContent><SelectItem value="Investment opportunity">Investment opportunity</SelectItem><SelectItem value="Partnership">Partnership</SelectItem><SelectItem value="Media">Media</SelectItem><SelectItem value="General enquiry">General enquiry</SelectItem></SelectContent></Select></div>
         <label className="field-wide">Message*<textarea name="message" placeholder="Enter message" required rows={4} /></label>
         <button type="submit">Send a message <Arrow /></button>
       </form>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { copy } from "@/lib/content";
 import { nav, site } from "@/lib/site";
 import { ArrowIcon } from "./ArrowIcon";
 
@@ -12,8 +13,7 @@ export function Footer() {
             <Image src="/logo13.png" alt="JALI Transport" width={186} height={51} />
           </Link>
           <p className="footer-tagline">
-            JALI Transport provides public bus services in Kigali City and across
-            Rwanda.
+            {copy.hero.lead}
           </p>
           <Link href="/twandikire" className="button btn-arrow button--cream">
             <span>Get in Touch</span>

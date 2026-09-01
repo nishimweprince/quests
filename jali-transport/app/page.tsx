@@ -1,56 +1,36 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./components/Button";
+import { LeadershipSection } from "./components/LeadershipSection";
+import { copy, images } from "@/lib/content";
 import { parks, routes } from "@/lib/routes";
 
-const principles = [
-  {
-    num: "01",
-    text: "Gutanga serivisi z'ubwikorezi bw'abantu bose mu Mujyi wa Kigali",
-    variant: "dark" as const,
-  },
-  {
-    num: "02",
-    text: "Gutezimbere imihanda y'ubwikorezi mu bice dukoramo",
-    variant: "cream" as const,
-  },
-  {
-    num: "03",
-    text: "Kubahiriza amategeko n'amabwiriza y'inganda y'ubwikorezi",
-    variant: "light" as const,
-  },
-  {
-    num: "04",
-    text: "Gufasha urwego rw'abikorera mu bucuruzi bw'ubwikorezi",
-    variant: "dark" as const,
-  },
-];
-
-const strengths = [
-  "Uburambe mu gutanga serivisi z'ubwikorezi bw'abantu bose",
-  "Guhuza n'amahugurwa ya RFTC mu bijyanye n'ubwikorezi",
-  "Itumanaho ryihuse n'abakiriya bacu",
-];
+const principles = copy.services.items.slice(0, 4).map((text, i) => ({
+  num: String(i + 1).padStart(2, "0"),
+  text,
+  variant: (["dark", "cream", "light", "dark"] as const)[i],
+}));
 
 export default function Home() {
   return (
     <>
       <section className="section-hero" aria-labelledby="hero-heading">
-        <div className="hero-bg" aria-hidden="true" />
+        <Image
+          src={images.hero}
+          alt=""
+          fill
+          priority
+          className="hero-bg-img"
+          sizes="100vw"
+        />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-wrap">
           <div className="hero-content">
             <div className="hero-left">
-              <h1 id="hero-heading">
-                Public Transport for Kigali and Rwanda
-              </h1>
-              <p className="hero-lead">
-                JALI Transport Limited is a subsidiary of JALI Investment
-                Limited and the Rwanda Federation of Transport Cooperative
-                (RFTC), providing immediate and long-term solutions to
-                transportation needs across the country.
-              </p>
+              <h1 id="hero-heading">{copy.hero.title}</h1>
+              <p className="hero-lead">{copy.hero.lead}</p>
               <div className="hero-actions">
-                <Button href="/imihanda">View Routes</Button>
+                <Button href="/imihanda">Our Services</Button>
                 <Button href="/twandikire" variant="sand">
                   Get in Touch
                 </Button>
@@ -58,9 +38,7 @@ export default function Home() {
             </div>
             <div className="hero-right">
               <div className="hero-stat">
-                <div className="hero-stat-number">
-                  <span>{routes.length}</span>
-                </div>
+                <div className="hero-stat-number">{routes.length}</div>
                 <div className="hero-stat-label">Active Bus Routes</div>
               </div>
               <a href="#routes" className="btn-scroll">
@@ -79,9 +57,15 @@ export default function Home() {
       <section className="section-family">
         <div className="container family-wrap">
           <div className="family-left">
-            <div className="family-left-bg" aria-hidden="true" />
+            <Image
+              src={images.about}
+              alt="Kigali community"
+              fill
+              className="family-left-bg"
+              sizes="(max-width: 991px) 100vw, 34rem"
+            />
             <div className="family-funds">
-              <div className="family-funds-title">Our Routes</div>
+              <div className="family-funds-title">{copy.schedules.title}</div>
               <div className="family-funds-grid">
                 {routes.map((route) => (
                   <div key={route.id} className="family-fund-item">
@@ -93,24 +77,17 @@ export default function Home() {
             </div>
           </div>
           <div className="family-right">
-            <div className="family-top">
-              <div className="family-header">
-                <h3>
-                  A Transport Company Built on Experience and Alignment
-                </h3>
-                <p>
-                  We provide public bus services in Kigali City with aligned
-                  operations and real-world expertise from RFTC.
-                </p>
-                <Link href="/ibyerekeye" className="btn-line">
-                  More on Our Approach
-                </Link>
-              </div>
+            <div className="family-header">
+              <h3>{copy.about.title}</h3>
+              <p>{copy.about.body}</p>
+              <Link href="/ibyerekeye" className="btn-line">
+                Learn More
+              </Link>
             </div>
             <div className="family-stats">
               <div>
                 <div className="family-stat-num">{routes.length}</div>
-                <div className="family-stat-label">Active routes</div>
+                <div className="family-stat-label">Routes</div>
               </div>
               <div>
                 <div className="family-stat-num">{parks.length}</div>
@@ -129,9 +106,9 @@ export default function Home() {
         <div className="ticker-track">
           {[
             ...routes.map((r) => `Route ${r.id}`),
-            ...parks.map((p) => `${p.name} Park`),
+            ...parks.map((p) => `${p.name} Taxi Park`),
             ...routes.map((r) => `Route ${r.id}`),
-            ...parks.map((p) => `${p.name} Park`),
+            ...parks.map((p) => `${p.name} Taxi Park`),
           ].map((label, i) => (
             <span key={`${label}-${i}`} className="ticker-item">
               {label}
@@ -143,11 +120,8 @@ export default function Home() {
       <section className="section-aligned">
         <div className="container">
           <div className="aligned-header">
-            <h2>Reliable. Accessible. Built for Riders.</h2>
-            <p>
-              Our approach is grounded in real experience serving public
-              transport users across Rwanda.
-            </p>
+            <h2>{copy.services.title}</h2>
+            <p>{copy.services.intro}</p>
           </div>
           <div className="aligned-grid">
             {principles.map((item) => (
@@ -167,11 +141,8 @@ export default function Home() {
         <div className="container">
           <div className="portfolio-header">
             <div>
-              <h2>A Growing Network of Routes and Parks</h2>
-              <p>
-                We operate bus routes in Kigali and manage taxi parks across
-                Rwanda.
-              </p>
+              <h2>{copy.projects.title}</h2>
+              <p>{copy.hero.welcome}</p>
             </div>
             <Button href="/imihanda">Explore Routes</Button>
           </div>
@@ -182,17 +153,11 @@ export default function Home() {
                 href={`/imihanda/${route.id}`}
                 className={`portfolio-card portfolio-card--${route.id}`}
               >
-                <div>
-                  <div className="portfolio-route-num">{route.id}</div>
-                </div>
+                <div className="portfolio-route-num">{route.id}</div>
                 <div>
                   <h3>{route.corridorEn}</h3>
-                  <p>
-                    {route.schedules.map((s) => s.daysEn).join(" · ")}
-                  </p>
-                  <span className="portfolio-card-cta">
-                    View Route →
-                  </span>
+                  <p>{route.schedules.map((s) => s.daysEn).join(" · ")}</p>
+                  <span className="portfolio-card-cta">View →</span>
                 </div>
               </Link>
             ))}
@@ -205,7 +170,7 @@ export default function Home() {
                 <div>
                   <h3>{park.name}</h3>
                   <p>Taxi Park</p>
-                  <span className="portfolio-card-cta">View Park →</span>
+                  <span className="portfolio-card-cta">View →</span>
                 </div>
               </Link>
             ))}
@@ -215,13 +180,20 @@ export default function Home() {
 
       <section className="section-key">
         <div className="key-bg">
-          <div className="key-bg-overlay" aria-hidden="true" />
+          <Image
+            src={images.landscape}
+            alt=""
+            fill
+            className="key-bg-img"
+            sizes="100vw"
+          />
         </div>
+        <div className="key-bg-overlay" aria-hidden="true" />
         <div className="container key-wrap">
-          <h2>Key Strengths and Principles</h2>
+          <h2>Key Strengths</h2>
           <div className="key-cards">
-            {strengths.map((text, i) => (
-              <div key={text} className={`key-card key-card--${i + 1}`}>
+            {copy.services.items.slice(4).map((text) => (
+              <div key={text} className="key-card">
                 {text}
               </div>
             ))}
@@ -229,17 +201,17 @@ export default function Home() {
         </div>
       </section>
 
+      <LeadershipSection />
+
       <div className="service-strip">
-        <span>Service Update</span> — Nta mpinduka uyu munsi / No disruptions today
+        <span>Welcome</span> — We encourage you to use this site to find information about Jali Transport.
       </div>
 
       <section className="section-cta">
         <div className="cta-bg" aria-hidden="true" />
         <div className="container cta-wrap">
-          <h2>Let&apos;s Connect</h2>
-          <p>
-            JALI Transport serves passengers across Kigali City and Rwanda.
-          </p>
+          <h2>{copy.cta.title}</h2>
+          <p>{copy.about.holdings}</p>
           <Button href="/twandikire" variant="sand">
             Get in Touch
           </Button>

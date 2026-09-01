@@ -9,14 +9,13 @@ export type Person = {
   summary: string;
   /** Full biography, one entry per paragraph. */
   bio: string[];
-  image: string;
+  /** Real headshot. Omitted until one is supplied — the card shows a monogram. */
+  image?: string;
+  /** Personal handles, where the Fund publishes them. */
+  linkedin?: string;
+  twitter?: string;
+  email?: string;
 };
-
-const PORTRAIT = {
-  ulrich: "/media/portrait-ulrich.jpg",
-  scott: "/media/portrait-scott.jpg",
-  female: "/media/portrait-female.jpg",
-} as const;
 
 export const board: Person[] = [
   {
@@ -30,7 +29,6 @@ export const board: Person[] = [
       "Mr Ford is co-founder and Chief Executive Officer of Westrock Group, LLC, a private investment firm he founded with his father in 2013. Westrock Group operates Westrock Asset Management, LLC, an alternative asset management firm, and Westrock Coffee Company, LLC, a vertically-integrated coffee company. Mr. Ford serves as Chief Executive Officer and Chief Investment Officer of Westrock Asset Management and as Chairman and Chief Executive Officer of Westrock Coffee Company.",
       "He holds a Bachelor of Science in Business Administration in Finance from the University of Arkansas, Fayetteville, Arkansas.",
     ],
-    image: PORTRAIT.scott,
   },
   {
     name: "Dr. Thierry Mihigo Kalisa",
@@ -44,7 +42,6 @@ export const board: Person[] = [
       "His work covers economic research, modeling, monetary policy formulation among other things. Prior to this appointment, Dr. Kalisa was Senior Economist, Head of the Macroeconomic Policy Division in the Ministry of Finance and Economic Planning.",
       "He graduated from University Lyon 2, France, with a PhD in Economics and has teaching experience for various economic courses.",
     ],
-    image: PORTRAIT.scott,
   },
   {
     name: "Mrs. Doreen G. Karake",
@@ -58,7 +55,6 @@ export const board: Person[] = [
       "Prior to that, she was the Company Secretary and Director of Legal Affairs at Ngali Holdings. She served as a Board Member of the Rwanda Social Security Board and is currently serving on the Board of Directors of the Special Guarantee Fund.",
       "She holds an MBA with the Heriot-Watt University (Edinburgh Business School), an LLM and LLB from the University of Witwatersrand, and a B-juris from the University of Namibia.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Mrs. Jeanne Francoise Mubiligi",
@@ -72,7 +68,6 @@ export const board: Person[] = [
       "Mrs Mubiligi is the Chairperson of the Chamber of Women Entrepreneurs — Rwanda.",
       "She holds a Masters in International Business Development from Université de Neuchâtel and a Bachelor's degree in management, option in informative system management, from the same university.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Mr. Aimé Ngarukiyintwali",
@@ -86,7 +81,6 @@ export const board: Person[] = [
       "He is an expert in securitization, a technique that consists in pooling various types of receivables — residential mortgages, auto loans, credit cards, commercial real estate loans and leveraged loans — in order to originate marketable asset backed securities (ABS) for funding or regulatory capital optimization purposes. He has structured various types of ABS products as well as managed large portfolios of ABS.",
       "Mr Ngarukiyintwali holds a Master of Science in Mathematical Trading and Finance from the CASS Business School of the City University London, a Master Degree in Business (Diplom-Kaufmann) from the University of Mannheim, Germany, an executive training certificate in Finance from INSEAD and a Diplôme International de Management from the Institut Commercial de Nancy, France.",
     ],
-    image: PORTRAIT.scott,
   },
   {
     name: "Mr. Andrew Rozanov",
@@ -101,7 +95,6 @@ export const board: Person[] = [
       "Previously, Andrew was Associate Fellow in the International Economics Program at Chatham House, where he was researching Abenomics. Prior to that, he worked at Permal Group, where he was responsible for advising institutional investors on asset allocation, portfolio construction, risk management and alternative investments, focusing on global macro and tail risk strategies. Before that, he worked at State Street Corporation and UBS Investment Bank, in Tokyo and in London.",
       "Mr Rozanov is a Chartered Financial Analyst (CFA), a Financial Risk Manager (FRM), and a Chartered Alternative Investment Analyst (CAIA).",
     ],
-    image: PORTRAIT.scott,
   },
 ];
 
@@ -119,7 +112,6 @@ export const executives: Person[] = [
       "In addition to his executive responsibilities, he serves on the boards of several leading institutions and contributes to the advancement of governance excellence, capital markets development, and long-term institutional investment across the region.",
       "Ulrich holds a Master of Science in Business Administration from the University of Groningen (The Netherlands). He is a CFA Charterholder and Financial Risk Manager (FRM), and has completed the Senior Executive Program for Africa (SEPA) at Harvard Business School. He also holds the Certificate in Company Direction from the Institute of Directors (IoD), UK, reflecting his commitment to leadership, governance excellence, and global best practices.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Ismael Amri Sued",
@@ -133,7 +125,6 @@ export const executives: Person[] = [
       "Prior to joining Agaciro, Ismael advised a broad range of corporations and institutions on commercial and corporate matters, mergers and acquisitions, regulatory issues, and investment fund structuring, both in private practice and as in-house counsel in Rwanda. At the international level, he has worked with and advised development finance institutions, including the World Bank and USAID, as well as governments on the negotiation and implementation of major development projects.",
       "Ismael holds a postgraduate degree in Business Law from the University of Lyon and is a non-practising member of the Rwanda Bar Association and the Institute of Business Advisers Southern Africa.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Nathaniel Nyika",
@@ -147,7 +138,6 @@ export const executives: Person[] = [
       "He brings over 25 years of investment experience of transacting across Sub-Saharan African markets including the key African markets — Kenya, Ivory Coast, Nigeria, Ghana and South Africa — as well as multiple frontier markets. His experience spans private equity, private debt and credit (including structured debt and mezzanine), investment banking, hedge fund management and listed securities research and trading. He has covered a wide range of sectors including financial services (banking and NBFIs), infrastructure (IPPs, digital and soft infrastructure, including education and healthcare), the food value chain, industrials and manufacturing, affordable housing and hospitality. His investment approach is grounded in impact investing, with a focus on delivering sustainable financial returns alongside measurable developmental outcomes.",
       "Nathaniel holds a Master's in Business Administration (cum laude) from the University of Witwatersrand, Wits Business School and a BSc (Hons) in Electrical Engineering. He studied Executive Leadership at Saïd Business School, University of Oxford and is a Certified Business Rescue Analyst (CRA).",
     ],
-    image: PORTRAIT.ulrich,
   },
 ];
 
@@ -164,7 +154,6 @@ export const teamMembers: Person[] = [
       "Throughout his career, Jerry has developed expertise in operational leadership, investment analysis, procurement management, and financial strategy. He has led initiatives in investment origination, financial modelling, valuation, and procurement reform, while also providing strategic governance support to AgDF's portfolio companies.",
       "Jerry is a Certified Director through the Institute of Directors and holds an Executive Master's in Financial Services Industry (FICP), as well as a Bachelor of Business Administration in Finance.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Bienfait Banaga",
@@ -179,7 +168,6 @@ export const teamMembers: Person[] = [
       "In addition to his executive finance experience, Mr. Bienfait has served as a Board Member for companies operating in various sectors, including data centers, food processing, tea production, and education. His board experience has strengthened his understanding of corporate governance, risk management, and organizational oversight.",
       "Mr. Bienfait is a member in good standing of the Institute of Certified Public Accountants of Rwanda (ICPAR). He holds a Master's Degree in Finance from the Adventist University of Central Africa (AUCA) and a Bachelor's Degree in Finance. He is also a Certified Public Accountant and has obtained a certification in Financial Management Industry from the Luxembourg School of Business.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Zackiah Nandugwa",
@@ -193,7 +181,6 @@ export const teamMembers: Person[] = [
       "Prior to joining AGDF Corporate Trust, she served as an Associate at K-Solutions & Partners, a general business law firm, where she advised corporate clients on commercial transactions, governance matters, and legal risk management. Earlier experience at the National Bank of Rwanda further strengthened her understanding of financial sector regulation and institutional compliance frameworks.",
       "She serves as a Director on the boards of several companies across diverse sectors, providing strategic oversight and promoting sound corporate governance, regulatory compliance, and sustainable business growth. She holds a Bachelor's degree in Law (First Class Hons), a Postgraduate Diploma in Legal Practice, a Diploma in International Financial Reporting Standards — ACCA UK, and is currently pursuing an LLM in International Commercial and Investment Law.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Charles Ndahimana",
@@ -207,7 +194,6 @@ export const teamMembers: Person[] = [
       "As a trusted leader in corporate governance, he also provides strategic oversight to several high-level boards, currently serving as a Board Member and Audit Committee Chairman for Mayange Rice Company Ltd. He also served as Audit Committee member of the Ministry of ICT and Innovation for a period of 6 years and its Chairman for 3 years.",
       "Charles holds ACCA and CPA® qualifications and is a Certified Financial Modeling & Valuation Analyst (FMVA®) and certified Capital Markets & Securities Analyst (CMSA®). He also has a bachelor's degree in Accounting while currently pursuing his MBA in Strategic Management and CFA qualification.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Felicien Rimenyande",
@@ -222,7 +208,6 @@ export const teamMembers: Person[] = [
       "He holds a Master's degree in Information Technology (University of Madras) and certifications in emerging and digital technologies, data analytics and business intelligence, project management and UN Systems & Humanitarian certifications.",
       "He maintains strong competencies in data systems development, data analytics, AI systems, and scalable digital infrastructures — capabilities that support evidence-based decision-making, data-driven portfolio management, and investment transparency.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Lilian S. Mutesi",
@@ -236,7 +221,6 @@ export const teamMembers: Person[] = [
       "She partners with leadership to design and implement people strategies that enhance organizational effectiveness, strengthen employee experience, and cultivate high-performing workplace cultures aligned with business objectives.",
       "She is currently pursuing a Master of Business Administration (MBA). Lilian is also a Certified Professional Coach and Certified Trainer. She is passionate about developing leaders, empowering teams, and driving sustainable organizational growth through innovative and practical people solutions that create lasting impact.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Valentine Nyinawumuntu",
@@ -250,7 +234,6 @@ export const teamMembers: Person[] = [
       "With over five years of experience across various industries in the private sector, she previously served as an Investment Analyst at Macefield Ventures Ltd and attended the Analyst Program at Admaius Capital Partners, where she gained exposure to Pan-African investment opportunities and transaction analysis.",
       "Valentine is FMVA® certified and holds a Bachelor's Honours Degree in Finance from the University of Kigali.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Benjamin Igeno",
@@ -264,7 +247,6 @@ export const teamMembers: Person[] = [
       "He began his career in audit and assurance, serving leading financial institutions, development organizations, and public sector entities. He brings a collaborative and adaptable approach to his work, supported by a strong analytical mindset and a commitment to learning quickly while integrating effectively with diverse teams.",
       "Benjamin holds a Bachelor's Degree in Accounting and is a Certified Public Accountant (CPA), FMVA certificate holder and CFA Level II candidate.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Elise Ntamitondero",
@@ -279,7 +261,6 @@ export const teamMembers: Person[] = [
       "Before joining Agaciro Development Fund in 2018, Elise advanced from Assistant Auditor to Audit Director at the Office of the Auditor General of Rwanda (OAG). Earlier in her career, she served as an Accountant at OCIR Café.",
       "Elise is a member of ACCA and ICPAR, and she also holds the FMVA® and FICP professional qualifications, as well as a Bachelor of Accounting from the Kigali Institute of Sciences, Technology and Management (KIST).",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Sedar Sagamba",
@@ -294,7 +275,6 @@ export const teamMembers: Person[] = [
       "His expertise is backed by a portfolio of internationally recognized certifications spanning cybersecurity, ethical hacking, and advanced networking including the CISSP, CEH, CCNP, CCNA, and CND.",
       "A graduate of Saint Lawrence University, he combines technical depth with a strategic mindset, bridging day-to-day IT operations with long-term institutional security goals.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Sabine Iradukunda Mugunga",
@@ -308,7 +288,6 @@ export const teamMembers: Person[] = [
       "With over six years of experience in risk management, compliance, and financial governance, she leads Agaciro's risk and compliance function. In this role, she drives institutional integrity and safeguards sovereign assets through robust frameworks, proactive risk mitigation, and adherence to international best practices. Her expertise spans governance, regulatory compliance, internal controls, and enterprise risk management.",
       "She is a Certified Risk and Compliance Management Professional (CRCMP) and a PECB Certified ISO 31000 Lead Risk Manager. She holds a Bachelor's degree in Accounting, Economics, and Business Studies from Kigali Independent University and is currently pursuing a Master of Business Administration (MBA) in Project Management at the University of Kigali.",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Cliff Hakizabera",
@@ -322,7 +301,6 @@ export const teamMembers: Person[] = [
       "With over 15 years of experience in the financial services industry, Cliff brings deep expertise across strategic planning, implementation, and business analysis. His career includes more than eight years at a leading financial software company, where he served both as an Accountant and as a Financial Software Specialist, supporting the implementation of enterprise software platforms across North America while learning key business processes and implementing best practices to drive efficiency and effectiveness.",
       "Cliff holds a Master of Business Administration (MBA) from Oklahoma Christian University, membership in the Delta Mu Delta honor society and a Bachelor of Science in Business Administration from Milligan College.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Prince Ntwari",
@@ -336,7 +314,6 @@ export const teamMembers: Person[] = [
       "Prior to joining AgDF, he gained seven years of experience across the pension, investment management, and financial services sectors, building expertise in investment analysis, financial markets (equity and debt), financial modeling, valuation, portfolio management, and investment decision-making.",
       "Prince holds a Bachelor's degree in Accounting from the University of Rwanda and is a Certified Public Accountant (CPA). He is also a certified Financial Modeling and Valuation Analyst (FMVA), reflecting his strong technical foundation in financial analysis and investment management.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Sandrine Isimbi Butera",
@@ -350,7 +327,6 @@ export const teamMembers: Person[] = [
       "Prior to joining AgDF, Sandrine built a diverse professional background across the healthcare, energy, infrastructure, and events management sectors, gaining experience in administration, operations coordination, stakeholder engagement, and organizational support.",
       "She is a certified Project Management Professional (PMP) accredited by the Project Management Institute (PMI) in the USA and holds a Bachelor's degree in Business Administration with specialization in General Management from the Adventist University of Central Africa (AUCA).",
     ],
-    image: PORTRAIT.female,
   },
   {
     name: "Landry Girinshuti",
@@ -364,7 +340,6 @@ export const teamMembers: Person[] = [
       "With over nine years of progressive professional experience, Landry has built a strong track record in financial reporting and analysis, financial modeling, forecasting, budgeting, and supporting strategic business decision-making through data-driven insights. He possesses extensive expertise in audit, taxation, statutory compliance, financial systems, and process improvement, with a strong focus on enhancing operational efficiency and strengthening internal controls.",
       "His professional experience spans diverse industries including financial services, petroleum and energy, transport and logistics, and professional accounting services. Prior to his current role, he served as Chief Accountant at Rubis Energy Rwanda Ltd and Senior Accountant at Limoz Rwanda Ltd, where he played a key role in financial management, compliance, reporting, and business performance optimization.",
     ],
-    image: PORTRAIT.ulrich,
   },
   {
     name: "Keith Ntagozera",
@@ -377,7 +352,6 @@ export const teamMembers: Person[] = [
       "Keith is a marketing, communications, and public relations professional with over 10 years of experience across banking, development finance, media and advertising sectors. He specializes in strategic communication, brand positioning, stakeholder engagement, and digital storytelling, helping organizations strengthen their visibility and connect meaningfully with their audiences. Passionate about impactful communication, Keith combines creativity and strategic insight to deliver compelling narratives that support institutional growth and reputation.",
       "He is a certified ISO 22301 Lead Implementer, and holds a bachelor's degree in business administration from the University of Rwanda.",
     ],
-    image: PORTRAIT.ulrich,
   },
 ];
 

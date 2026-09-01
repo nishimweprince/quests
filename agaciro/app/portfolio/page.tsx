@@ -1,6 +1,7 @@
 import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { PortfolioExplorer } from "@/components/features/PortfolioExplorer";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Portfolio",
@@ -13,7 +14,7 @@ export default function PortfolioPage() {
     <>
       <PageHero
         crumbs={[{ label: "Portfolio" }]}
-        image="/media/hero-home.jpg"
+        image={media.portfolio.hub}
         standfirst="Twenty-five portfolio companies and strategic national investments across seven sectors."
         title="Our Portfolio"
       />

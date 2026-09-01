@@ -2,6 +2,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { newsItems } from "@/content/news";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "News & Events",
@@ -13,7 +14,7 @@ export default function NewsPage() {
     <>
       <PageHero
         crumbs={[{ label: "News & Events" }]}
-        image="/media/hero-about.jpg"
+        image={media.news}
         standfirst="What the Fund has been doing, and where it has shown up."
         title="News & Events"
       />

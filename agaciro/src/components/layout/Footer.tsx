@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Arrow } from "@/components/ui/Arrow";
 import { Logo } from "@/components/ui/Logo";
-import { footerColumns, site } from "@/content/site";
+import { SocialIcon } from "@/components/ui/SocialIcon";
+import { footerColumns, site, socials } from "@/content/site";
 
 export function Footer() {
   return (
@@ -17,7 +16,7 @@ export function Footer() {
                 Agaciro Development Fund invests national savings for Rwanda&apos;s
                 long-term resilience and prosperity.
               </p>
-              <Link className="btn btn--cream" href="/contact">
+              <Link className="btn btn--sage" href="/contact">
                 Get in Touch <Arrow direction="diagonal" />
               </Link>
               <address className="footer-address">
@@ -34,6 +33,23 @@ export function Footer() {
                   {site.email}
                 </a>
               </address>
+              <div className="social-row" role="group" aria-label="Follow Agaciro">
+                {socials.map((item) => (
+                  <SocialIcon
+                    href={item.href}
+                    key={item.icon}
+                    label={`Agaciro Development Fund on ${item.label}`}
+                    name={item.icon}
+                    onDark
+                  />
+                ))}
+                <SocialIcon
+                  href={`mailto:${site.email}`}
+                  label="Email Agaciro Development Fund"
+                  name="email"
+                  onDark
+                />
+              </div>
             </div>
 
             {footerColumns.map((column) => (
@@ -57,15 +73,6 @@ export function Footer() {
               <Logo white />
             </Link>
             <div className="footer-legal">
-              <a
-                className="footer-link"
-                href="https://www.linkedin.com/company/agaciro-development-fund"
-                rel="noreferrer noopener"
-                target="_blank"
-              >
-                <FontAwesomeIcon aria-hidden="true" icon={faLinkedinIn} />
-                LinkedIn
-              </a>
               <span>
                 Copyright © Agaciro Development Fund 2026. All rights reserved.
               </span>

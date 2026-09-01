@@ -6,6 +6,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { findResourceCategory, resourceCategories } from "@/content/resources";
+import { media, resourceHero } from "@/content/media";
 
 export function generateStaticParams() {
   return resourceCategories.map((category) => ({ slug: category.slug }));
@@ -35,7 +36,7 @@ export default async function ResourceCategoryPage({
     <>
       <PageHero
         crumbs={[{ label: "Resources", href: "/resources" }, { label: category.title }]}
-        image="/media/funds-office.jpg"
+        image={resourceHero[slug] ?? media.resources.hub}
         standfirst={category.summary}
         title={category.title}
       />

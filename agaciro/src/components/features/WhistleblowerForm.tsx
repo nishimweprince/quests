@@ -120,7 +120,7 @@ export function WhistleblowerForm() {
         </label>
 
         <div className="form-actions">
-          <button className="btn btn--brown" type="submit">
+          <button className="btn btn--forest" type="submit">
             Submit disclosure <Arrow direction="diagonal" />
           </button>
         </div>

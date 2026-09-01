@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
+import { media, sectorHero } from "@/content/media";
 import {
   companiesInSector,
   findSector,
@@ -25,16 +26,6 @@ export async function generateMetadata({
   return { title: match.name, description: match.intro };
 }
 
-const IMAGES: Record<string, string> = {
-  "financial-services": "/media/funds-office.jpg",
-  "telecommunications-media-and-technology": "/media/strengths-blue.jpg",
-  "agriculture-and-agro-processing": "/media/hero-about.jpg",
-  "transport-and-logistics": "/media/hero-home.jpg",
-  "industrials-and-manufacturing": "/media/hero-criteria.jpg",
-  mining: "/media/key-strengths.png",
-  hospitality: "/media/connect-office.jpg",
-};
-
 export default async function SectorPage({
   params,
 }: {
@@ -51,7 +42,7 @@ export default async function SectorPage({
     <>
       <PageHero
         crumbs={[{ label: "Portfolio", href: "/portfolio" }, { label: match.name }]}
-        image={IMAGES[match.slug] ?? "/media/hero-home.jpg"}
+        image={sectorHero[match.slug] ?? media.portfolio.hub}
         standfirst={match.intro}
         title={match.name}
       />
@@ -99,7 +90,7 @@ export default async function SectorPage({
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
             <h2>Other sectors</h2>

@@ -6,6 +6,7 @@ import { Arrow } from "@/components/ui/Arrow";
 import { resourceCategories, tenders } from "@/content/resources";
 import { newsItems } from "@/content/news";
 import { vacancies } from "@/content/careers";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Resources",
@@ -49,7 +50,7 @@ export default function ResourcesPage() {
     <>
       <PageHero
         crumbs={[{ label: "Resources" }]}
-        image="/media/funds-office.jpg"
+        image={media.resources.hub}
         standfirst="Reports, statements, policies, tenders and notices, in one place."
         title="Resources"
       />

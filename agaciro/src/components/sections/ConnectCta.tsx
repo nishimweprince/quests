@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/Button";
+import { media } from "@/content/media";
 
 export function ConnectCta({
   title = "Let's Connect",
   body,
-  image = "/media/connect-office.jpg",
+  image = media.home.cta,
 }: {
   title?: string;
   body?: string;

@@ -1,6 +1,7 @@
 import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { aboutIntro, history, milestones } from "@/content/about";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Our History",
@@ -13,7 +14,7 @@ export default function HistoryPage() {
     <>
       <PageHero
         crumbs={[{ label: "About Us", href: "/about" }, { label: "Our History" }]}
-        image="/media/hero-about.jpg"
+        image={media.about.history}
         standfirst="Proposed by Rwandans in 2011, launched in 2012, and an investment company wholly owned by the Government of Rwanda since 2013."
         title="Our History"
       />
@@ -34,7 +35,7 @@ export default function HistoryPage() {
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
             <h2>Four moments that shaped the Fund</h2>

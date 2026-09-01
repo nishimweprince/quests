@@ -5,6 +5,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { findInvestmentPage, investmentPages } from "@/content/investment";
+import { investmentHero, media } from "@/content/media";
 
 export function generateStaticParams() {
   return investmentPages.map((page) => ({ slug: page.slug }));
@@ -21,14 +22,6 @@ export async function generateMetadata({
   return { title: page.title, description: page.summary };
 }
 
-const IMAGES: Record<string, string> = {
-  "what-we-invest-in": "/media/funds-office.jpg",
-  "our-investment-approach": "/media/hero-criteria.jpg",
-  "developmental-impact-and-esg": "/media/strengths-blue.jpg",
-  "investment-process": "/media/hero-about.jpg",
-  "investment-risk-management": "/media/connect-office.jpg",
-};
-
 export default async function InvestmentDetail({
   params,
 }: {
@@ -44,7 +37,7 @@ export default async function InvestmentDetail({
     <>
       <PageHero
         crumbs={[{ label: "Investment", href: "/investment" }, { label: page.title }]}
-        image={IMAGES[slug] ?? "/media/hero-criteria.jpg"}
+        image={investmentHero[slug] ?? media.investment.hub}
         standfirst={page.summary}
         title={page.title}
       />

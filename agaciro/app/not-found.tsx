@@ -1,12 +1,13 @@
 import Image from "next/image";
 
 import { Button } from "@/components/ui/Button";
+import { media } from "@/content/media";
 
 export default function NotFound() {
   return (
     <section className="notfound">
       <div className="frame">
-        <Image alt="" fill sizes="100vw" src="/media/hero-about.jpg" />
+        <Image alt="" fill sizes="100vw" src={media.notFound} />
         <div className="frame-shade frame-shade--center" />
       </div>
       <div className="notfound-inner pad-global">

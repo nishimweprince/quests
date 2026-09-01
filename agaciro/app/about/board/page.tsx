@@ -2,6 +2,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { PersonCards } from "@/components/sections/PersonCards";
 import { board, boardIntro } from "@/content/people";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Board of Directors",
@@ -17,7 +18,7 @@ export default function BoardPage() {
           { label: "About Us", href: "/about" },
           { label: "Board of Directors" },
         ]}
-        image="/media/hero-criteria.jpg"
+        image={media.about.board}
         standfirst="Six directors approved by Cabinet, accountable through the Minister of Finance and Economic Planning."
         title="Board of Directors"
       />

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    {
+      "source": "/about-us/mission-and-vision",
+      "destination": "/about/mission-and-vision",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/board-of-directors",
+      "destination": "/about/board",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/our-team",
+      "destination": "/about/team",
+      "permanent": true
+    },
+    {
+      "source": "/core-functions/portfolio",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/core-functions/portfolio/:sector",
+      "destination": "/portfolio/:sector",
+      "permanent": true
+    },
+    {
+      "source": "/media-center/news-events",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/whistle-blowing-form",
+      "destination": "/whistleblowing",
+      "permanent": true
+    },
+    {
+      "source": "/whistle-blowing-form/whistleblower-disclosure",
+      "destination": "/whistleblowing",
+      "permanent": true
+    },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    {
+      "source": "/investment-criteria",
+      "destination": "/investment",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/disclaimer",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/disclaimer",
+      "permanent": true
+    }
+  ]
+}

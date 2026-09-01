@@ -7,6 +7,7 @@ import { Arrow } from "@/components/ui/Arrow";
 import { Button } from "@/components/ui/Button";
 import { aboutIntro, missionVision } from "@/content/about";
 import { leadership } from "@/content/people";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "About Us",
@@ -42,7 +43,7 @@ export default function AboutPage() {
     <>
       <PageHero
         crumbs={[{ label: "About Us" }]}
-        image="/media/hero-about.jpg"
+        image={media.about.hub}
         standfirst="Agaciro means dignity. The Fund carries a value Rwandans named for themselves, and invests to make it durable."
         title="About Us"
       />
@@ -66,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="panel-grid">
             <div className="panel" data-reveal>
@@ -123,10 +124,10 @@ export default function AboutPage() {
             className="hero-actions"
             style={{ justifyContent: "center", marginTop: "3rem" }}
           >
-            <Button href="/about/board" variant="brown">
+            <Button href="/about/board" variant="forest">
               Board of Directors
             </Button>
-            <Button href="/about/team" variant="cream">
+            <Button href="/about/team" variant="sage">
               Our team
             </Button>
           </div>

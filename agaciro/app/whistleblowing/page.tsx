@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/sections/PageHero";
 import { WhistleblowerForm } from "@/components/features/WhistleblowerForm";
 import { whistleblowing } from "@/content/legal";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Whistleblowing",
@@ -12,7 +13,7 @@ export default function WhistleblowingPage() {
     <>
       <PageHero
         crumbs={[{ label: "Whistleblowing" }]}
-        image="/media/hero-about.jpg"
+        image={media.whistleblowing}
         standfirst={whistleblowing.standfirst}
         title={whistleblowing.title}
       />

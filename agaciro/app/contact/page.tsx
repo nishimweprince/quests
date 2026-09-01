@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ContactForm } from "@/components/features/ContactForm";
 import { site } from "@/content/site";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Contact",
@@ -43,7 +44,7 @@ export default function ContactPage() {
               fill
               priority
               sizes="(max-width: 991px) 100vw, 40vw"
-              src="/media/contact.jpg"
+              src={media.contact}
             />
             <div className="contact-details">
               <p className="eyebrow">Agaciro Development Fund</p>

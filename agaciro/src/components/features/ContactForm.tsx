@@ -84,7 +84,7 @@ export function ContactForm() {
           />
         </label>
         <div className="form-actions">
-          <button className="btn btn--brown" type="submit">
+          <button className="btn btn--forest" type="submit">
             Send enquiry <Arrow direction="diagonal" />
           </button>
         </div>

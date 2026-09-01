@@ -2,6 +2,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { PersonCards } from "@/components/sections/PersonCards";
 import { executives, teamMembers } from "@/content/people";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Our Team",
@@ -14,7 +15,7 @@ export default function TeamPage() {
     <>
       <PageHero
         crumbs={[{ label: "About Us", href: "/about" }, { label: "Our Team" }]}
-        image="/media/connect-office.jpg"
+        image={media.about.team}
         standfirst="Investment, legal, finance, risk, technology and communications — the people who run the Fund day to day."
         title="Our Team"
       />

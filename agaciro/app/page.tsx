@@ -10,6 +10,7 @@ import { strengths } from "@/content/investment";
 import { leadership } from "@/content/people";
 import { portfolioCompanies, sectors } from "@/content/portfolio";
 import { site } from "@/content/site";
+import { media } from "@/content/media";
 
 const values = [
   {
@@ -48,7 +49,7 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            src="/media/hero-home.jpg"
+            src={media.home.hero}
           />
           <div className="frame-shade" />
         </div>
@@ -69,13 +70,10 @@ export default function Home() {
             <div className="glass-panel hero-stat" data-reveal>
               <p className="stat-value">
                 <sup>FRW</sup>
-                <span data-count="456">456</span>bn
+                <span data-count="456">456bn</span>
               </p>
               <span className="stat-label">Assets under management</span>
             </div>
-            <a className="scroll-cue" href="#glance">
-              Scroll to explore <Arrow direction="down" />
-            </a>
           </div>
         </div>
       </section>
@@ -88,7 +86,7 @@ export default function Home() {
                 alt="Agaciro Development Fund offices in Kigali"
                 fill
                 sizes="(max-width: 991px) 100vw, 34rem"
-                src="/media/funds-office.jpg"
+                src={media.home.glance}
               />
               <div className="frame-shade" />
               <div className="glass-panel glance-overlay">
@@ -226,7 +224,7 @@ export default function Home() {
             alt=""
             fill
             sizes="100vw"
-            src="/media/key-strengths.png"
+            src={media.home.strengths}
           />
           <div className="frame-shade" />
         </div>
@@ -260,17 +258,17 @@ export default function Home() {
             className="hero-actions"
             style={{ justifyContent: "center", marginTop: "3rem" }}
           >
-            <Button href="/about/board" variant="brown">
+            <Button href="/about/board" variant="forest">
               Board of Directors
             </Button>
-            <Button href="/about/team" variant="cream">
+            <Button href="/about/team" variant="sage">
               Our team
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
             <h2>Where we invest</h2>
@@ -306,7 +304,7 @@ export default function Home() {
 
       <ConnectCta
         body="Whether you are raising growth capital, structuring debt, or partnering as a fund manager — start the conversation here."
-        image="/media/connect-office.jpg"
+        image={media.home.cta}
       />
     </>
   );

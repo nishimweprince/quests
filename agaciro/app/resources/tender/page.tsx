@@ -2,6 +2,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { tenders } from "@/content/resources";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Tenders",
@@ -14,7 +15,7 @@ export default function TenderPage() {
     <>
       <PageHero
         crumbs={[{ label: "Resources", href: "/resources" }, { label: "Tenders" }]}
-        image="/media/hero-criteria.jpg"
+        image={media.resources.tender}
         standfirst="Open procurement notices and expressions of interest."
         title="Tenders"
       />
@@ -39,7 +40,7 @@ export default function TenderPage() {
                     ))}
                   </dl>
                   <a
-                    className="btn btn--brown"
+                    className="btn btn--forest"
                     href={tender.href}
                     rel="noreferrer noopener"
                     style={{ alignSelf: "flex-start" }}

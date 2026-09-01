@@ -14,16 +14,8 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
 import { Arrow } from "@/components/ui/Arrow";
+import { companyImage } from "@/content/media";
 import { featuredCompanies, sectors } from "@/content/portfolio";
-
-const MEDIA = [
-  "/media/funds-office.jpg",
-  "/media/hero-criteria.jpg",
-  "/media/strengths-blue.jpg",
-  "/media/connect-office.jpg",
-  "/media/hero-about.jpg",
-  "/media/hero-home.jpg",
-];
 
 function mark(name: string) {
   return name
@@ -53,7 +45,7 @@ export function PortfolioCarousel() {
         slidesPerView="auto"
         spaceBetween={28}
       >
-        {featuredCompanies.map((company, index) => {
+        {featuredCompanies.map((company) => {
           const sector = sectors.find((item) => item.slug === company.sectors[0]);
           return (
             <SwiperSlide key={company.slug}>
@@ -71,7 +63,7 @@ export function PortfolioCarousel() {
                     alt=""
                     fill
                     sizes="(max-width: 767px) 82vw, 24rem"
-                    src={MEDIA[index % MEDIA.length]}
+                    src={companyImage(company.slug)}
                   />
                 </div>
               </article>

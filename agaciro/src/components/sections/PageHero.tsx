@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { media } from "@/content/media";
+
 export type Crumb = { label: string; href?: string };
 
 export function PageHero({
   title,
   crumbs = [],
-  image = "/media/hero-about.jpg",
+  image = media.about.hub,
   standfirst,
   eyebrow,
 }: {

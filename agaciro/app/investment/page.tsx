@@ -4,6 +4,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { criteria, investmentIntro, investmentPages } from "@/content/investment";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Investment",
@@ -15,7 +16,7 @@ export default function InvestmentPage() {
     <>
       <PageHero
         crumbs={[{ label: "Investment" }]}
-        image="/media/hero-criteria.jpg"
+        image={media.investment.hub}
         standfirst={investmentIntro}
         title="Investing for Rwanda's future generations"
       />
@@ -50,7 +51,7 @@ export default function InvestmentPage() {
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
             <h2>What defines the right opportunity</h2>

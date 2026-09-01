@@ -51,10 +51,10 @@ export function CookieBanner() {
         No analytics or tracking are enabled.
       </p>
       <div className="cookies-actions">
-        <button className="btn btn--cream" onClick={() => choose("declined")}>
+        <button className="btn btn--sage" onClick={() => choose("declined")}>
           Decline
         </button>
-        <button className="btn btn--sand" onClick={() => choose("accepted")}>
+        <button className="btn btn--green" onClick={() => choose("accepted")}>
           Accept
         </button>
       </div>

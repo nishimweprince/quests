@@ -2,6 +2,7 @@ import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { Arrow } from "@/components/ui/Arrow";
 import { careersIntro, vacancies } from "@/content/careers";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Careers",
@@ -13,7 +14,7 @@ export default function CareersPage() {
     <>
       <PageHero
         crumbs={[{ label: "Careers" }]}
-        image="/media/connect-office.jpg"
+        image={media.careers}
         standfirst="Work on the investments that build Rwanda's long-term savings."
         title="Careers"
       />
@@ -47,7 +48,7 @@ export default function CareersPage() {
                         </div>
                       </dl>
                       <a
-                        className="btn btn--brown"
+                        className="btn btn--forest"
                         href={role.href}
                         rel="noreferrer noopener"
                         style={{ alignSelf: "flex-start" }}

@@ -25,6 +25,26 @@ export const glance = [
   { value: 7, suffix: "", label: "Investment sectors" },
 ] as const;
 
+/** Accounts the Fund links from agaciro.rw. */
+export const socials = [
+  {
+    label: "LinkedIn",
+    icon: "linkedin",
+    href: "https://www.linkedin.com/company/agaciro-development-fund",
+  },
+  { label: "X", icon: "x", href: "https://x.com/AgaciroFund" },
+  {
+    label: "Facebook",
+    icon: "facebook",
+    href: "https://www.facebook.com/AgaciroFund",
+  },
+  {
+    label: "YouTube",
+    icon: "youtube",
+    href: "https://www.youtube.com/channel/UCwC77IXrQjXKI_peHZjmM1w",
+  },
+] as const;
+
 export type NavChild = { label: string; href: string; note?: string };
 export type NavItem = { label: string; href: string; children?: NavChild[] };
 

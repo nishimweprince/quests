@@ -1,6 +1,7 @@
 import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { disclaimer } from "@/content/legal";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Disclaimer",
@@ -12,7 +13,7 @@ export default function DisclaimerPage() {
     <>
       <PageHero
         crumbs={[{ label: "Disclaimer" }]}
-        image="/media/strengths-blue.jpg"
+        image={media.disclaimer}
         standfirst={disclaimer.standfirst}
         title={disclaimer.title}
       />

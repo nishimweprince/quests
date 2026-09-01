@@ -4,12 +4,12 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Arrow, type ArrowDirection } from "./Arrow";
 
-type Variant = "white" | "brown" | "sand" | "grey" | "cream" | "glass";
+type Variant = "white" | "forest" | "green" | "grey" | "sage" | "glass";
 
 export function Button({
   href,
   children,
-  variant = "brown",
+  variant = "forest",
   arrow = "diagonal",
   className,
   external = false,

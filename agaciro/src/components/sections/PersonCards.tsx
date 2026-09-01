@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Arrow } from "@/components/ui/Arrow";
 import type { Person } from "@/content/people";
 
 export function initials(name: string) {
@@ -19,6 +18,10 @@ export function personHref(person: Person) {
     : `/about/team/${person.slug}`;
 }
 
+/**
+ * Renders a real headshot when the Fund has supplied one, and a brand monogram
+ * otherwise. Stock faces are not used here: these are named public figures.
+ */
 export function PersonPhoto({
   person,
   priority = false,
@@ -30,14 +33,17 @@ export function PersonPhoto({
 }) {
   return (
     <div className={className}>
-      <span aria-hidden="true">{initials(person.name)}</span>
-      <Image
-        alt={person.name}
-        fill
-        priority={priority}
-        sizes="(max-width: 767px) 100vw, 30vw"
-        src={person.image}
-      />
+      {person.image ? (
+        <Image
+          alt={person.name}
+          fill
+          priority={priority}
+          sizes="(max-width: 767px) 100vw, 30vw"
+          src={person.image}
+        />
+      ) : (
+        <span aria-hidden="true">{initials(person.name)}</span>
+      )}
     </div>
   );
 }
@@ -71,5 +77,3 @@ export function PersonCards({
     </div>
   );
 }
-
-export { Arrow };

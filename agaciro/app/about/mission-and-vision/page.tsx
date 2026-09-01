@@ -1,6 +1,7 @@
 import { ConnectCta } from "@/components/sections/ConnectCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { missionVision } from "@/content/about";
+import { media } from "@/content/media";
 
 export const metadata = {
   title: "Mission and Vision",
@@ -16,7 +17,7 @@ export default function MissionVisionPage() {
           { label: "About Us", href: "/about" },
           { label: "Mission and Vision" },
         ]}
-        image="/media/strengths-blue.jpg"
+        image={media.about.mission}
         standfirst="What the Fund is for, what it is required to do, and the values it is run by."
         title="Mission and Vision"
       />
@@ -40,7 +41,7 @@ export default function MissionVisionPage() {
         </div>
       </section>
 
-      <section className="section section--sm section--cream pad-global">
+      <section className="section section--sm section--sage pad-global">
         <div className="container">
           <div className="split">
             <div className="split-aside">

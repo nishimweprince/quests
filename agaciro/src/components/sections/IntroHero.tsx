@@ -1,12 +1,31 @@
-export function IntroHero({ title, breadcrumb, image = "/media/hero-about.jpg", subtitle }: { title: string; breadcrumb: string; image?: string; subtitle?: string; }) {
+export function IntroHero({
+  title,
+  breadcrumb,
+  image = "/media/hero-about.jpg",
+  subtitle,
+}: {
+  title: string;
+  breadcrumb: string;
+  image?: string;
+  subtitle?: string;
+}) {
   return (
-    <section className="intro-hero" style={{ "--hero-image": `url(${image})` } as React.CSSProperties}>
+    <section
+      className="intro-hero"
+      style={{ "--hero-image": `url(${image})` } as React.CSSProperties}
+    >
       <div className="intro-shade" />
       <div className="intro-content" data-reveal>
-        <p className="breadcrumb">Home <span>•</span> {breadcrumb}</p>
+        <p className="breadcrumb">
+          Home <span>•</span> {breadcrumb}
+        </p>
         <h1>{title}</h1>
       </div>
-      {subtitle ? <p className="intro-subtitle" data-reveal>{subtitle}</p> : null}
+      {subtitle ? (
+        <p className="intro-subtitle" data-reveal>
+          {subtitle}
+        </p>
+      ) : null}
     </section>
   );
 }

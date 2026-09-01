@@ -11,9 +11,7 @@ type SmoothScrollProps = {
 
 export function SmoothScroll({ children }: SmoothScrollProps) {
   useEffect(() => {
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (reducedMotion.matches) {
       return;

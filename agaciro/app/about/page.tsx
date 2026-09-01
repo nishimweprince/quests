@@ -5,5 +5,97 @@ import { principles } from "@/content/site";
 
 export const metadata = { title: "About" };
 export default function AboutPage() {
-  return <><IntroHero title="About Us" breadcrumb="About" image="/media/hero-about.jpg" subtitle="An investment philosophy shaped by dignity, discipline, and long-term national purpose." /><section className="about-overview" id="content"><div className="funds-card"><div className="funds-card-panel"><p>Our Funds Over Time</p><div><strong><sup>USD</sup>18M</strong><span>Solidarity<br />2012</span></div><div><strong><sup>FRW</sup>184bn</strong><span>Transfer<br />2018</span></div></div></div><div className="about-story"><h2 data-word-fill>Agaciro means dignity.</h2><p>Born from Rwanda&apos;s 2011 Umushyikirano and launched in 2012, Agaciro channels national savings into long-term resilience and prosperity.</p></div></section><section className="leadership-section"><div className="center-heading"><p>People</p><h2>Our Leadership</h2></div><PersonCards items={leadership} /></section><section className="about-principles"><div className="section-intro"><h2>Aligned. Patient.<br /><span>Built for Rwanda.</span></h2><p data-word-fill>Governance, commercial discipline, and developmental impact guide every decision.</p></div><div className="principles-list">{principles.map(([n, label]) => <div key={n}><span>{n}</span><p>{label}</p></div>)}</div></section><section className="drives-section"><div><p>What Drives Us</p><h2>Building enduring value for a resilient Rwanda.</h2></div><div className="drive-cards"><article><h3>National purpose</h3><p>Investing for citizens today and generations ahead.</p></article><article><h3>Aligned partnership</h3><p>Working with disciplined enterprises and co-investors.</p></article><article><h3>Enduring principles</h3><p>Commercial returns, impact, and clear governance.</p></article></div></section></>;
+  return (
+    <>
+      <IntroHero
+        title="About Us"
+        breadcrumb="About"
+        image="/media/hero-about.jpg"
+        subtitle="An investment philosophy shaped by dignity, discipline, and long-term national purpose."
+      />
+      <section className="about-overview" id="content">
+        <div className="funds-card">
+          <div className="funds-card-panel">
+            <p>Our Funds Over Time</p>
+            <div>
+              <strong>
+                <sup>USD</sup>18M
+              </strong>
+              <span>
+                Solidarity
+                <br />
+                2012
+              </span>
+            </div>
+            <div>
+              <strong>
+                <sup>FRW</sup>184bn
+              </strong>
+              <span>
+                Transfer
+                <br />
+                2018
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="about-story">
+          <h2 data-word-fill>Agaciro means dignity.</h2>
+          <p>
+            Born from Rwanda&apos;s 2011 Umushyikirano and launched in 2012,
+            Agaciro channels national savings into long-term resilience and
+            prosperity.
+          </p>
+        </div>
+      </section>
+      <section className="leadership-section">
+        <div className="center-heading">
+          <p>People</p>
+          <h2>Our Leadership</h2>
+        </div>
+        <PersonCards items={leadership} />
+      </section>
+      <section className="about-principles">
+        <div className="section-intro">
+          <h2>
+            Aligned. Patient.
+            <br />
+            <span>Built for Rwanda.</span>
+          </h2>
+          <p data-word-fill>
+            Governance, commercial discipline, and developmental impact guide
+            every decision.
+          </p>
+        </div>
+        <div className="principles-list">
+          {principles.map(([n, label]) => (
+            <div key={n}>
+              <span>{n}</span>
+              <p>{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="drives-section">
+        <div>
+          <p>What Drives Us</p>
+          <h2>Building enduring value for a resilient Rwanda.</h2>
+        </div>
+        <div className="drive-cards">
+          <article>
+            <h3>National purpose</h3>
+            <p>Investing for citizens today and generations ahead.</p>
+          </article>
+          <article>
+            <h3>Aligned partnership</h3>
+            <p>Working with disciplined enterprises and co-investors.</p>
+          </article>
+          <article>
+            <h3>Enduring principles</h3>
+            <p>Commercial returns, impact, and clear governance.</p>
+          </article>
+        </div>
+      </section>
+    </>
+  );
 }

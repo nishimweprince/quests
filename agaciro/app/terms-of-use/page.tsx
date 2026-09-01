@@ -1,4 +1,41 @@
 import { LegalDoc } from "@/components/sections/LegalDoc";
 export const metadata = { title: "Terms of Use" };
-const sections: Array<[string,string]> = [["Website purpose", "This website provides general public information about Agaciro Development Fund and its mandate."], ["No investment offer", "Nothing on this site is an offer, solicitation, recommendation, or financial, legal, or tax advice."], ["Accuracy", "Reasonable care is taken with public information, but content may be updated and is provided without a guarantee of completeness."], ["Acceptable use", "You may not misuse the site, interfere with its operation, or attempt unauthorised access."], ["External links", "Links to third-party services are provided for convenience and do not constitute endorsement."], ["Governing context", "These terms are interpreted in the context of the laws and institutions of the Republic of Rwanda."], ["Contact", "Questions may be sent to info@agaciro.rw or addressed to Agaciro Development Fund in Kigali."]];
-export default function TermsPage() { return <LegalDoc title="Terms of Use" intro="The conditions governing use of Agaciro Development Fund's public website." sections={sections} />; }
+const sections: Array<[string, string]> = [
+  [
+    "Website purpose",
+    "This website provides general public information about Agaciro Development Fund and its mandate.",
+  ],
+  [
+    "No investment offer",
+    "Nothing on this site is an offer, solicitation, recommendation, or financial, legal, or tax advice.",
+  ],
+  [
+    "Accuracy",
+    "Reasonable care is taken with public information, but content may be updated and is provided without a guarantee of completeness.",
+  ],
+  [
+    "Acceptable use",
+    "You may not misuse the site, interfere with its operation, or attempt unauthorised access.",
+  ],
+  [
+    "External links",
+    "Links to third-party services are provided for convenience and do not constitute endorsement.",
+  ],
+  [
+    "Governing context",
+    "These terms are interpreted in the context of the laws and institutions of the Republic of Rwanda.",
+  ],
+  [
+    "Contact",
+    "Questions may be sent to info@agaciro.rw or addressed to Agaciro Development Fund in Kigali.",
+  ],
+];
+export default function TermsPage() {
+  return (
+    <LegalDoc
+      title="Terms of Use"
+      intro="The conditions governing use of Agaciro Development Fund's public website."
+      sections={sections}
+    />
+  );
+}

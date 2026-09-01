@@ -1,6 +1,12 @@
 "use client";
 
-import { A11y, Keyboard, Mousewheel, Navigation, Scrollbar } from "swiper/modules";
+import {
+  A11y,
+  Keyboard,
+  Mousewheel,
+  Navigation,
+  Scrollbar,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,17 +18,53 @@ import { Arrow } from "@/components/ui/Arrow";
 export function PortfolioCarousel() {
   return (
     <div className="portfolio-carousel-shell">
-      <Swiper className="portfolio-swiper" modules={[A11y, Keyboard, Mousewheel, Navigation, Scrollbar]} slidesPerView="auto" spaceBetween={28} keyboard={{ enabled: true }} mousewheel={{ forceToAxis: true }} navigation={{ prevEl: ".portfolio-prev", nextEl: ".portfolio-next" }} scrollbar={{ draggable: true, el: ".portfolio-scrollbar" }}>
+      <Swiper
+        className="portfolio-swiper"
+        modules={[A11y, Keyboard, Mousewheel, Navigation, Scrollbar]}
+        slidesPerView="auto"
+        spaceBetween={28}
+        keyboard={{ enabled: true }}
+        mousewheel={{ forceToAxis: true }}
+        navigation={{ prevEl: ".portfolio-prev", nextEl: ".portfolio-next" }}
+        scrollbar={{ draggable: true, el: ".portfolio-scrollbar" }}
+      >
         {featuredCompanies.map((company, index) => (
           <SwiperSlide key={company.id}>
-            <article className={`portfolio-slide portfolio-slide--${index % 4}`}>
-              <div className="portfolio-brand-panel"><div className="portfolio-mark">{company.name.split(" ").map((part) => part[0]).join("")}</div><div><h3>{company.name}</h3><p>{company.sector}</p></div></div>
-              <div className={`portfolio-photo portfolio-photo--${(index % 4) + 1}`}><p>{company.description}</p></div>
+            <article
+              className={`portfolio-slide portfolio-slide--${index % 4}`}
+            >
+              <div className="portfolio-brand-panel">
+                <div className="portfolio-mark">
+                  {company.name
+                    .split(" ")
+                    .map((part) => part[0])
+                    .join("")}
+                </div>
+                <div>
+                  <h3>{company.name}</h3>
+                  <p>{company.sector}</p>
+                </div>
+              </div>
+              <div
+                className={`portfolio-photo portfolio-photo--${(index % 4) + 1}`}
+              >
+                <p>{company.description}</p>
+              </div>
             </article>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="portfolio-carousel-rail"><div className="portfolio-scrollbar" /><div className="portfolio-controls"><button aria-label="Previous slide" className="portfolio-prev"><Arrow direction="left" /></button><button aria-label="Next slide" className="portfolio-next"><Arrow /></button></div></div>
+      <div className="portfolio-carousel-rail">
+        <div className="portfolio-scrollbar" />
+        <div className="portfolio-controls">
+          <button aria-label="Previous slide" className="portfolio-prev">
+            <Arrow direction="left" />
+          </button>
+          <button aria-label="Next slide" className="portfolio-next">
+            <Arrow />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

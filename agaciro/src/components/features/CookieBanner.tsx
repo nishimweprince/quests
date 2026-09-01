@@ -1,39 +1,60 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCookieBite, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const key = "agaciro-cookie-choice";
+const KEY = "agaciro-cookie-choice";
+
 export function CookieBanner() {
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    const frame = requestAnimationFrame(() =>
-      setOpen(!localStorage.getItem(key)),
-    );
+    const frame = requestAnimationFrame(() => {
+      try {
+        setOpen(!localStorage.getItem(KEY));
+      } catch {
+        setOpen(false);
+      }
+    });
     return () => cancelAnimationFrame(frame);
   }, []);
+
   if (!open) return null;
+
   const choose = (value: string) => {
-    localStorage.setItem(key, value);
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {
+      /* storage unavailable — dismiss for this visit only */
+    }
     setOpen(false);
   };
+
   return (
-    <aside aria-label="Cookie preferences" className="cookie-banner">
-      <button
-        aria-label="Close cookie preferences"
-        className="cookie-close"
-        onClick={() => choose("closed")}
-      >
-        <FontAwesomeIcon icon={faXmark} />
-      </button>
+    <aside aria-label="Cookie preferences" className="cookies">
+      <div className="cookies-top">
+        <span>
+          <FontAwesomeIcon aria-hidden="true" icon={faCookieBite} /> We use
+          cookies
+        </span>
+        <button
+          aria-label="Dismiss cookie notice"
+          className="cookies-close"
+          onClick={() => choose("dismissed")}
+        >
+          <FontAwesomeIcon icon={faXmark} />
+        </button>
+      </div>
       <p>
-        We use essential local storage to remember your preferences. No
-        analytics are enabled.
+        This site stores your preference locally so it can remember this choice.
+        No analytics or tracking are enabled.
       </p>
-      <div className="cookie-actions">
-        <button onClick={() => choose("declined")}>Decline</button>
-        <button className="cookie-accept" onClick={() => choose("accepted")}>
+      <div className="cookies-actions">
+        <button className="btn btn--cream" onClick={() => choose("declined")}>
+          Decline
+        </button>
+        <button className="btn btn--sand" onClick={() => choose("accepted")}>
           Accept
         </button>
       </div>

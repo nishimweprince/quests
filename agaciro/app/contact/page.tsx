@@ -1,24 +1,79 @@
-import { ContactForm } from "@/components/features/ContactForm";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const metadata = { title: "Contact" };
+import { ContactForm } from "@/components/features/ContactForm";
+import { site } from "@/content/site";
+
+export const metadata = {
+  title: "Contact",
+  description:
+    "Reach Agaciro Development Fund at BPR PCD Towers, KN 67, Kigali, Rwanda.",
+};
+
 export default function ContactPage() {
   return (
-    <section className="contact-page" id="top">
-      <p className="breadcrumb">
-        Home <span>•</span> Get in Touch
-      </p>
-      <div className="contact-grid">
-        <div className="contact-visual">
-          <div className="contact-image" />
-          <div className="contact-details">
-            <a href="mailto:info@agaciro.rw">info@agaciro.rw</a>
-            <a href="https://maps.google.com/?q=BPR+PCD+Towers+Kigali">
-              KN 67, Kigali, Rwanda
-            </a>
-            <a href="tel:+250788331820">+250 788 331 820</a>
+    <section className="section section--lg pad-global" id="top" style={{ paddingTop: "10rem" }}>
+      <div className="container">
+        <nav aria-label="Breadcrumb" className="breadcrumb muted">
+          <Link href="/">Home</Link>
+          <span aria-hidden="true">•</span>
+          <strong aria-current="page">Contact Us</strong>
+        </nav>
+
+        <div className="header-row" data-reveal style={{ margin: "2rem 0 3rem" }}>
+          <h1>Get in Touch</h1>
+          <div className="header-aside">
+            <p>
+              Investment proposals, partnership enquiries, media questions — send
+              them here, or reach the office directly.
+            </p>
           </div>
         </div>
-        <ContactForm />
+
+        <div className="contact-layout">
+          <div className="contact-visual">
+            <Image
+              alt="Kigali, Rwanda"
+              fill
+              priority
+              sizes="(max-width: 991px) 100vw, 40vw"
+              src="/media/contact.jpg"
+            />
+            <div className="contact-details">
+              <p className="eyebrow">Agaciro Development Fund</p>
+              <a className="contact-item" href={`mailto:${site.email}`}>
+                <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} />
+                {site.email}
+              </a>
+              <a className="contact-item" href={`tel:${site.phoneHref}`}>
+                <FontAwesomeIcon aria-hidden="true" icon={faPhone} />
+                {site.phone}
+              </a>
+              <a
+                className="contact-item"
+                href={`https://maps.google.com/?q=${site.mapQuery}`}
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <FontAwesomeIcon aria-hidden="true" icon={faLocationDot} />
+                <span>
+                  {site.address.map((line) => (
+                    <span key={line} style={{ display: "block" }}>
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              </a>
+            </div>
+          </div>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

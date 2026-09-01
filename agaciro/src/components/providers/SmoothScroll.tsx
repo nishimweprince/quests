@@ -1,28 +1,25 @@
 "use client";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
 
 import { lenisOptions } from "@/lib/lenis";
 
-type SmoothScrollProps = {
-  children: ReactNode;
-};
-
-export function SmoothScroll({ children }: SmoothScrollProps) {
+export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    if (reducedMotion.matches) {
-      return;
-    }
+    gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({ autoRaf: true, ...lenisOptions });
 
-    const lenis = new Lenis({
-      autoRaf: true,
-      ...lenisOptions,
-    });
+    // Keep scroll-triggered reveals in step with the smoothed scroll position.
+    const onScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onScroll);
 
     return () => {
+      lenis.off("scroll", onScroll);
       lenis.destroy();
     };
   }, []);

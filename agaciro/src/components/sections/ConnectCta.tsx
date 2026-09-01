@@ -1,13 +1,30 @@
+import Image from "next/image";
+
 import { Button } from "@/components/ui/Button";
 
-export function ConnectCta() {
+export function ConnectCta({
+  title = "Let's Connect",
+  body,
+  image = "/media/connect-office.jpg",
+}: {
+  title?: string;
+  body?: string;
+  image?: string;
+}) {
   return (
-    <section className="connect-cta">
-      <div className="connect-cta-inner" data-reveal>
-        <h2>Let&apos;s Connect</h2>
-        <Button href="/contact" variant="white">
-          Get in Touch
-        </Button>
+    <section className="cta-band">
+      <div className="frame">
+        <Image alt="" fill sizes="100vw" src={image} />
+        <div className="frame-shade frame-shade--center" />
+      </div>
+      <div className="cta-band-inner pad-global">
+        <div className="header-center" data-reveal>
+          <h2>{title}</h2>
+          {body ? <p>{body}</p> : null}
+          <Button href="/contact" variant="white">
+            Get in Touch
+          </Button>
+        </div>
       </div>
     </section>
   );

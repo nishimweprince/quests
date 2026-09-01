@@ -1,17 +1,30 @@
-import { IntroHero } from "@/components/sections/IntroHero";
+import { ConnectCta } from "@/components/sections/ConnectCta";
+import { PageHero } from "@/components/sections/PageHero";
 import { PortfolioExplorer } from "@/components/features/PortfolioExplorer";
 
-export const metadata = { title: "Portfolio" };
+export const metadata = {
+  title: "Portfolio",
+  description:
+    "Twenty-five portfolio companies and strategic national investments across seven sectors in Rwanda and the region.",
+};
+
 export default function PortfolioPage() {
   return (
     <>
-      <IntroHero
-        title="Investment Portfolio"
-        breadcrumb="Investment Portfolio"
+      <PageHero
+        crumbs={[{ label: "Portfolio" }]}
         image="/media/hero-home.jpg"
-        subtitle="We back enduring enterprises across sectors, instruments, and growth stages."
+        standfirst="Twenty-five portfolio companies and strategic national investments across seven sectors."
+        title="Our Portfolio"
       />
-      <PortfolioExplorer />
+
+      <section className="section section--lg pad-global" id="content">
+        <div className="container">
+          <PortfolioExplorer />
+        </div>
+      </section>
+
+      <ConnectCta />
     </>
   );
 }

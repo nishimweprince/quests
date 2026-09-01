@@ -1,54 +1,146 @@
-export const principles = [
-  ["01", "Self-reliance rooted in dignity"],
-  ["02", "Commercial return with developmental impact"],
-  ["03", "Long-term alignment with NST2"],
-  ["04", "Transparent and accountable governance"],
+export const site = {
+  name: "Agaciro Development Fund",
+  shortName: "AgDF",
+  tagline: "Investing for Rwanda's future generations",
+  dek: "Agaciro Development Fund is Rwanda's sovereign wealth fund, investing national savings for long-term resilience, national prosperity, and sustainable value creation.",
+  email: "info@agaciro.rw",
+  phone: "+250 788 331 820",
+  phoneHref: "+250788331820",
+  address: [
+    "Street No. KN 67, Kigali, Rwanda",
+    "BPR PCD Towers, 7th Floor",
+    "P.O. Box 674, Kigali",
+  ],
+  mapQuery: "BPR+PCD+Towers+KN+67+Kigali+Rwanda",
+} as const;
+
+/** Headline figures published on agaciro.rw — "AgDF at a Glance". */
+export const glance = [
+  { value: 456, prefix: "FRW ", suffix: "bn", label: "Assets under management" },
+  {
+    value: 25,
+    suffix: "",
+    label: "Portfolio companies and strategic national investments",
+  },
+  { value: 7, suffix: "", label: "Investment sectors" },
 ] as const;
 
-export const criteria = [
-  [
-    "01",
-    "Investment Size",
-    "Flexible cheques across equity and credit, sized to the opportunity.",
-  ],
-  [
-    "02",
-    "Geography",
-    "Predominantly Rwanda, with up to 30% of the portfolio invested outside the country.",
-  ],
-  [
-    "03",
-    "Direct and through funds",
-    "Equity and fixed income, deployed directly or through aligned fund partnerships.",
-  ],
-  [
-    "04",
-    "Industry Focus",
-    "Sector-agnostic, with preference for ICT, finance, logistics, agriculture and industry.",
-  ],
-  [
-    "05",
-    "Deal Structure",
-    "Senior to junior debt, preferred and common equity, and convertible instruments.",
-  ],
-  [
-    "06",
-    "Buyer Edge",
-    "Market leaders and defensible niches that add domestic value and quality employment.",
-  ],
-  [
-    "07",
-    "Cap Table",
-    "Aligned partnerships with multi-stage screening and two-stage investment approval.",
-  ],
-] as const;
+export type NavChild = { label: string; href: string; note?: string };
+export type NavItem = { label: string; href: string; children?: NavChild[] };
 
-export const strengths = [
-  ["Dignity", "National savings invested with purpose and self-reliance."],
-  ["Long-term capital", "Patient stewardship for Rwanda’s future generations."],
-  [
-    "Commercial discipline",
-    "Every opportunity is evaluated on its own merits.",
-  ],
-  ["Transparency", "Clear governance and accountability guide every decision."],
+export const navigation: NavItem[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "About Us",
+    href: "/about",
+    children: [
+      {
+        label: "Our History",
+        href: "/about/history",
+        note: "From Umushyikirano 2011 to today",
+      },
+      {
+        label: "Mission and Vision",
+        href: "/about/mission-and-vision",
+        note: "Vision, mission, mandate and values",
+      },
+      {
+        label: "Board of Directors",
+        href: "/about/board",
+        note: "Six directors appointed by Cabinet",
+      },
+      {
+        label: "Our Team",
+        href: "/about/team",
+        note: "Executive management and team members",
+      },
+    ],
+  },
+  {
+    label: "Investment",
+    href: "/investment",
+    children: [
+      { label: "What We Invest In", href: "/investment/what-we-invest-in" },
+      {
+        label: "Our Investment Approach",
+        href: "/investment/our-investment-approach",
+      },
+      {
+        label: "Developmental Impact and ESG",
+        href: "/investment/developmental-impact-and-esg",
+      },
+      { label: "Investment Process", href: "/investment/investment-process" },
+      {
+        label: "Investment Risk Management",
+        href: "/investment/investment-risk-management",
+      },
+    ],
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio",
+    children: [
+      { label: "Financial Services", href: "/portfolio/financial-services" },
+      {
+        label: "Telecommunications, Media and Technology",
+        href: "/portfolio/telecommunications-media-and-technology",
+      },
+      {
+        label: "Agriculture and Agro-Processing",
+        href: "/portfolio/agriculture-and-agro-processing",
+      },
+      {
+        label: "Transport and Logistics",
+        href: "/portfolio/transport-and-logistics",
+      },
+      {
+        label: "Industrials and Manufacturing",
+        href: "/portfolio/industrials-and-manufacturing",
+      },
+      { label: "Mining", href: "/portfolio/mining" },
+      { label: "Hospitality", href: "/portfolio/hospitality" },
+    ],
+  },
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
+      { label: "Annual Reports", href: "/resources/annual-report" },
+      { label: "Publications", href: "/resources/publications" },
+      { label: "Policies", href: "/resources/policies" },
+      { label: "Tenders", href: "/resources/tender" },
+      { label: "News & Events", href: "/news" },
+      { label: "Careers", href: "/careers" },
+    ],
+  },
+];
+
+export const footerColumns = [
+  {
+    heading: "Explore",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
+      { label: "Investment", href: "/investment" },
+      { label: "Portfolio", href: "/portfolio" },
+    ],
+  },
+  {
+    heading: "Governance",
+    links: [
+      { label: "Board of Directors", href: "/about/board" },
+      { label: "Our Team", href: "/about/team" },
+      { label: "Whistleblowing", href: "/whistleblowing" },
+      { label: "Disclaimer", href: "/disclaimer" },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { label: "Annual Reports", href: "/resources/annual-report" },
+      { label: "Tenders", href: "/resources/tender" },
+      { label: "News & Events", href: "/news" },
+      { label: "Careers", href: "/careers" },
+    ],
+  },
 ] as const;

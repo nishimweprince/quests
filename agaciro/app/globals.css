@@ -861,3 +861,150 @@ main > .intro-hero + .about-overview ~ .leadership-section { height: 759px; padd
   .footer { height: 851px; min-height: 851px; padding: 58px 20px 28px; }
   .footer-grid { gap: 20px; }
 }
+
+/* September refinement: viewport heroes, compact rhythm, aligned controls and cards. */
+.icon-arrow { width: 14px; height: 14px; flex: 0 0 auto; }
+.button--centered { justify-content: center; text-align: center; }
+.footer-social { display: inline-flex; align-items: center; gap: 8px; }
+.footer-social svg { width: 13px; height: 13px; }
+
+.home-hero,
+.intro-hero {
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.portfolio-carousel-shell { margin-top: 48px; }
+.portfolio-carousel-shell .portfolio-swiper { margin-top: 0; }
+.portfolio-carousel-rail { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; margin-top: 24px; }
+.portfolio-scrollbar { position: relative !important; inset: auto !important; width: 100% !important; height: 1px !important; background: var(--beige); }
+.portfolio-scrollbar .swiper-scrollbar-drag { top: -2px; height: 5px; background: var(--brown); }
+.portfolio-controls { margin: 0; }
+.portfolio-controls button:first-child svg,
+.page-back svg { transform: none; }
+.portfolio-slide { transition: transform .35s cubic-bezier(.22, 1, .36, 1), box-shadow .35s ease; }
+.swiper-slide:hover .portfolio-slide { transform: translateY(-4px); box-shadow: 0 18px 38px rgb(31 25 21 / 10%); }
+
+.strengths-grid { padding: 0 24px 24px; }
+
+.select-control { display: flex; flex-direction: column; gap: 9px; font-size: 13px; font-weight: 500; }
+.select-control-field { position: relative; display: block; }
+.select-control select { width: 100%; min-height: 42px; padding: 10px 30px 10px 0; border: 0; border-bottom: 1px solid var(--brown); border-radius: 0; outline: 0; appearance: none; background: transparent; color: var(--black); font-size: 13px; font-weight: 400; cursor: pointer; }
+.select-control-field svg { position: absolute; top: 50%; right: 2px; width: 11px; height: 11px; pointer-events: none; transform: translateY(-50%); }
+.select-control select:focus { border-color: #3898ec; }
+.filter-panel .select-control { margin-top: 28px; }
+.contact-form .select-control { gap: 18px; }
+.contact-form .select-control select { padding-bottom: 13px; border-bottom-color: #c8c8c8; }
+
+.profile-topline { justify-content: flex-start; flex-wrap: wrap; gap: 18px 24px; }
+.profile-topline .page-back { order: 0; }
+.profile-topline .breadcrumb { order: 1; }
+.profile-grid { align-items: start; }
+.profile-grid > div:last-child { padding-top: 28px; }
+
+.criteria-grid article:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+
+.drives-section { width: calc(100% - 40px); margin: 0 20px 24px; overflow: hidden; border-radius: 18px; }
+
+@media (min-width: 992px) {
+  .funds-section,
+  .about-overview { height: auto; min-height: 620px; padding-top: 54px; padding-bottom: 46px; }
+  .ticker-section { height: 184px; }
+  .aligned-section,
+  .growing-section,
+  .about-principles { height: auto; min-height: 0; padding-top: 64px; padding-bottom: 68px; }
+  .aligned-section .principles-list { margin-top: 48px; }
+  .growing-section { padding-bottom: 54px; }
+  .strengths-section { height: 620px; min-height: 620px; padding-top: 52px; padding-bottom: 38px; }
+  .strengths-heading { min-height: 132px; }
+  .strengths-grid { margin-top: 44px; }
+  .leadership-section,
+  .people-index { height: auto; min-height: 0; padding-top: 64px; padding-bottom: 68px; }
+  main > .intro-hero + .about-overview ~ .leadership-section { height: auto; padding-top: 64px; }
+  .leadership-section .person-card { height: auto; min-height: 476px; grid-template-rows: 226px auto; }
+  .leadership-section .portrait-art { height: 194px; margin: 24px 0 0 24px; }
+  .leadership-section .person-card-body { padding-top: 27px; }
+  .connect-cta { height: 500px; margin-top: 24px; margin-bottom: 24px; padding: 20px 54px; }
+  .about-overview { min-height: 630px; }
+  .about-principles { padding-top: 72px; padding-bottom: 74px; }
+  .about-principles .principles-list { margin-top: 74px; }
+  .drives-section { height: auto; min-height: 620px; padding-top: 62px; padding-bottom: 42px; }
+  .drive-cards { margin-top: 118px; }
+  .criteria-section { height: auto; min-height: 660px; padding-top: 62px; padding-bottom: 64px; }
+  .criteria-grid article { min-height: 142px; }
+  .criteria-grid article:last-child { min-height: 118px; }
+  .people-index-heading { margin-bottom: 52px; }
+  .people-index .person-card { height: auto; min-height: 550px; grid-template-columns: 1fr; grid-template-rows: 252px auto 1fr; }
+  .people-index .portrait-art { width: calc(100% - 40px); height: 232px; min-height: 232px; margin: 20px; }
+  .people-index .person-card-body { padding: 8px 24px 18px; }
+  .people-index .person-card a { margin-top: 20px; }
+  .people-index .person-card-summary { margin: 0 24px; padding: 18px 0 24px; }
+  .profile-grid > .portrait-art { height: 560px; }
+}
+
+@media (max-width: 991px) {
+  .menu-toggle { display: grid; place-items: center; color: var(--black); }
+  .menu-toggle svg { width: 22px; height: 22px; }
+  .mobile-close { display: grid; width: 40px; height: 40px; place-items: center; }
+  .mobile-close svg { width: 23px; height: 23px; }
+  .mobile-contact a { grid-template-columns: 20px 1fr; }
+  .mobile-contact svg { width: 15px; height: 15px; justify-self: center; }
+  .home-hero,
+  .intro-hero { height: 100vh; height: 100svh; min-height: 100vh; min-height: 100svh; }
+  .funds-section,
+  .about-overview { min-height: 0; }
+  .aligned-section,
+  .growing-section,
+  .about-principles { min-height: 0; padding-top: 52px; padding-bottom: 58px; }
+  .growing-section { min-height: 0; }
+  .portfolio-carousel-shell { margin-top: 40px; }
+  .strengths-grid { padding: 0 14px 18px; }
+  .leadership-section,
+  .people-index { min-height: 0; padding-top: 54px; padding-bottom: 60px; }
+  .connect-cta { height: 480px; margin: 24px 0; }
+  .criteria-section { min-height: 0; }
+  .criteria-grid article:last-child:nth-child(odd) { grid-column: auto; }
+  .people-index .person-card { height: auto; min-height: 520px; grid-template-columns: 1fr; grid-template-rows: 270px auto 1fr; }
+  .people-index .portrait-art { width: calc(100% - 40px); height: 250px; min-height: 250px; margin: 20px; }
+  .people-index .person-card-body { padding: 8px 22px 18px; }
+  .people-index .person-card-summary { margin: 0 22px; padding: 18px 0 24px; }
+  .profile-topline { align-items: center; }
+  .profile-topline .breadcrumb { max-width: none; }
+  .profile-grid > div:last-child { padding-top: 0; }
+  .drives-section { width: calc(100% - 40px); height: auto; min-height: 620px; margin-inline: 20px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-image,
+  .contact-form { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .home-hero,
+  .intro-hero { height: 100vh; height: 100svh; min-height: 100vh; min-height: 100svh; }
+  .funds-section,
+  .aligned-section,
+  .growing-section,
+  .strengths-section,
+  .leadership-section,
+  .connect-cta,
+  .footer { height: auto; min-height: 0; }
+  .funds-section { padding-top: 36px; padding-bottom: 48px; }
+  .ticker-section { height: 156px; }
+  .aligned-section,
+  .growing-section { padding-top: 48px; padding-bottom: 54px; }
+  .strengths-section { min-height: 590px; padding-top: 36px; padding-bottom: 28px; }
+  .strengths-grid { margin-top: 18px; }
+  .leadership-section { padding-top: 50px; padding-bottom: 56px; }
+  .leadership-section .person-card { height: auto; min-height: 470px; }
+  .connect-cta { height: 460px; margin-top: 20px; margin-bottom: 20px; }
+  .portfolio-slide,
+  .portfolio-slide:nth-child(even) { min-height: 380px; }
+  .portfolio-carousel-rail { gap: 16px; }
+  .portfolio-controls button { width: 40px; height: 40px; }
+  .people-index .person-card { min-height: 510px; }
+  .profile-topline { flex-direction: column; align-items: flex-start; margin-bottom: 34px; }
+  .criteria-section { padding-top: 48px; padding-bottom: 54px; }
+  .drives-section { min-height: 600px; margin-bottom: 20px; }
+  .footer { padding-top: 54px; }
+}

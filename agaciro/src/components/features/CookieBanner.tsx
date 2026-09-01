@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const key = "agaciro-cookie-choice";
 export function CookieBanner() {
@@ -13,7 +15,7 @@ export function CookieBanner() {
   const choose = (value: string) => { localStorage.setItem(key, value); setOpen(false); };
   return (
     <aside aria-label="Cookie preferences" className="cookie-banner">
-      <button aria-label="Close cookie preferences" className="cookie-close" onClick={() => choose("closed")}>×</button>
+      <button aria-label="Close cookie preferences" className="cookie-close" onClick={() => choose("closed")}><FontAwesomeIcon icon={faXmark} /></button>
       <p>We use essential local storage to remember your preferences. No analytics are enabled.</p>
       <div className="cookie-actions"><button onClick={() => choose("declined")}>Decline</button><button className="cookie-accept" onClick={() => choose("accepted")}>Accept</button></div>
     </aside>

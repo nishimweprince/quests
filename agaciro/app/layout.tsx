@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
@@ -7,7 +8,10 @@ import { MotionProvider } from "@/components/providers/MotionProvider";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 
 import "lenis/dist/lenis.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: {

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { faBars, faEnvelope, faLocationDot, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Arrow } from "@/components/ui/Arrow";
 import { Logo } from "@/components/ui/Logo";
@@ -46,14 +48,14 @@ export function Nav() {
         {links.map(([label, href]) => <Link className={active(href) ? "active" : ""} href={href} key={href}>{label}</Link>)}
       </nav>
       <Link className={`nav-contact ${light ? "nav-contact--white" : "nav-contact--sand"}`} href="/contact">Get in Touch <Arrow /></Link>
-      <button aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="menu-toggle" onClick={() => setOpen((value) => !value)}><span /><span /><span /></button>
+      <button aria-expanded={open} aria-label={open ? "Close menu" : "Open menu"} className="menu-toggle" onClick={() => setOpen((value) => !value)}><FontAwesomeIcon icon={open ? faXmark : faBars} /></button>
       <div aria-hidden={!open} className={`mobile-menu ${open ? "is-open" : ""}`}>
-        <div className="mobile-menu-top"><Link aria-label="Agaciro home" href="/" onClick={() => setOpen(false)}><Logo /></Link><button aria-label="Close menu" className="mobile-close" onClick={() => setOpen(false)}>×</button></div>
+        <div className="mobile-menu-top"><Link aria-label="Agaciro home" href="/" onClick={() => setOpen(false)}><Logo /></Link><button aria-label="Close menu" className="mobile-close" onClick={() => setOpen(false)}><FontAwesomeIcon icon={faXmark} /></button></div>
         <nav aria-label="Mobile navigation">
           {[...links, ["Contact Us", "/contact"] as const].map(([label, href]) => <Link className={active(href) ? "active" : ""} href={href} key={href} onClick={() => setOpen(false)}>{label}</Link>)}
         </nav>
         <div className="menu-wave" aria-hidden="true"><i /><i /></div>
-        <div className="mobile-contact"><a href="mailto:info@agaciro.rw"><span aria-hidden="true">✉</span> info@agaciro.rw</a><a href="https://maps.google.com/?q=BPR+PCD+Towers+Kigali"><span aria-hidden="true">●</span> KN 67, Kigali, Rwanda</a></div>
+        <div className="mobile-contact"><a href="mailto:info@agaciro.rw"><FontAwesomeIcon aria-hidden="true" icon={faEnvelope} /> info@agaciro.rw</a><a href="https://maps.google.com/?q=BPR+PCD+Towers+Kigali"><FontAwesomeIcon aria-hidden="true" icon={faLocationDot} /> KN 67, Kigali, Rwanda</a></div>
       </div>
     </header>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { brandMedia } from "@/content/media";
 import { config } from "@fortawesome/fontawesome-svg-core";
 
 import { Footer } from "@/components/layout/Footer";
@@ -10,6 +11,7 @@ import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import "lenis/dist/lenis.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
+import "./media.css";
 
 config.autoAddCss = false;
 
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "Agaciro Development Fund is Rwanda's sovereign wealth fund, investing national savings for future generations.",
   icons: {
-    icon: "/brand/favicon.ico",
+    icon: brandMedia.favicon,
   },
 };
 

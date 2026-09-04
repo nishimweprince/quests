@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { RemoteImage as Image } from "@/components/ui/RemoteImage";
 import Link from "next/link";
 
 import type { Person } from "@/content/people";
@@ -36,6 +36,8 @@ export function PersonPhoto({
       {person.image ? (
         <Image
           alt={person.name}
+          fallbackText={initials(person.name)}
+          style={{ objectPosition: "center 25%" }}
           fill
           priority={priority}
           sizes="(max-width: 767px) 100vw, 30vw"

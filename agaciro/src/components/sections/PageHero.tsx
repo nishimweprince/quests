@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { RemoteImage as Image } from "@/components/ui/RemoteImage";
 import Link from "next/link";
 
 import { media } from "@/content/media";

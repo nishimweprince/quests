@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { RemoteImage as Image } from "@/components/ui/RemoteImage";
 import Link from "next/link";
 
 import { ConnectCta } from "@/components/sections/ConnectCta";
@@ -83,7 +83,7 @@ export default function Home() {
           <div className="glance">
             <div className="glance-media" data-reveal>
               <Image
-                alt="Agaciro Development Fund offices in Kigali"
+                alt="Delegation at an Agaciro Development Fund event"
                 fill
                 sizes="(max-width: 991px) 100vw, 34rem"
                 src={media.home.glance}

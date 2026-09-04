@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { RemoteImage as Image } from "@/components/ui/RemoteImage";
 import {
   A11y,
   Keyboard,
@@ -64,13 +64,16 @@ export function PortfolioCarousel() {
                   {companyLogo(company.slug) ? (
                     <Image
                       alt={`${company.name} logo`}
+                      fallbackText={mark(company.name)}
                       fill
                       sizes="(max-width: 767px) 82vw, 24rem"
                       src={companyLogo(company.slug) as string}
                     />
                   ) : (
                     <Image
-                      alt=""
+                      alt={`${sector?.name ?? "Investment"} sector illustration`}
+                      fallbackText={mark(company.name)}
+                      creditPrefix="Sector illustration"
                       fill
                       sizes="(max-width: 767px) 82vw, 24rem"
                       src={companyImage(company.slug)}

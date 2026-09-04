@@ -1,3 +1,5 @@
+import { personPortraits } from "./media";
+
 export type PersonKind = "board" | "exec" | "team";
 
 export type Person = {
@@ -9,7 +11,7 @@ export type Person = {
   summary: string;
   /** Full biography, one entry per paragraph. */
   bio: string[];
-  /** Real headshot. Omitted until one is supplied — the card shows a monogram. */
+  /** Verified official headshot. Omit when unavailable to show initials. */
   image?: string;
   /** Personal handles, where the Fund publishes them. */
   linkedin?: string;
@@ -23,6 +25,7 @@ export const board: Person[] = [
     role: "Board Chairman",
     kind: "board",
     slug: "scott-t-ford",
+    image: personPortraits["scott-t-ford"],
     summary:
       "Co-founder and Chief Executive Officer of Westrock Group, the private investment firm he founded with his father in 2013.",
     bio: [
@@ -35,6 +38,7 @@ export const board: Person[] = [
     role: "Board Vice-Chairman",
     kind: "board",
     slug: "thierry-mihigo-kalisa",
+    image: personPortraits["thierry-mihigo-kalisa"],
     summary:
       "Chief Economist and Executive Director of the Monetary Policy and Research Directorate at the National Bank of Rwanda.",
     bio: [
@@ -48,6 +52,7 @@ export const board: Person[] = [
     role: "Board Member",
     kind: "board",
     slug: "doreen-g-karake",
+    image: personPortraits["doreen-g-karake"],
     summary:
       "Investment negotiator and transactions advisory expert leading the Transactions Structuring and Support division at the Rwanda Development Board.",
     bio: [
@@ -61,6 +66,7 @@ export const board: Person[] = [
     role: "Board Member",
     kind: "board",
     slug: "jeanne-francoise-mubiligi",
+    image: personPortraits["jeanne-francoise-mubiligi"],
     summary:
       "Deputy Managing Director of a construction company and Chairperson of the Chamber of Women Entrepreneurs — Rwanda.",
     bio: [
@@ -74,6 +80,7 @@ export const board: Person[] = [
     role: "Board Member",
     kind: "board",
     slug: "aime-ngarukiyintwali",
+    image: personPortraits["aime-ngarukiyintwali"],
     summary:
       "Head of Structured Credit at Mount Street Portfolio Advisers, with over 20 years in investment banking and portfolio management.",
     bio: [
@@ -87,6 +94,7 @@ export const board: Person[] = [
     role: "Board Member",
     kind: "board",
     slug: "andrew-rozanov",
+    image: personPortraits["andrew-rozanov"],
     summary:
       "Independent expert in institutional fund management who originated the term “sovereign wealth funds” in 2005.",
     bio: [
@@ -104,6 +112,7 @@ export const executives: Person[] = [
     role: "Chief Executive Officer",
     kind: "exec",
     slug: "ulrich-kayinamura",
+    image: personPortraits["ulrich-kayinamura"],
     summary:
       "Leads the Fund's mandate of preserving and growing national wealth through strategic, long-term investments.",
     bio: [
@@ -118,6 +127,7 @@ export const executives: Person[] = [
     role: "Chief Legal Officer and Company Secretary",
     kind: "exec",
     slug: "ismael-amri-sued",
+    image: personPortraits["ismael-amri-sued"],
     summary:
       "Oversees Agaciro's legal, governance and corporate affairs, combining legal expertise with a commercially minded approach.",
     bio: [
@@ -131,6 +141,7 @@ export const executives: Person[] = [
     role: "Chief Investment Officer",
     kind: "exec",
     slug: "nathaniel-nyika",
+    image: personPortraits["nathaniel-nyika"],
     summary:
       "Brings over 25 years of investment experience transacting across Sub-Saharan African markets.",
     bio: [
@@ -147,6 +158,7 @@ export const teamMembers: Person[] = [
     role: "Senior Manager Government Relations & Partnerships",
     kind: "team",
     slug: "jerry-ntare",
+    image: personPortraits["jerry-ntare"],
     summary:
       "Leads public sector engagement, strategic partnerships, and resource mobilization in support of national development priorities.",
     bio: [
@@ -160,6 +172,7 @@ export const teamMembers: Person[] = [
     role: "Ag. Chief Finance and Administrative Officer",
     kind: "team",
     slug: "bienfait-banaga",
+    image: personPortraits["bienfait-banaga"],
     summary:
       "Certified Public Accountant with over 14 years of progressive experience in finance across non-profit, public and private organisations.",
     bio: [
@@ -174,6 +187,7 @@ export const teamMembers: Person[] = [
     role: "Senior Legal Officer",
     kind: "team",
     slug: "zackiah-nandugwa",
+    image: personPortraits["zackiah-nandugwa"],
     summary:
       "Corporate and commercial law professional supporting institutional governance, regulatory compliance, and strategic decision-making.",
     bio: [
@@ -187,6 +201,7 @@ export const teamMembers: Person[] = [
     role: "Senior Investment Analyst",
     kind: "team",
     slug: "charles-ndahimana",
+    image: personPortraits["charles-ndahimana"],
     summary:
       "Over seven years of experience in investments, portfolio and business analysis, and valuation.",
     bio: [
@@ -200,6 +215,7 @@ export const teamMembers: Person[] = [
     role: "Senior IT Officer",
     kind: "team",
     slug: "felicien-rimenyande",
+    image: personPortraits["felicien-rimenyande"],
     summary:
       "Over 12 years of expertise in digital transformation, data governance, and systems integration.",
     bio: [
@@ -214,6 +230,7 @@ export const teamMembers: Person[] = [
     role: "People and Culture Manager",
     kind: "team",
     slug: "lilian-s-mutesi",
+    image: personPortraits["lilian-s-mutesi"],
     summary:
       "Over 14 years of experience in human capital, organizational development, talent management, and performance improvement.",
     bio: [
@@ -227,6 +244,7 @@ export const teamMembers: Person[] = [
     role: "Investment Analyst",
     kind: "team",
     slug: "valentine-nyinawumuntu",
+    image: personPortraits["valentine-nyinawumuntu"],
     summary:
       "Supports investment evaluation, portfolio monitoring, and value creation initiatives across the Fund's portfolio.",
     bio: [
@@ -240,6 +258,7 @@ export const teamMembers: Person[] = [
     role: "Senior Investment Analyst",
     kind: "team",
     slug: "benjamin-igeno",
+    image: personPortraits["benjamin-igeno"],
     summary:
       "Specialises in financial modeling, valuation, due diligence, and investment analysis across African markets.",
     bio: [
@@ -253,6 +272,7 @@ export const teamMembers: Person[] = [
     role: "Investment Manager",
     kind: "team",
     slug: "elise-ntamitondero",
+    image: personPortraits["elise-ntamitondero"],
     summary:
       "Oversees portfolio management activities and serves as a Board Director on several portfolio companies.",
     bio: [
@@ -267,6 +287,7 @@ export const teamMembers: Person[] = [
     role: "IT Officer",
     kind: "team",
     slug: "sedar-sagamba",
+    image: personPortraits["sedar-sagamba"],
     summary:
       "Over eight years safeguarding the digital infrastructure of Rwanda's sovereign wealth fund.",
     bio: [
@@ -281,6 +302,7 @@ export const teamMembers: Person[] = [
     role: "Senior Risk and Compliance Manager",
     kind: "team",
     slug: "sabine-iradukunda-mugunga",
+    image: personPortraits["sabine-iradukunda-mugunga"],
     summary:
       "Provides board-level support to strengthen governance, compliance, and enterprise risk oversight.",
     bio: [
@@ -294,6 +316,7 @@ export const teamMembers: Person[] = [
     role: "Executive Advisor to the CEO",
     kind: "team",
     slug: "cliff-hakizabera",
+    image: personPortraits["cliff-hakizabera"],
     summary:
       "Provides executive support to strengthen the Fund's governance, partnerships, and long-term investment objectives.",
     bio: [
@@ -307,6 +330,7 @@ export const teamMembers: Person[] = [
     role: "Investment Analyst",
     kind: "team",
     slug: "prince-ntwari",
+    image: personPortraits["prince-ntwari"],
     summary:
       "Supports investment evaluation, financial analysis, portfolio monitoring, and strategic investment initiatives.",
     bio: [
@@ -320,6 +344,7 @@ export const teamMembers: Person[] = [
     role: "Administrative Officer",
     kind: "team",
     slug: "sandrine-isimbi-butera",
+    image: personPortraits["sandrine-isimbi-butera"],
     summary:
       "Supports the Fund's administrative operations and the efficient coordination of institutional activities.",
     bio: [
@@ -333,6 +358,7 @@ export const teamMembers: Person[] = [
     role: "Senior Accountant",
     kind: "team",
     slug: "landry-girinshuti",
+    image: personPortraits["landry-girinshuti"],
     summary:
       "Corporate finance and accounting professional with over nine years across financial services, energy, and logistics.",
     bio: [
@@ -346,6 +372,7 @@ export const teamMembers: Person[] = [
     role: "Senior PR and Communications Officer",
     kind: "team",
     slug: "keith-ntagozera",
+    image: personPortraits["keith-ntagozera"],
     summary:
       "Specialises in strategic communication, brand positioning, stakeholder engagement, and digital storytelling.",
     bio: [

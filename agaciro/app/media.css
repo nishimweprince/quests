@@ -1,0 +1,79 @@
+/* Remote-image states live separately from the existing visual-system edits. */
+.frame {
+  background-color: var(--black);
+}
+
+.remote-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  color: inherit;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+.remote-image-fallback--fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.rail-card-media:not(.rail-card-media--logo) .remote-image-fallback {
+  color: var(--white);
+}
+
+.image-credit {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 4;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.2rem;
+  background: rgb(0 0 0 / 72%);
+  color: #fff;
+  font-size: 0.625rem;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.image-credit:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.brand-lockup {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 270 / 82;
+  overflow: hidden;
+  color: var(--black);
+}
+.brand-lockup--white {
+  color: var(--white);
+}
+.brand-lockup .brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Original official PNG: 7222×3412; visible bounds: (863,667)–(6279,2442).
+   Crop transparent padding in CSS; the repository stores no derived image. */
+.brand-lockup img.brand-logo--color {
+  position: absolute;
+  left: -15.9343%;
+  top: -37.5775%;
+  width: 133.3456%;
+  height: 192.2254%;
+  max-width: none;
+  object-fit: fill;
+}
+.brand-lockup .remote-image-fallback {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 0.8rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}

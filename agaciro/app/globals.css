@@ -249,7 +249,7 @@ h4 {
   left: 0.75rem;
   padding: 0.75rem 1rem;
   border-radius: var(--r-pill);
-  background: var(--forest);
+  background: var(--black);
   color: var(--white);
   font-size: 0.88rem;
   transform: translateY(-200%);
@@ -290,10 +290,11 @@ h4 {
 }
 
 .section--sage {
-  background: var(--sage);
+  border-block: 1px solid var(--hairline);
+  background: var(--white);
 }
 .section--haze {
-  background: #f7f7f5;
+  background: #f4f4f4;
 }
 
 /* Full-bleed image frame: inset from the viewport, generous radius. */
@@ -307,8 +308,8 @@ h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Only a slight knock-back — the scrim below carries the legibility. */
-  filter: brightness(0.88) saturate(0.95);
+  /* Desaturated grade for the monochrome campaign — the scrim carries legibility. */
+  filter: brightness(0.92) saturate(0.8);
 }
 .frame-shade {
   position: absolute;
@@ -337,7 +338,7 @@ h4 {
    ========================================================================== */
 
 .eyebrow {
-  color: var(--green-ink);
+  color: var(--black);
   font-size: 0.88rem;
   letter-spacing: 0.02em;
 }
@@ -385,7 +386,7 @@ h4 {
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--black);
   transform: translateY(-0.15rem);
 }
 
@@ -460,11 +461,11 @@ h4 {
 }
 
 .btn--forest {
-  background: var(--forest);
+  background: var(--black);
   color: var(--white);
 }
 .btn--forest:hover {
-  background: var(--hover-forest);
+  background: #333333;
   color: var(--white);
 }
 
@@ -478,20 +479,22 @@ h4 {
 }
 
 .btn--grey {
-  background: var(--grey);
+  background: var(--black);
   color: var(--white);
 }
 .btn--grey:hover {
-  background: var(--hover-grey);
+  background: #333333;
   color: var(--white);
 }
 
 .btn--sage {
-  background: var(--sage);
+  border: 1px solid var(--hairline);
+  background: var(--white);
   color: var(--black);
 }
 .btn--sage:hover {
-  background: var(--hover-sage);
+  border-color: var(--black);
+  background: var(--white);
   color: var(--black);
 }
 
@@ -616,7 +619,7 @@ h4 {
   gap: 0.25rem;
   padding: 0.38rem 0.5rem;
   border-radius: 3.75rem;
-  background: var(--green);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -660,7 +663,7 @@ h4 {
   transform: rotate(180deg);
 }
 
-/* Dropdown: a cream card in the same language as the rest of the site. */
+/* Dropdown: a paper card in the same language as the rest of the site. */
 .nav-drop {
   position: absolute;
   z-index: 10;
@@ -668,8 +671,9 @@ h4 {
   left: 50%;
   width: 22rem;
   padding: 0.75rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
   color: var(--black);
   box-shadow: 0 1.5rem 3rem rgb(31 24 21 / 18%);
   opacity: 0;
@@ -702,15 +706,15 @@ h4 {
 }
 .nav-drop a:hover,
 .nav-drop a:focus-visible {
-  background: var(--hover-sage);
+  background: #f4f4f4;
 }
 .nav-drop a.is-active {
-  background: var(--hover-sage);
+  background: #f4f4f4;
 }
 .nav-drop span {
   display: block;
   margin-top: 0.15rem;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.78rem;
   opacity: 0.75;
 }
@@ -777,7 +781,7 @@ h4 {
     background: var(--hover-wh);
   }
   .nav--light .nav-burger {
-    background: var(--green);
+    background: var(--black);
     color: var(--white);
   }
 
@@ -789,7 +793,7 @@ h4 {
     flex-direction: column;
     padding: var(--gutter);
     overflow-y: auto;
-    background: var(--sage);
+    background: var(--white);
     color: var(--black);
     opacity: 0;
     visibility: hidden;
@@ -807,6 +811,9 @@ h4 {
     justify-content: space-between;
   }
   .mobile-menu-top .nav-logo {
+    color: var(--black);
+  }
+  .mobile-close {
     color: var(--black);
   }
   .mobile-close {
@@ -833,18 +840,20 @@ h4 {
     line-height: 1.25;
   }
   .mobile-group > a.is-active {
-    color: var(--forest);
+    color: var(--black);
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
   }
   .mobile-sub {
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
     padding: 0 0 1rem 1rem;
-    border-left: 1px solid rgb(78 57 46 / 22%);
+    border-left: 1px solid rgb(0 0 0 / 14%);
   }
   .mobile-sub a {
     padding: 0.35rem 0;
-    color: var(--forest);
+    color: var(--black);
     font-size: 0.95rem;
   }
   .mobile-contact {
@@ -852,7 +861,7 @@ h4 {
     flex-direction: column;
     gap: 0.6rem;
     padding-top: 2rem;
-    border-top: 1px solid rgb(78 57 46 / 22%);
+    border-top: 1px solid rgb(0 0 0 / 14%);
     font-size: 0.95rem;
   }
   .mobile-contact a {
@@ -998,7 +1007,7 @@ h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.88) saturate(0.95);
+  filter: brightness(0.92) saturate(0.8);
   transition: transform 0.7s var(--ease);
 }
 .glance-media:hover img {
@@ -1062,7 +1071,7 @@ h4 {
   gap: 1rem;
 }
 .glance-figures .stat-value {
-  color: var(--forest);
+  color: var(--black);
   font-size: 2.75rem;
   line-height: 1.2;
 }
@@ -1139,7 +1148,7 @@ h4 {
   height: 2.5rem;
   flex: none;
   align-items: center;
-  color: var(--forest);
+  color: var(--black);
   font-size: 1rem;
   font-weight: 500;
   white-space: nowrap;
@@ -1188,7 +1197,7 @@ h4 {
   inset: 100% 0 auto;
   width: 100%;
   height: 100%;
-  background: var(--green);
+  background: var(--black);
   transition: transform 0.55s var(--ease);
 }
 .rule-row:hover .rule-row-fill,
@@ -1236,7 +1245,7 @@ h4 {
 }
 
 .rule-list--brown .rule-row-fill {
-  background: var(--forest);
+  background: var(--black);
 }
 
 @media (max-width: 767px) {
@@ -1283,8 +1292,9 @@ h4 {
   gap: 1.5rem;
   overflow: hidden;
   padding: 1.75rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
 }
 .rail-card-mark {
   display: flex;
@@ -1292,9 +1302,9 @@ h4 {
   height: 4.5rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--green);
+  border: 1px solid var(--black);
   border-radius: 50%;
-  color: var(--forest);
+  color: var(--black);
   font-size: 1.1rem;
   letter-spacing: 0.06em;
 }
@@ -1304,13 +1314,13 @@ h4 {
 }
 .rail-card-body p {
   margin-top: 1rem;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   line-height: 1.55;
 }
 .rail-card-sector {
   margin-top: 1.5rem;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.82rem;
   opacity: 0.75;
 }
@@ -1319,13 +1329,13 @@ h4 {
   flex: 1;
   overflow: hidden;
   border-radius: var(--r-card);
-  background: var(--forest);
+  background: var(--black);
 }
 .rail-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.94) saturate(0.98);
+  filter: brightness(0.94) saturate(0.85);
   transition:
     transform 0.7s var(--ease),
     filter 0.5s var(--ease);
@@ -1336,9 +1346,10 @@ h4 {
 .rail-card:hover .rail-card-media img {
   transform: scale(1.05);
 }
-/* Official holding logo: contained on sage, never cropped or tinted. */
+/* Official holding logo: contained on white, never cropped or tinted. */
 .rail-card-media--logo {
-  background: var(--sage);
+  border: 1px solid var(--hairline);
+  background: var(--white);
 }
 .rail-card-media--logo img {
   object-fit: contain;
@@ -1379,12 +1390,12 @@ h4 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--forest);
+  background: var(--black);
   color: var(--white);
   transition: all 0.4s;
 }
 .rail-arrow:hover {
-  background: #35251d;
+  background: #333333;
   color: var(--white);
 }
 .rail-arrow.is-disabled {
@@ -1524,8 +1535,9 @@ h4 {
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem 1.4rem 2rem 2rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
 }
 .person-card-top {
   display: flex;
@@ -1546,7 +1558,7 @@ h4 {
   border-radius: 0.5rem;
   background:
     radial-gradient(circle at 30% 24%, rgb(255 255 255 / 22%), transparent 58%),
-    linear-gradient(150deg, var(--green), var(--forest));
+    linear-gradient(150deg, #2b2b2b, #000000);
 }
 .people-grid--three .person-photo {
   width: 100%;
@@ -1582,11 +1594,11 @@ h4 {
   line-height: 1.3;
 }
 .person-role {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.88rem;
 }
 .person-summary {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   line-height: 1.55;
 }
@@ -1635,7 +1647,7 @@ h4 {
   border-radius: var(--r-card);
   background:
     radial-gradient(circle at 30% 24%, rgb(255 255 255 / 22%), transparent 58%),
-    linear-gradient(150deg, var(--green), var(--forest));
+    linear-gradient(150deg, #2b2b2b, #000000);
 }
 .profile-photo span {
   color: rgb(255 255 255 / 92%);
@@ -1684,8 +1696,8 @@ h4 {
     color 0.3s;
 }
 .page-back:hover {
-  border-color: var(--forest);
-  background: var(--forest);
+  border-color: var(--black);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -1704,7 +1716,7 @@ h4 {
   justify-content: center;
   border: 1px solid var(--hairline);
   border-radius: 50%;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   transition:
     background-color 0.3s,
@@ -1794,7 +1806,7 @@ h4 {
   transition: transform 0.35s var(--ease);
 }
 .breadcrumb a:hover {
-  color: var(--green);
+  color: var(--black);
 }
 .breadcrumb a:hover::after,
 .breadcrumb a:focus-visible::after {
@@ -1802,7 +1814,7 @@ h4 {
   transform-origin: left;
 }
 .breadcrumb span {
-  color: var(--green);
+  color: var(--black);
 }
 .breadcrumb strong {
   font-weight: 400;
@@ -1877,18 +1889,20 @@ h4 {
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.75rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
-  transition: background-color 0.3s;
+  background: var(--white);
+  transition: border-color 0.3s;
 }
 .card:hover {
-  background: var(--hover-sage);
+  border-color: var(--black);
+  background: var(--white);
 }
 .card h3 {
   font-size: 1.25rem;
 }
 .card p {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   line-height: 1.55;
 }
@@ -1898,7 +1912,7 @@ h4 {
   gap: 0.5rem;
   margin-top: auto;
   padding-top: 1.5rem;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.88rem;
   font-weight: 500;
 }
@@ -1913,7 +1927,7 @@ h4 {
 }
 .card--plain:hover {
   background: transparent;
-  border-color: var(--green);
+  border-color: var(--black);
 }
 
 @media (max-width: 991px) {
@@ -1945,7 +1959,7 @@ h4 {
   border-bottom: 1px solid var(--hairline);
 }
 .timeline-year {
-  color: var(--green);
+  color: var(--black);
   font-size: 1.25rem;
   line-height: 1.2;
 }
@@ -1978,16 +1992,18 @@ h4 {
 }
 .chip {
   padding: 0.62rem 1.1rem;
-  border: 1px solid var(--green);
+  border: 1px solid var(--hairline);
   border-radius: var(--r-pill);
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   transition:
     background-color 0.3s,
-    color 0.3s;
+    color 0.3s,
+    border-color 0.3s;
 }
 .chip:hover {
-  background: var(--green);
+  border-color: var(--black);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -2002,18 +2018,20 @@ h4 {
   flex-direction: column;
   gap: 1rem;
   padding: 2rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
 }
 .panel:nth-child(2) {
-  background: var(--forest);
+  border-color: var(--black);
+  background: var(--black);
   color: var(--white);
 }
 .panel:nth-child(2) .eyebrow {
-  color: var(--green-ink);
+  color: var(--white);
 }
 .panel .eyebrow {
-  color: var(--forest);
+  color: var(--black);
   opacity: 0.7;
 }
 .panel p {
@@ -2048,11 +2066,11 @@ h4 {
     border-color 0.3s;
 }
 .filter-chip:hover {
-  border-color: var(--forest);
+  border-color: var(--black);
 }
 .filter-chip.is-active {
-  border-color: var(--forest);
-  background: var(--forest);
+  border-color: var(--black);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -2066,19 +2084,21 @@ h4 {
   flex-direction: column;
   gap: 1rem;
   padding: 1.75rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
-  transition: background-color 0.3s;
+  background: var(--white);
+  transition: border-color 0.3s;
 }
 .company-card:hover {
-  background: var(--hover-sage);
+  border-color: var(--black);
+  background: var(--white);
 }
 .company-card h3 {
   font-size: 1.2rem;
   line-height: 1.3;
 }
 .company-card p {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.95rem;
   line-height: 1.55;
 }
@@ -2092,12 +2112,12 @@ h4 {
 .company-tag {
   padding: 0.3rem 0.7rem;
   border-radius: var(--r-pill);
-  background: rgb(78 57 46 / 10%);
-  color: var(--forest);
+  background: rgb(0 0 0 / 7%);
+  color: var(--black);
   font-size: 0.76rem;
 }
 .company-card-note {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.88rem;
   font-style: italic;
   opacity: 0.7;
@@ -2136,7 +2156,7 @@ h4 {
   border-bottom: 1px solid var(--hairline);
 }
 .doc-row:hover {
-  background: var(--sage);
+  background: #f4f4f4;
 }
 .doc-title {
   display: flex;
@@ -2148,7 +2168,7 @@ h4 {
   width: 1rem;
   height: 1rem;
   flex: none;
-  color: var(--green);
+  color: var(--black);
 }
 .doc-meta {
   color: var(--grey);
@@ -2159,7 +2179,7 @@ h4 {
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.88rem;
   font-weight: 500;
 }
@@ -2190,8 +2210,9 @@ h4 {
   flex-direction: column;
   gap: 1rem;
   padding: 2rem;
+  border: 1px solid var(--hairline);
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
 }
 .listing-item h3 {
   font-size: 1.4rem;
@@ -2207,7 +2228,7 @@ h4 {
   gap: 0.2rem;
 }
 .listing-meta dt {
-  color: var(--forest);
+  color: var(--black);
   font-size: 0.8rem;
   opacity: 0.7;
 }
@@ -2234,7 +2255,7 @@ h4 {
   border-bottom: 1px solid var(--hairline);
 }
 .news-item:hover {
-  background: var(--sage);
+  background: #f4f4f4;
 }
 .news-item time {
   color: var(--green);
@@ -2303,7 +2324,7 @@ h4 {
 .form input:focus,
 .form textarea:focus,
 .form select:focus {
-  border-color: var(--forest);
+  border-color: var(--black);
 }
 .form textarea {
   min-height: 6rem;
@@ -2355,18 +2376,18 @@ h4 {
   width: 1rem;
   height: 1rem;
   flex: none;
-  border: 1px solid var(--forest);
+  border: 1px solid var(--black);
   border-radius: 0.2rem;
   transition:
     background-color 0.2s,
     box-shadow 0.2s;
 }
 .check input:checked + i {
-  background: var(--forest);
+  background: var(--black);
   box-shadow: inset 0 0 0 3px #f7f7f7;
 }
 .check input:focus-visible + i {
-  outline: 2px solid var(--forest);
+  outline: 2px solid var(--black);
   outline-offset: 2px;
 }
 
@@ -2398,7 +2419,7 @@ h4 {
   object-fit: cover;
 }
 .contact-visual img {
-  filter: brightness(0.94) saturate(0.97);
+  filter: brightness(0.94) saturate(0.85);
 }
 .contact-visual::after {
   position: absolute;
@@ -2433,7 +2454,7 @@ h4 {
 .contact-item svg {
   width: 0.9rem;
   flex: none;
-  color: var(--green);
+  color: var(--white);
 }
 
 @media (max-width: 991px) {
@@ -2462,7 +2483,7 @@ h4 {
   gap: 1rem;
   padding: 2.5rem;
   border-radius: var(--r-card);
-  background: var(--sage);
+  background: var(--white);
 }
 .modal-close {
   position: absolute;
@@ -2637,7 +2658,7 @@ h4 {
   padding: 1.5rem;
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: var(--r-panel);
-  background: var(--forest);
+  background: var(--black);
   color: var(--white);
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%);
 }

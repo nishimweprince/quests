@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:media && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:media": "node scripts/check-media.mjs",
+    "verify:media": "node scripts/verify-media.mjs",
+    "test:media": "node --test scripts/check-media.test.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",

@@ -19,18 +19,24 @@ export const investmentPages: InvestmentPage[] = [
       {
         heading: "Equity",
         body: [
-          "We seek mid-stage growth companies that seek growth capital within Rwanda and outside Rwanda. We also seek to partner with fund managers who have established track records. We are looking for profitable, cash generating companies that have the capacity of declaring and paying a dividend within the short to medium term.",
-          "We shy away from greenfield investments unless they are significantly de-risked through offtake supply implementation. We look for companies that have strong management and governance practices, with boards and audited financial statements.",
-          "Companies should have the capacity to scale and crowd in other sources of capital outside of Agaciro Development Fund. We look at companies that have been in operation for at least 3 years and should have been profitable for at least 2 of those 3 years, including the most recent year. Their EBITDA should be at least Frw 3 billion, generating a revenue of at least Frw 10 billion. The company should also be cash or near-cash generative.",
-          "In terms of ticket size, we look at an investment of about Frw 10 billion and the company should demonstrate the capacity to absorb it within one year. While there is no specific requirement in terms of the shareholding in companies we invest in, we need to have significant influence and oversight. As such, we look at tickets of at least 10% in the companies we invest in and board representation in them. We are also able to invest through syndication and co-investment structures.",
+          "We back mid-stage growth companies in Rwanda and beyond that are profitable, generate cash, and can declare and pay a dividend in the short to medium term. We also partner with fund managers who have established track records.",
+          "We avoid greenfield investments unless they are significantly de-risked through contracted offtake or supply arrangements. [Typo corrected: the source text read “offtake supply implementation”.] We look for strong management and governance — a constituted board and audited financial statements — and for companies that can scale and crowd in capital alongside the Fund.",
+        ],
+        list: [
+          "Track record: in operation for at least 3 years, and profitable for at least 2 of those 3 years, including the most recent year.",
+          "Scale: EBITDA of at least Frw 3 billion on revenue of at least Frw 10 billion, cash or near-cash generative.",
+          "Ticket size: about Frw 10 billion, which the company should be able to absorb within one year.",
+          "Influence: a stake of at least 10% with board representation, so the Fund has significant influence and oversight — including through syndication and co-investment structures.",
         ],
       },
       {
         heading: "Debt",
-        body: ["Under fixed income, what we invest in:"],
+        body: [
+          "Under fixed income, we invest in high quality yielding assets with significant downside protection, assessed against the cash flow the business generates.",
+        ],
         list: [
-          "High quality yielding assets with significant downside protection. We consider a margin above the debt service coverage ratio of at least 1.3 times, debt-to-EBITDA of a maximum of 3 times, a debt-to-equity ratio specific to the industry, cash flow generation capacity of the business, and align the debt requirement to the generation of the business.",
-          "Companies that have earnings that are naturally hedged against US Dollar depreciation.",
+          "A margin above the debt service coverage ratio of at least 1.3 times, debt-to-EBITDA of a maximum of 3 times, and a debt-to-equity ratio specific to the industry.",
+          "Companies whose earnings are naturally hedged against US Dollar depreciation.",
           "Public and sovereign debt, domestic and offshore.",
           "Supranationals.",
         ],
@@ -84,17 +90,21 @@ export const investmentPages: InvestmentPage[] = [
       {
         heading: "Developmental impact",
         body: [
-          "For each investment, the Primary Impact Indicators and two Supporting Impact Indicators will be established and monitored to track alignment and overall development impact, ex-ante and ex-post. Indicative development impact indicators consistent with NST2 objectives may include employment creation, export growth and foreign exchange generation, domestic value addition and industrial development, and infrastructure capacity expansion. These indicators are intended to guide impact assessment at a high level while maintaining flexibility across sectors and investment types.",
-          "We measure the developmental impact of our underlying portfolio companies through specific sector-assigned matrices which they are expected to meet.",
-          "Our investment outcomes are aligned to the United Nations Sustainable Development Goals (UNSDGs).",
+          "For each investment, one Primary Impact Indicator and two Supporting Impact Indicators are set and tracked before and after the investment, to measure alignment and overall development impact.",
+        ],
+        list: [
+          "Employment creation.",
+          "Export growth and foreign exchange generation.",
+          "Domestic value addition and industrial development.",
+          "Infrastructure capacity expansion.",
         ],
       },
       {
         heading: "Environmental, Social and Governance",
         body: [
-          "Agaciro employs responsible investing practices that take into account environmental, social and governance (ESG) factors to manage risk and generate sustainable, long-term returns.",
-          "Agaciro is committed to assessing and mitigating ESG-related risks and impacts within its investment portfolio. Accordingly, ESG-related risks and considerations will be incorporated across the investment process. Where appropriate, Agaciro may commission specialist external ESG consultants to support with the ESG Policy, due diligence and monitoring related processes.",
+          "Agaciro invests responsibly: environmental, social, and governance (ESG) factors are built into every stage of the investment process to manage risk and generate sustainable, long-term returns. Where appropriate, the Fund commissions specialist external ESG consultants to support the ESG policy, due diligence, and monitoring.",
           "Furthermore, Agaciro will not invest in activities that are inconsistent with internationally recognized Environmental, Social, and Governance standards. In particular, the Fund will apply the IFC Exclusion List as a baseline screening tool and will refrain from investing in sectors or activities prohibited under this framework. This ensures that the portfolio avoids investments associated with significant environmental harm, illegal activities, or unacceptable social impacts.",
+          "Investment outcomes are aligned to the United Nations Sustainable Development Goals (UN SDGs), and each portfolio company is measured against sector-specific impact matrices it is expected to meet.",
         ],
       },
     ],
@@ -116,13 +126,31 @@ export const investmentPages: InvestmentPage[] = [
     slug: "investment-risk-management",
     title: "Investment Risk Management",
     summary:
-      "Investment risks relate to Agaciro's asset-by-asset view of risks, leveraged to evaluate whether individual investments are performing and whether risky positions are being adequately compensated for.",
+      "Agaciro tracks risk investment by investment — checking that each position performs and that every risk taken is adequately compensated for.",
     sections: [
       {
+        heading: "How positions are monitored",
         body: [
-          "Investment risks relate to Agaciro's asset-by-asset view of risks, leveraged to evaluate whether individual investments are performing and whether risky positions are being adequately compensated for. At the investment level, Agaciro's risk monitoring process is conducted through a combination of financial health metrics, structural indicators, and sector-specific considerations. For equity investments, focus is placed on operating cashflow generation, revenue growth, profitability margins (including EBITDA, EBIT, and net margin), dividend yield, and the viability of exit pathways. Key illustrative alert thresholds include Debt Service Coverage Ratio (DSCR), Debt/EBITDA multiples, interest coverage falling below a threshold, and any switch from positive to negative EBITDA margin, each of which would prompt a formal review of the relevant position. For debt investments, the primary metrics tracked include average Debt-to-EBITDA on a portfolio-weighted basis, interest coverage ratios, and exposure to floating versus fixed rate instruments.",
-          "Beyond financial metrics, the Investment Department monitors a broader set of operational and structural risk indicators tailored to the nature of each investment. These include customer and counterparty concentration, working capital cycles, leverage relative to asset quality and collateral, debt service coverage and capacity utilisation. Specific attention will be paid to FX mismatches between hard-currency obligations and local-currency revenues, offtake and contractual arrangements underpinning long-dated assets, and any signals of margin compression or deteriorating asset quality that may serve as leading indicators of financial stress.",
-          "Risk monitoring is conducted on an ongoing basis by the Investment Department and reviewed by the Risk Department, with material developments reported to the Board Investment Committee at each quarterly meeting. Where a portfolio company breaches one or more alert thresholds, the Investment Department will prepare a written assessment of the risk, its potential impact on the Fund, and any proposed remedial or protective action.",
+          "Agaciro takes an asset-by-asset view of risk, combining financial health metrics, structural indicators, and sector-specific considerations. For equity investments, the focus is operating cashflow generation, revenue growth, profitability margins (EBITDA, EBIT, and net margin), dividend yield, and the viability of exit pathways. For debt investments, the primary metrics are average Debt-to-EBITDA on a portfolio-weighted basis, interest coverage ratios, and exposure to floating versus fixed rate instruments.",
+          "Beyond financial metrics, the Investment Department watches operational and structural indicators for each holding: customer and counterparty concentration, working capital cycles, leverage against asset quality and collateral, and capacity utilisation — with particular attention to FX mismatches between hard-currency obligations and local-currency revenues, offtake and contractual arrangements behind long-dated assets, and early signs of margin compression or deteriorating asset quality.",
+        ],
+      },
+      {
+        heading: "Alert thresholds",
+        body: [
+          "Breaching any of the following prompts a formal review of the position:",
+        ],
+        list: [
+          "Debt Service Coverage Ratio (DSCR) falling below its set threshold.",
+          "Debt/EBITDA multiples breaching their set threshold.",
+          "Interest coverage falling below its set threshold.",
+          "Any switch from positive to negative EBITDA margin.",
+        ],
+      },
+      {
+        heading: "Reporting",
+        body: [
+          "Monitoring runs continuously in the Investment Department and is reviewed by the Risk Department, with material developments reported to the Board Investment Committee each quarter. Where a portfolio company breaches one or more alert thresholds, the Investment Department prepares a written assessment of the risk, its potential impact on the Fund, and any proposed remedial or protective action.",
         ],
       },
     ],

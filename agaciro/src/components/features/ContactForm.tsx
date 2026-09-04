@@ -33,11 +33,11 @@ export function ContactForm() {
           </p>
         </div>
         <label>
-          Full names *
+          Full name *
           <input
             autoComplete="name"
             name="name"
-            placeholder="Your full names"
+            placeholder="Your full name"
             required
             type="text"
           />
@@ -78,7 +78,7 @@ export function ContactForm() {
           Message *
           <textarea
             name="message"
-            placeholder="How can we help?"
+            placeholder="Describe your enquiry"
             required
             rows={5}
           />
@@ -105,7 +105,7 @@ export function ContactForm() {
             >
               <FontAwesomeIcon icon={faXmark} />
             </button>
-            <p className="eyebrow">Enquiry checked</p>
+            <p className="eyebrow">Enquiry noted</p>
             <h2 id="contact-sent-title">Thank you</h2>
             <p className="muted">
               This build validates the form in the browser but does not deliver

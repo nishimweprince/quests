@@ -16,10 +16,15 @@ export function Footer() {
                 Agaciro Development Fund invests national savings for Rwanda&apos;s
                 long-term resilience and prosperity.
               </p>
+              <p className="muted">
+                Organised under Law N° 007/2021 and accountable to the
+                Government of Rwanda through the Minister of Finance and
+                Economic Planning.
+              </p>
               <Link className="btn btn--sage" href="/contact">
-                Get in Touch <Arrow direction="diagonal" />
+                Contact the Fund <Arrow direction="diagonal" />
               </Link>
-              <address className="footer-address">
+              <p className="footer-address">
                 {site.address.map((line) => (
                   <span key={line}>
                     {line}
@@ -32,7 +37,7 @@ export function Footer() {
                 <a className="footer-link" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
-              </address>
+              </p>
               <div className="social-row" role="group" aria-label="Follow Agaciro">
                 {socials.map((item) => (
                   <SocialIcon

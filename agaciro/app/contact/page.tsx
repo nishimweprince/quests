@@ -24,11 +24,11 @@ export default function ContactPage() {
         <nav aria-label="Breadcrumb" className="breadcrumb muted">
           <Link href="/">Home</Link>
           <span aria-hidden="true">•</span>
-          <strong aria-current="page">Contact Us</strong>
+          <strong aria-current="page">Contact</strong>
         </nav>
 
         <div className="header-row" data-reveal style={{ margin: "2rem 0 3rem" }}>
-          <h1>Get in Touch</h1>
+          <h1>Contact the Fund</h1>
           <div className="header-aside">
             <p>
               Investment proposals, partnership enquiries, media questions — send

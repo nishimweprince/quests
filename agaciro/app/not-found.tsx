@@ -19,10 +19,10 @@ export default function NotFound() {
         </p>
         <div className="hero-actions" style={{ justifyContent: "center" }}>
           <Button href="/" variant="white">
-            Back home
+            Return home
           </Button>
           <Button arrow={false} href="/portfolio" variant="glass">
-            Our Portfolio
+            View the portfolio
           </Button>
         </div>
       </div>

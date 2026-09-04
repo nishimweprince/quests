@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { media } from "@/content/media";
 
 export function ConnectCta({
-  title = "Let's Connect",
+  title = "Contact the Fund",
   body,
   image = media.home.cta,
 }: {
@@ -23,7 +23,7 @@ export function ConnectCta({
           <h2>{title}</h2>
           {body ? <p>{body}</p> : null}
           <Button href="/contact" variant="white">
-            Get in Touch
+            Contact the Fund
           </Button>
         </div>
       </div>

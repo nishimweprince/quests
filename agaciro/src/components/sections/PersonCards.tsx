@@ -70,7 +70,7 @@ export function PersonCards({
             </div>
           </div>
           <Link className="link-underline" href={personHref(person)}>
-            Read more
+            Read the profile
           </Link>
         </article>
       ))}

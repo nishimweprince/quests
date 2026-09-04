@@ -16,7 +16,7 @@ export default function PortfolioPage() {
         crumbs={[{ label: "Portfolio" }]}
         image={media.portfolio.hub}
         standfirst="Twenty-five portfolio companies and strategic national investments across seven sectors."
-        title="Our Portfolio"
+        title="Portfolio"
       />
 
       <section className="section section--lg pad-global" id="content">

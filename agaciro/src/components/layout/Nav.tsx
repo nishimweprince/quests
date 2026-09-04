@@ -121,7 +121,7 @@ export function Nav() {
           </nav>
 
           <Link className="nav-cta" href="/contact">
-            Get in Touch <Arrow direction="diagonal" />
+            Contact the Fund <Arrow direction="diagonal" />
           </Link>
 
           <button
@@ -177,7 +177,7 @@ export function Nav() {
               className={isActive("/contact") ? "is-active" : ""}
               href="/contact"
             >
-              Contact Us
+              Contact
             </Link>
           </div>
         </nav>

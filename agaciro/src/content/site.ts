@@ -25,6 +25,13 @@ export const glance = [
   { value: 7, suffix: "", label: "Investment sectors" },
 ] as const;
 
+/** Dating and source for the headline figures — update when new audited accounts publish. */
+export const figuresMeta = {
+  asOf: "31 December 2024",
+  reportHref: "/resources/annual-report",
+  reportLabel: "2024 Annual Report and Financial Statements",
+} as const;
+
 /** Accounts the Fund links from agaciro.rw. */
 export const socials = [
   {

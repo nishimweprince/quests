@@ -1,8 +1,17 @@
 /**
- * Placeholder photography. Every slot gets its own image so no picture repeats.
+ * Photography sources, in priority order:
  *
- * These are generic stock photos, deliberately not Rwanda-specific — swap the
- * files in `public/media/stock/` for the real ones and nothing else has to change.
+ * 1. agaciro.rw — holding logos (`public/media/logos/`) and the Kwibuka
+ *    news photo used for the news hero.
+ * 2. The Fund's own Flickr library (flickr.com/photos/131816702@N03) —
+ *    event, delegation, remembrance, and livestock photography.
+ * 3. Pexels (pexels.com/license, free to use) — topical fills the Fund's
+ *    library cannot cover: Kigali aerial (31466706), telecom tower
+ *    (12003537), highway trucks (2199293), welders (15947586), mine tunnel
+ *    (32594486), stadium at night (31741429), spreadsheet (590022),
+ *    tower cranes (30617023).
+ *
+ * Every slot gets its own image so no picture repeats.
  */
 const STOCK = "/media/stock";
 
@@ -68,4 +77,39 @@ export const resourceHero: Record<string, string> = {
 /** Keyed by the portfolio company slug — one image per holding. */
 export function companyImage(slug: string) {
   return `${STOCK}/co-${slug}.jpg`;
+}
+
+const LOGOS = "/media/logos";
+
+/**
+ * Official holding logos reused verbatim from agaciro.rw.
+ * Null where the old site publishes no logo — the carousel falls back
+ * to the photographic placeholder for those holdings.
+ */
+const companyLogos: Record<string, string> = {
+  "development-bank-of-rwanda": "brd.png",
+  "bank-of-kigali": "bk.png",
+  "rwanda-stock-exchange": "rse.png",
+  "im-bank-rwanda": "im.png",
+  "trade-and-development-bank": "tdb.png",
+  "gtbank-rwanda": "gtbank.png",
+  "rwanda-national-investment-trust": "rnit.png",
+  "broadband-systems-corporation": "bsc.png",
+  irembo: "irembo.png",
+  "africa-olleh-services": "aos.png",
+  "kt-rwanda-network": "ktrn.png",
+  "rwanda-printery-company": "rpc.png",
+  "kinazi-cassava-plant": "kinazi.png",
+  "rwanda-farmers-coffee-company": "rfcc.jpeg",
+  "africa-improved-foods": "aif.png",
+  "rwanda-interlink-transport-company": "ritco.png",
+  "prime-economic-zones": "pez.jpeg",
+  "rwanda-fertilizer-company": "fertilizer.png",
+  "trinity-metals-group": "trinity_logo.png",
+  "zaria-court": "zaria.png",
+};
+
+export function companyLogo(slug: string): string | null {
+  const file = companyLogos[slug];
+  return file ? `${LOGOS}/${file}` : null;
 }

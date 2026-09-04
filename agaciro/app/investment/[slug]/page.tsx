@@ -93,7 +93,7 @@ export default async function InvestmentDetail({
                 <h3>{item.title}</h3>
                 <p>{item.summary}</p>
                 <span className="card-foot">
-                  Read more <Arrow direction="diagonal" />
+                  Read the full page <Arrow direction="diagonal" />
                 </span>
               </Link>
             ))}

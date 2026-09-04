@@ -43,7 +43,7 @@ export default function InvestmentPage() {
                 <h3>{page.title}</h3>
                 <p>{page.summary}</p>
                 <span className="card-foot">
-                  Read more <Arrow direction="diagonal" />
+                  Read the full page <Arrow direction="diagonal" />
                 </span>
               </Link>
             ))}
@@ -79,7 +79,7 @@ export default function InvestmentPage() {
         </div>
       </section>
 
-      <ConnectCta body="If your business fits this profile, we would like to hear from you." />
+      <ConnectCta body="Proposals that meet the criteria above can be sent to the Fund through the contact form." />
     </>
   );
 }

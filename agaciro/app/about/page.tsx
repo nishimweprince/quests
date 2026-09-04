@@ -89,9 +89,12 @@ export default function AboutPage() {
       <section className="section section--sm pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
-            <h2>Explore About Us</h2>
+            <h2>The Fund in detail</h2>
             <div className="header-aside">
-              <p>Four pages cover where the Fund came from and who runs it.</p>
+              <p>
+                Four pages cover where the Fund came from, what directs it,
+                and who runs it.
+              </p>
             </div>
           </div>
           <div className="card-grid" style={{ marginTop: "3rem" }}>
@@ -105,7 +108,7 @@ export default function AboutPage() {
                 <h3>{section.title}</h3>
                 <p>{section.body}</p>
                 <span className="card-foot">
-                  Read more <Arrow direction="diagonal" />
+                  Read the full page <Arrow direction="diagonal" />
                 </span>
               </Link>
             ))}

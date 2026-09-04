@@ -14,7 +14,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
 import { Arrow } from "@/components/ui/Arrow";
-import { companyImage } from "@/content/media";
+import { companyImage, companyLogo } from "@/content/media";
 import { featuredCompanies, sectors } from "@/content/portfolio";
 
 function mark(name: string) {
@@ -58,13 +58,24 @@ export function PortfolioCarousel() {
                     <p className="rail-card-sector">{sector?.name}</p>
                   </div>
                 </div>
-                <div className="rail-card-media">
-                  <Image
-                    alt=""
-                    fill
-                    sizes="(max-width: 767px) 82vw, 24rem"
-                    src={companyImage(company.slug)}
-                  />
+                <div
+                  className={`rail-card-media${companyLogo(company.slug) ? " rail-card-media--logo" : ""}`}
+                >
+                  {companyLogo(company.slug) ? (
+                    <Image
+                      alt={`${company.name} logo`}
+                      fill
+                      sizes="(max-width: 767px) 82vw, 24rem"
+                      src={companyLogo(company.slug) as string}
+                    />
+                  ) : (
+                    <Image
+                      alt=""
+                      fill
+                      sizes="(max-width: 767px) 82vw, 24rem"
+                      src={companyImage(company.slug)}
+                    />
+                  )}
                 </div>
               </article>
             </SwiperSlide>

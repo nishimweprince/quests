@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { strengths } from "@/content/investment";
 import { leadership } from "@/content/people";
 import { portfolioCompanies, sectors } from "@/content/portfolio";
-import { site } from "@/content/site";
+import { figuresMeta, site } from "@/content/site";
 import { media } from "@/content/media";
 
 const values = [
@@ -25,7 +25,7 @@ const values = [
   },
   {
     label: "Discipline",
-    title: "Commercial from the first question",
+    title: "Commercial discipline, applied consistently",
     body: "We invest on a commercial basis in market leaders and defensible niche players, and evaluate every opportunity on its own merits.",
   },
   {
@@ -59,10 +59,10 @@ export default function Home() {
             <p data-reveal>{site.dek}</p>
             <div className="hero-actions" data-reveal>
               <Button href="/investment" variant="white">
-                Explore the Fund
+                How we invest
               </Button>
               <Button arrow={false} href="/portfolio" variant="glass">
-                Our Portfolio
+                View the portfolio
               </Button>
             </div>
           </div>
@@ -145,6 +145,16 @@ export default function Home() {
                   <span className="stat-label">Investment sectors</span>
                 </div>
               </div>
+              <p className="muted" style={{ marginTop: "1.5rem" }}>
+                Figures as at {figuresMeta.asOf}, from the{" "}
+                <Link
+                  className="link-underline"
+                  href={figuresMeta.reportHref}
+                >
+                  {figuresMeta.reportLabel}
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
@@ -170,11 +180,11 @@ export default function Home() {
       <section className="section section--sm pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
-            <h2>What guides the Fund</h2>
+            <h2>Mandate and values</h2>
             <div className="header-aside">
               <p>
-                Four commitments shape how we steward national savings and judge
-                every opportunity.
+                Four commitments shape how the Fund stewards national savings
+                and judges every opportunity.
               </p>
               <Button href="/about/mission-and-vision" variant="grey">
                 Mission and vision
@@ -203,14 +213,14 @@ export default function Home() {
       <section className="section section--sm section--haze pad-global">
         <div className="container">
           <div className="header-row" data-reveal>
-            <h2>A portfolio built for Rwanda&apos;s economy</h2>
+            <h2>Holdings across Rwanda&apos;s economy</h2>
             <div className="header-aside">
               <p>
                 Twenty-five holdings across seven sectors, from banks and
                 exchanges to cassava, coffee, tin and connectivity.
               </p>
               <Button href="/portfolio" variant="grey">
-                Explore the portfolio
+                View the portfolio
               </Button>
             </div>
           </div>
@@ -230,7 +240,7 @@ export default function Home() {
         </div>
         <div className="strengths-inner pad-global">
           <div className="header-center" data-reveal>
-            <h2>Key strengths and principles</h2>
+            <h2>Strengths of the Fund</h2>
           </div>
           <div className="strengths-cards container">
             {strengths.slice(0, 3).map((item) => (
@@ -303,7 +313,7 @@ export default function Home() {
       </section>
 
       <ConnectCta
-        body="Whether you are raising growth capital, structuring debt, or partnering as a fund manager — start the conversation here."
+        body="Investment proposals, partnership enquiries, and media questions — addressed to the Fund's team in Kigali."
         image={media.home.cta}
       />
     </>

@@ -1,7 +1,7 @@
 import sharp from "sharp";
 import { loadCatalog } from "./media-catalog.mjs";
 
-const { mediaSources, brandMedia } = await loadCatalog();
+const { mediaSources, brandMedia, optimizedImageSource } = await loadCatalog();
 const base = process.argv.find((arg) => arg.startsWith("--base-url="))?.split("=").slice(1).join("=");
 const queue = Object.values(mediaSources);
 const errors = [];
@@ -9,7 +9,7 @@ let passed = 0;
 
 async function verify(source) {
   const url = base && source.src !== brandMedia.favicon
-    ? `${base}/_next/image?url=${encodeURIComponent(source.src)}&w=640&q=75`
+    ? `${base}/_next/image?url=${encodeURIComponent(optimizedImageSource(source.src))}&w=640&q=75`
     : source.src;
   const response = await fetch(url, { signal: AbortSignal.timeout(45000) });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -35,7 +35,12 @@ await Promise.all(Array.from({ length: 4 }, async () => {
   while (queue.length) {
     const source = queue.shift();
     try {
-      await verify(source);
+      try {
+        await verify(source);
+      } catch {
+        // Retry once for transient upstream failures, never substitute another image.
+        await verify(source);
+      }
       passed++;
     } catch (error) {
       errors.push(`${source.src}: ${error.message}`);

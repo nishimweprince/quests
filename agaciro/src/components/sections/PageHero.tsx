@@ -28,19 +28,19 @@ export function PageHero({
         <div className="container">
           <div className="page-hero-inner" data-reveal>
             <nav aria-label="Breadcrumb" className="breadcrumb">
-              <Link href="/">Home</Link>
+              <Link className="!text-white" href="/">Home</Link>
               {crumbs.map((crumb) => (
                 <span key={crumb.label} style={{ display: "contents" }}>
-                  <span aria-hidden="true">•</span>
+                  <span aria-hidden="true" className="!text-white">•</span>
                   {crumb.href ? (
-                    <Link href={crumb.href}>{crumb.label}</Link>
+                    <Link className="!text-white" href={crumb.href}>{crumb.label}</Link>
                   ) : (
-                    <strong aria-current="page">{crumb.label}</strong>
+                    <strong className="!text-white" aria-current="page">{crumb.label}</strong>
                   )}
                 </span>
               ))}
             </nav>
-            {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+            {eyebrow ? <p className="eyebrow !text-white">{eyebrow}</p> : null}
             <h1>{title}</h1>
             {standfirst ? <p>{standfirst}</p> : null}
           </div>

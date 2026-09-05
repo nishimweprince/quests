@@ -1775,10 +1775,12 @@ h4 {
 }
 .page-hero-inner h1 {
   max-width: 20ch;
+  color: var(--white);
 }
 .page-hero-inner p {
   max-width: 58ch;
   font-size: 1rem;
+  color: var(--white);
 }
 
 .breadcrumb {

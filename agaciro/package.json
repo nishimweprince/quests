@@ -9,7 +9,7 @@
     "lint": "eslint",
     "check:media": "node scripts/check-media.mjs",
     "verify:media": "node scripts/verify-media.mjs",
-    "test:media": "node --test scripts/check-media.test.mjs"
+    "test:media": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
@@ -31,6 +31,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

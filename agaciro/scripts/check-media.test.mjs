@@ -27,6 +27,14 @@ test("rejects image files, local JSX/imports/CSS, and embedded image data", asyn
   assert.equal(errors.length, 6);
 });
 
+test("rejects generated local paths and aliased references", async (t) => {
+  const errors = await fixture(t, {
+    "src/generated.ts": 'const image = `/photos/${slug}.jpg`; const mark = "@/assets/logo.svg";',
+    "src/remote.ts": 'const image = `https://example.com/photos/${slug}.jpg`;',
+  });
+  assert.equal(errors.length, 2);
+});
+
 test("allows remote images, code icons, fonts, and ignored build/dependency artifacts", async (t) => {
   const errors = await fixture(t, {
     "src/card.tsx": 'const card = <img src="https://example.com/hero.jpg" />; const icon = <svg><path d="M0 0" /></svg>;',
@@ -39,12 +47,15 @@ test("allows remote images, code icons, fonts, and ignored build/dependency arti
 });
 
 test("all named placements have stable sources and documented provenance", async () => {
-  const { mediaPlacements, mediaSources, personPortraits, companyImage, companyLogo, media } = await loadCatalog();
+  const { mediaPlacements, mediaSources, personPortraits, companyImage, companyLogo, media, largePortraitSources, optimizedImageSource } = await loadCatalog();
   for (const [placement, src] of Object.entries(mediaPlacements)) {
     assert.ok(mediaSources[src], `${placement} has provenance`);
     assert.equal(new URL(src).protocol, "https:");
   }
   assert.equal(Object.keys(personPortraits).length, 25);
+  assert.equal(Object.keys(largePortraitSources).length, 19);
+  assert.equal(optimizedImageSource(personPortraits["ulrich-kayinamura"]), "/api/media/portraits/ulrich-kayinamura");
+  assert.equal(optimizedImageSource(media.home.hero), media.home.hero);
   assert.equal(companyLogo("unknown"), null);
   assert.equal(companyImage("unknown"), media.portfolio.hub);
 });

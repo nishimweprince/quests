@@ -2,7 +2,7 @@
 
 import Image, { type ImageProps } from "next/image";
 import { useState } from "react";
-import { mediaSources } from "@/content/media";
+import { mediaSources, optimizedImageSource } from "@/content/media";
 
 export type RemoteImageProps = Omit<ImageProps, "src" | "onError"> & {
   src: string;
@@ -25,6 +25,7 @@ function ImageWithFallback({
   ...props
 }: RemoteImageProps) {
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const source = mediaSources[src];
 
   if (failed) {
@@ -50,9 +51,10 @@ function ImageWithFallback({
       <Image
         {...props}
         alt={alt}
-        className={className}
+        className={`${loaded ? "" : "remote-image-loading "}${className ?? ""}`}
         onError={() => setFailed(true)}
-        src={src}
+        onLoad={() => setLoaded(true)}
+        src={optimizedImageSource(src)}
         style={style}
       />
       {source?.showCredit ? (

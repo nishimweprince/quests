@@ -61,10 +61,16 @@ export function MotionProvider({ children }: { children: ReactNode }) {
     document.fonts?.ready.then(() => {
       if (!cancelled) ScrollTrigger.refresh();
     });
+    // Remote images arrive after paint and shift trigger positions. Re-measure
+    // once everything has loaded so scrolled reveals cannot stick invisible.
+    const onLoad = () => ScrollTrigger.refresh();
+    if (document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad);
     const refresh = window.setTimeout(() => ScrollTrigger.refresh(), 400);
 
     return () => {
       cancelled = true;
+      window.removeEventListener("load", onLoad);
       window.clearTimeout(refresh);
       context.revert();
     };

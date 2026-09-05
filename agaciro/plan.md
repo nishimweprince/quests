@@ -32,14 +32,14 @@ These are closed. Do not reopen them during implementation.
 | Visual system | Siwa to the centimeter: Aspekta VF, sand/cream/brown tokens, pill nav, inset rounded heroes, GSAP + Lenis |
 | Copy | Agaciro only, English. No Siwa family-office / ETA / search-fund language |
 | Logo | Official lockup from agaciro.rw: tree mark + AGACIRO / Development Fund / Rwanda Sovereign Wealth Fund. Color on light, white on video headers |
-| Favicon | Download agaciro.rw /fileadmin/user_upload/logos/favicon.ico into public/brand/. Do not hotlink |
-| Logo files | Original_logo.png and AgDF_Logo_-_White.png into public/brand/. Do not hotlink at runtime |
+| Favicon | Remote official URL from `brandMedia.favicon`; no local image file |
+| Logo files | Remote official color/white lockups from `brandMedia`; crop transparent padding with CSS |
 | Lime green | Lives ONLY in the logo, not in UI chrome or accents |
 | Language | English only. No language switcher |
 | Content | Static TypeScript modules. No CMS |
 | Cookies | Visual clone of Siwa/Finsweet banner only; no analytics |
 | Motion | Lenis GSAP SplitType Swiper. Not Framer for chrome |
-| Portraits | Pexels placeholders for every board and team face. Heroes and videos also Pexels or Pixabay |
+| Portraits | Verified official portraits from `personPortraits`; initials when unavailable or a request fails. Never use stock faces for named people |
 | Contact form | Siwa layout and states; Agaciro labels; fake success/error; no network submit; omit recaptcha |
 | Funds Over Time | literal Fund I / Fund II, two named vintages from public history |
 
@@ -81,7 +81,7 @@ Board/Team entry: subpages under About plus footer links. Default to keep Siwa n
 - Portfolio and criteria stubs: pixel-clone Siwa grid, filters, 7 criteria cards; fictional placeholder names, not real BK/TDB/Irembo.
 - Match quests/yyussa for stack and skill copy.
 - Stub pages must look finished, not coming soon.
-- Do not hotlink Siwa CDN, Webflow assets, or agaciro.rw at runtime.
+- Use curated remote images from Agaciro, its Flickr account, and relevant reusable photography. Do not hotlink Siwa CDN or Webflow assets.
 - Self-host Aspekta. If the license is missing, STOP and ask.
 ---
 
@@ -217,8 +217,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `scott-t-ford`
 - **Profile route:** `/about/board/scott-t-ford`
-- **Portrait file:** `public/media/portrait-scott-t-ford.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["scott-t-ford"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -229,8 +229,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `thierry-mihigo-kalisa`
 - **Profile route:** `/about/board/thierry-mihigo-kalisa`
-- **Portrait file:** `public/media/portrait-thierry-mihigo-kalisa.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["thierry-mihigo-kalisa"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -241,8 +241,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `doreen-g-karake`
 - **Profile route:** `/about/board/doreen-g-karake`
-- **Portrait file:** `public/media/portrait-doreen-g-karake.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["doreen-g-karake"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -253,8 +253,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `jeanne-francoise-mubiligi`
 - **Profile route:** `/about/board/jeanne-francoise-mubiligi`
-- **Portrait file:** `public/media/portrait-jeanne-francoise-mubiligi.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["jeanne-francoise-mubiligi"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -265,8 +265,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `aime-ngarukiyintwali`
 - **Profile route:** `/about/board/aime-ngarukiyintwali`
-- **Portrait file:** `public/media/portrait-aime-ngarukiyintwali.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["aime-ngarukiyintwali"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -277,8 +277,8 @@ Six directors. Homepage section_team shows Scott T. Ford (Chairman) as one of tw
 - **Kind:** board
 - **Slug:** `andrew-rozanov`
 - **Profile route:** `/about/board/andrew-rozanov`
-- **Portrait file:** `public/media/portrait-andrew-rozanov.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["andrew-rozanov"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -294,8 +294,8 @@ Homepage section_team shows Ulrich Kayinamura (CEO) as the other card. About rep
 - **Kind:** exec
 - **Slug:** `ulrich-kayinamura`
 - **Profile route:** `/about/team/ulrich-kayinamura`
-- **Portrait file:** `public/media/portrait-ulrich-kayinamura.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["ulrich-kayinamura"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -306,8 +306,8 @@ Homepage section_team shows Ulrich Kayinamura (CEO) as the other card. About rep
 - **Kind:** exec
 - **Slug:** `ismael-amri-sued`
 - **Profile route:** `/about/team/ismael-amri-sued`
-- **Portrait file:** `public/media/portrait-ismael-amri-sued.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["ismael-amri-sued"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -318,8 +318,8 @@ Homepage section_team shows Ulrich Kayinamura (CEO) as the other card. About rep
 - **Kind:** exec
 - **Slug:** `nathaniel-nyika`
 - **Profile route:** `/about/team/nathaniel-nyika`
-- **Portrait file:** `public/media/portrait-nathaniel-nyika.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["nathaniel-nyika"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -335,8 +335,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `jerry-ntare`
 - **Profile route:** `/about/team/jerry-ntare`
-- **Portrait file:** `public/media/portrait-jerry-ntare.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["jerry-ntare"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -347,8 +347,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `bienfait-banaga`
 - **Profile route:** `/about/team/bienfait-banaga`
-- **Portrait file:** `public/media/portrait-bienfait-banaga.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["bienfait-banaga"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -359,8 +359,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `zackiah-nandugwa`
 - **Profile route:** `/about/team/zackiah-nandugwa`
-- **Portrait file:** `public/media/portrait-zackiah-nandugwa.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["zackiah-nandugwa"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -371,8 +371,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `charles-ndahimana`
 - **Profile route:** `/about/team/charles-ndahimana`
-- **Portrait file:** `public/media/portrait-charles-ndahimana.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["charles-ndahimana"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -383,8 +383,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `felicien-rimenyande`
 - **Profile route:** `/about/team/felicien-rimenyande`
-- **Portrait file:** `public/media/portrait-felicien-rimenyande.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["felicien-rimenyande"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -395,8 +395,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `lilian-s-mutesi`
 - **Profile route:** `/about/team/lilian-s-mutesi`
-- **Portrait file:** `public/media/portrait-lilian-s-mutesi.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["lilian-s-mutesi"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -407,8 +407,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `valentine-nyinawumuntu`
 - **Profile route:** `/about/team/valentine-nyinawumuntu`
-- **Portrait file:** `public/media/portrait-valentine-nyinawumuntu.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["valentine-nyinawumuntu"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -419,8 +419,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `benjamin-igeno`
 - **Profile route:** `/about/team/benjamin-igeno`
-- **Portrait file:** `public/media/portrait-benjamin-igeno.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["benjamin-igeno"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -431,8 +431,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `elise-ntamitondero`
 - **Profile route:** `/about/team/elise-ntamitondero`
-- **Portrait file:** `public/media/portrait-elise-ntamitondero.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["elise-ntamitondero"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -443,8 +443,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `sedar-sagamba`
 - **Profile route:** `/about/team/sedar-sagamba`
-- **Portrait file:** `public/media/portrait-sedar-sagamba.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["sedar-sagamba"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -455,8 +455,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `sabine-iradukunda-mugunga`
 - **Profile route:** `/about/team/sabine-iradukunda-mugunga`
-- **Portrait file:** `public/media/portrait-sabine-iradukunda-mugunga.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["sabine-iradukunda-mugunga"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -467,8 +467,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `cliff-hakizabera`
 - **Profile route:** `/about/team/cliff-hakizabera`
-- **Portrait file:** `public/media/portrait-cliff-hakizabera.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["cliff-hakizabera"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -479,8 +479,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `prince-ntwari`
 - **Profile route:** `/about/team/prince-ntwari`
-- **Portrait file:** `public/media/portrait-prince-ntwari.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["prince-ntwari"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -491,8 +491,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `sandrine-isimbi-butera`
 - **Profile route:** `/about/team/sandrine-isimbi-butera`
-- **Portrait file:** `public/media/portrait-sandrine-isimbi-butera.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["sandrine-isimbi-butera"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -503,8 +503,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `landry-girinshuti`
 - **Profile route:** `/about/team/landry-girinshuti`
-- **Portrait file:** `public/media/portrait-landry-girinshuti.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["landry-girinshuti"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -515,8 +515,8 @@ Sixteen members. Bios: scrape each Read more page on agaciro.rw at implementatio
 - **Kind:** team
 - **Slug:** `keith-ntagozera`
 - **Profile route:** `/about/team/keith-ntagozera`
-- **Portrait file:** `public/media/portrait-keith-ntagozera.jpg`
-- Unique Pexels person, cropped like Siwa cream cards, stored locally. Never hotlink at runtime.
+- **Portrait source:** `personPortraits["keith-ntagozera"]` in `src/content/media.ts` (official remote URL)
+- Verified official remote portrait; use initials if unavailable. Keep the existing card crop.
 - **Bio:** scrape the Read more page on agaciro.rw at implementation; store in `src/content/people.ts`. If 404, title + one sentence only. Never invent careers.
 - **LinkedIn pill:** company page if personal URL unknown. Do not guess personal profiles.
 
@@ -588,7 +588,7 @@ Growing Portfolio dek. Explore Our Cases /portfolio. Swiper of the same placehol
 
 **Key Strengths**
 
-Key Strengths on Pexels landscape. Four cards: dignity, long-term savings, commercial discipline, transparency.
+Key Strengths on a relevant curated remote landscape. Four cards: dignity, long-term savings, commercial discipline, transparency.
 
 
 #### 7. section_team
@@ -602,7 +602,7 @@ TWO cards like Siwa: Ulrich Kayinamura (CEO) and Scott T. Ford (Chairman).
 
 **Connect**
 
-Pexels, Lets Connect, Get in Touch.
+Curated remote Fund photography, Lets Connect, Get in Touch.
 
 
 #### 9. footer
@@ -618,7 +618,7 @@ Clone Siwa /about: video hero, breadcrumb Home • About, funds card + Agaciro i
 
 ### 6.4 Investment Criteria
 
-Hero Pexels. H1 Investment Criteria. Subline: We evaluate every opportunity on its own merits, commercially and for Rwanda.
+Curated remote investment photography. H1 Investment Criteria. Subline: We evaluate every opportunity on its own merits, commercially and for Rwanda.
 
 Seven cards keep Siwa count. Do not invent a ticket size. Refill ETA Model; do not delete the card.
 
@@ -665,7 +665,7 @@ Sectors: five preferred + Other. Year 2022-2026. Status Current/Exited.
 
 9 cards x 4 pages = 36 placeholder companies. Fictional Rwanda-flavoured names in src/content/portfolio.ts with placeholder: true.
 
-Each card: Pexels image, name, 2-3 sentence dek, Sector, Location (Kigali/Rwanda/Regional), Led by (fictional), Type, Date, Status, Website #.
+Each card: official remote logo or labeled sector illustration, name, 2-3 sentence dek, Sector, Location (Kigali/Rwanda/Regional), Led by (fictional), Type, Date, Status, Website #.
 
 Filters must actually filter the placeholder dataset. Client filter + pagination.
 
@@ -687,7 +687,7 @@ SWF informational disclaimer, not an offer of securities. Effective date = sign-
 
 ### 6.8 Board, team, profiles (new templates)
 
-Index pages: Siwa team cards in a grid. Cream, Pexels portrait, name, title, sand Read more to slug.
+Index pages: Siwa team cards in a grid. Verified official remote portrait (initials fallback), name, title, and Read more link to slug.
 
 Profile: breadcrumb Home • About • Board/Team • Name. Large portrait, title, bio, back pill. No invented quotes.
 
@@ -709,17 +709,20 @@ Lib: lenis.ts, gsap.ts (client-only), split.ts, cn.ts.
 Interactive islands use client. Pages are Server Components passing content props.
 ---
 
-## 8. Media
+## 8. Media — remote-source migration (supersedes earlier local-image instructions)
 
-Heroes: short Pexels/Pixabay MP4 muted loop playsInline cover. Rwanda, infrastructure, agriculture, work, abstract architecture. NOT Siwa DigitalOcean files.
+All image files have been removed from the Agaciro project, including brand-source copies, logos, photography, and favicon. Fonts, license files, and code-rendered icons remain. Build and dependency caches are outside this rule; Git history is not rewritten.
 
-Stills: cinematic, slightly desaturated. Portraits: unique Pexels person per real name, cropped like Siwa cream cards, stored locally.
+`src/content/media.ts` is the source of truth for HTTPS image URLs, source pages, credit, reuse information, and intended placements. Choose imagery for the page's subject: official Agaciro sources first, its Flickr account second, and relevant reusable stock photography where needed. Reuse a suitable image instead of forcing a different but unrelated one into each slot. Sector illustrations do not identify a holding's premises. Portrait identities come from the named official board/team sections.
 
-Ticker marks: SVG wordmarks for placeholder names, sand/grey.
+Keep the existing named media exports and string URL interfaces. Use the shared `RemoteImage` component for optimized images, linked photo credits, and stable image-free failure states. Preserve the layout, responsive sizes, loading priorities, and meaningful alt text. Brand cropping happens in CSS, without a derived file.
 
-404: recreate Siwa brown panel plus concentric-ring 0 in CSS/SVG.
+Next.js permits only the configured remote paths. The 19 large official team PNGs use `/api/media/portraits/[slug]` internally to allow a 45-second upstream download before Next.js optimization; the route only accepts catalog slugs, rejects redirects, caps responses at 16 MiB, and writes no source files. Other images use the normal remote optimizer. The favicon is linked directly in metadata.
 
-Prefer download into public/media so the demo works offline. Name by slot: hero-home.mp4, portrait-ulrich-kayinamura.jpg.
+Official/Flickr assets retain their owners' rights; credit is not a license. Flickr sources here are marked All Rights Reserved, not Creative Commons. Stock photo records link their applicable license. Photography has visible source links; logos and portraits have provenance recorded in the catalog.
+
+Verification: `npm run check:media`, `npm run test:media`, `npm run lint`, `npm run build`, and `npm run verify:media`. With the production server running, use `npm run verify:media -- --base-url=http://localhost:3100` to exercise optimization. Browser QA covers every page at 1440px and 390px, portrait/brand crops, image attribution, and forced-request failure states.
+
 ---
 
 ## 9. Folder
@@ -736,7 +739,7 @@ Lint and build must pass after each phase.
 
 ### Phase 0 — Scaffold
 
-create-next-app App Router TS ESLint Tailwind. App at /app, shared at /src. Tokens, Aspekta, logos, dummy media, Lenis root, empty Nav/Footer.
+create-next-app App Router TS ESLint Tailwind. App at /app, shared at /src. Tokens, Aspekta, remote brand/media catalog, Lenis root, empty Nav/Footer.
 
 
 ### Phase 1 — Chrome

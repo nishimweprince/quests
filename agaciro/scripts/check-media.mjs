@@ -24,14 +24,18 @@ export async function inspectProject(root) {
         if (/\.(?:[cm]?[jt]sx?)$/.test(entry.name)) {
           const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true);
           function visit(node) {
-            if (ts.isStringLiteralLike(node)) {
-              const value = node.text.split(/[?#]/)[0];
+            if (ts.isStringLiteralLike(node) || ts.isTemplateExpression(node)) {
+              // Preserve both ends of generated paths such as `/photos/${slug}.jpg`.
+              const literal = ts.isTemplateExpression(node)
+                ? node.head.text + node.templateSpans.map((span) => `PLACEHOLDER${span.literal.text}`).join("")
+                : node.text;
+              const value = literal.split(/[?#]/)[0];
               const local = !/^(?:https?:)?\/\//.test(value);
               const image = imageFile.test(value);
               const importPath = ts.isImportDeclaration(node.parent) || ts.isExportDeclaration(node.parent);
               const srcAttribute = ts.isJsxAttribute(node.parent) && node.parent.name.getText(ast) === "src";
-              if (local && ((image && (/^(?:\/|\.\.?\/)/.test(value) || importPath || srcAttribute)) || /^data:image\//.test(value))) {
-                errors.push(`${relative}: local/embedded image reference ${node.text}`);
+              if (local && ((image && (/^(?:\/|\.\.?\/|@\/|~\/)/.test(value) || importPath || srcAttribute)) || /^data:image\//.test(value))) {
+                errors.push(`${relative}: local/embedded image reference ${literal}`);
               }
               if (/^\/(?:media|brand)(?:\/|$)/.test(value)) errors.push(`${relative}: legacy local media root ${value}`);
             }

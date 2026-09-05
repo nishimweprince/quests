@@ -68,7 +68,7 @@ const photos = {
   news: official("News_Images/kwibuka_news_agaciro.png", "/media-center/news-events", "Agaciro's Kwibuka 32 remembrance visit"),
   community: flickr("52373929360_f2401e9909_b.jpg", "Agaciro community livestock handover"),
   delegation: flickr("52372414772_078bec9a97_b.jpg", "Delegation at an Agaciro event; archival Fund photography"),
-  partnerships: flickr("52372400282_204a981ee9_b.jpg", "Participants at an Agaciro event; archival Fund photography"),
+  partnerships: flickr("52373585353_57cbcefc5c_b.jpg", "Participants at an Agaciro event; archival Fund photography"),
 } satisfies Record<string, MediaSource>;
 
 const brands = {
@@ -152,8 +152,8 @@ export const media = {
     hub: photos.delegation.src,
     history: photos.lake.src,
     mission: photos.hills.src,
-    board: photos.partnerships.src,
-    team: photos.delegation.src,
+    board: photos.reports.src,
+    team: photos.office.src,
   },
   investment: { hub: photos.agriculture.src },
   portfolio: { hub: photos.kigali.src },
@@ -201,14 +201,15 @@ export const companyImages: Record<string, string> = {
   "irembo": photos.telecom.src,
   "africa-olleh-services": photos.telecom.src,
   "kt-rwanda-network": photos.telecom.src,
-  "rwanda-printery-company": photos.telecom.src,
+  "rwanda-printery-company": photos.industry.src,
   "kinazi-cassava-plant": photos.crops.src,
   "rwanda-farmers-coffee-company": photos.crops.src,
   "africa-improved-foods": photos.crops.src,
-  "shagasha-tea": photos.crops.src,
+  "shagasha-tea": photos.agriculture.src,
   "east-africa-exchange": photos.crops.src,
+  "mayange-rice-company": photos.crops.src,
   "kirehe-rice-company": photos.crops.src,
-  "gisovu-tea-estate": photos.crops.src,
+  "gisovu-tea-estate": photos.agriculture.src,
   "rwanda-interlink-transport-company": photos.logistics.src,
   "prime-economic-zones": photos.logistics.src,
   "rwanda-fertilizer-company": photos.industry.src,
@@ -244,3 +245,20 @@ export const mediaPlacements: Record<string, string> = {
   ...Object.fromEntries(Object.entries(personPortraits).map(([slug, url]) => [`person.${slug}.card-and-profile`, url])),
   ...Object.fromEntries(Object.entries(brandMedia).map(([variant, url]) => [`brand.${variant}`, url])),
 };
+
+/** Large official team PNGs exceed the optimizer's seven-second upstream timeout.
+ * This fixed slug map is the only input accepted by the longer-timeout source route.
+ */
+export const largePortraitSources: Record<string, string> = Object.fromEntries(
+  Object.entries(personPortraits).filter(([, src]) =>
+    new URL(src).pathname.match(/^\/fileadmin\/user_upload\/[^/]+\.png$/),
+  ),
+);
+
+const portraitPaths = new Map(Object.entries(largePortraitSources).map(([slug, src]) =>
+  [src, `/api/media/portraits/${slug}`],
+));
+
+export function optimizedImageSource(src: string): string {
+  return portraitPaths.get(src) ?? src;
+}

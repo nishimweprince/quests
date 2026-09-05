@@ -32,12 +32,36 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
   // Every route starts at the top. Lenis owns the scroll position once it is
   // running, so window.scrollTo alone would be overridden on the next frame.
+  // Stop any in-flight animation first: resetting mid-glide desyncs Lenis's
+  // internal position from the window and leaves the page stuck. Refresh the
+  // triggers on the next frame so new content has painted before measuring.
   useEffect(() => {
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     const lenis = lenisRef.current;
-    if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
-    else window.scrollTo(0, 0);
-    ScrollTrigger.refresh();
+    let target: Element | null = null;
+    try {
+      const hash = window.location.hash;
+      if (hash.length > 1) target = document.querySelector(hash);
+    } catch {
+      target = null;
+    }
+    const restart = () => {
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+      lenis?.start();
+    };
+    if (lenis) {
+      // A stopped Lenis drops scrollTo unless forced, so force both jumps.
+      lenis.stop();
+      if (target) lenis.scrollTo(target as HTMLElement, { force: true });
+      else lenis.scrollTo(0, { immediate: true, force: true });
+      restart();
+    } else if (target) {
+      target.scrollIntoView();
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    } else {
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    }
   }, [pathname]);
 
   return children;

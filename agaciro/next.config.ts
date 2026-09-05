@@ -20,6 +20,7 @@ const patterns = Object.keys(mediaSources).map((src) => {
 
 const nextConfig: NextConfig = {
   images: {
+    localPatterns: [{ pathname: "/api/media/portraits/*", search: "" }],
     remotePatterns: [...new Map(patterns.map((pattern) =>
       [`${pattern.hostname}${pattern.pathname}`, pattern],
     )).values()],

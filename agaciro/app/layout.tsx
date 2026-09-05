@@ -23,7 +23,12 @@ export const metadata: Metadata = {
   description:
     "Agaciro Development Fund is Rwanda's sovereign wealth fund, investing national savings for future generations.",
   icons: {
-    icon: brandMedia.favicon,
+    // Transparent PNG first so tabs render the mark without the white
+    // tile baked into the official .ico; the .ico stays as a fallback.
+    icon: [
+      { url: brandMedia.color, type: "image/png" },
+      brandMedia.favicon,
+    ],
   },
 };
 

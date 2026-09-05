@@ -30,7 +30,7 @@ Aspekta VF is self-hosted under its OFL license. The UI uses the measured Siwa p
 
 ## Remote images
 
-All photography, logos, portraits, and the favicon reference HTTPS sources; no image files are stored in this project. `src/content/media.ts` contains the URLs, provenance, reuse information, and placement inventory. The catalog covers Agaciro's website, its Flickr account, and Pexels. Generic sector imagery is illustrative; it does not claim to show a particular company.
+All photography, logos, portraits, and the favicon reference HTTPS sources; no image files are stored in this project. The tab icon uses the transparent official color PNG first with the official `.ico` as fallback, because the `.ico` is a 16×16 fully opaque tile. `src/content/media.ts` contains the URLs, provenance, reuse information, and placement inventory. The catalog covers Agaciro's website, its Flickr account, and Pexels. Generic sector imagery is illustrative; it does not claim to show a particular company.
 
 Use `RemoteImage` for new placements. It retains Next.js responsive optimization and shows source credits for photography, initials for missing portraits/company images, readable brand text for failed logos, and stable backgrounds for failed decorative images. Named people use only verified official headshots. The official color logo's transparent padding is cropped with CSS.
 

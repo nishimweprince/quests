@@ -32,7 +32,7 @@ These are closed. Do not reopen them during implementation.
 | Visual system | Siwa to the centimeter: Aspekta VF, sand/cream/brown tokens, pill nav, inset rounded heroes, GSAP + Lenis |
 | Copy | Agaciro only, English. No Siwa family-office / ETA / search-fund language |
 | Logo | Official lockup from agaciro.rw: tree mark + AGACIRO / Development Fund / Rwanda Sovereign Wealth Fund. Color on light, white on video headers |
-| Favicon | Remote official URL from `brandMedia.favicon`; no local image file |
+| Favicon | Remote transparent PNG from `brandMedia.color` first with the official `.ico` from `brandMedia.favicon` as fallback; no local image file |
 | Logo files | Remote official color/white lockups from `brandMedia`; crop transparent padding with CSS |
 | Lime green | Lives ONLY in the logo, not in UI chrome or accents |
 | Language | English only. No language switcher |

@@ -31,7 +31,7 @@ export default function ContactPage() {
           <h1>Contact the Fund</h1>
           <div className="header-aside">
             <p>
-              Investment proposals, partnership enquiries, media questions — send
+              Investment proposals, partnership enquiries, media questions: send
               them here, or reach the office directly.
             </p>
           </div>

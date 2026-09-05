@@ -40,7 +40,7 @@ export const whistleblowing = {
     { label: "How was it carried out?", hint: "Method used." },
   ],
   evidenceNote:
-    "List any documents, emails, reports, or other evidence that support your concern. Do not submit originals at this stage — you may be contacted to provide them later.",
+    "List any documents, emails, reports, or other evidence that support your concern. Do not submit originals at this stage; you may be contacted to provide them later.",
   declaration:
     "I confirm that the information provided is true and accurate to the best of my knowledge and belief, and that this report is made in good faith.",
 };

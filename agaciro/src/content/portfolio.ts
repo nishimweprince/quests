@@ -44,7 +44,7 @@ export const sectors: Sector[] = [
     name: "Agriculture and Agro-Processing",
     short: "Agriculture & Agro-Processing",
     intro:
-      "Value addition close to the farm — processing Rwandan cassava, coffee, tea, rice and fortified foods for local, regional and international markets.",
+      "Value addition close to the farm: processing Rwandan cassava, coffee, tea, rice and fortified foods for local, regional and international markets.",
   },
   {
     slug: "transport-and-logistics",

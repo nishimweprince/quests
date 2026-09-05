@@ -68,10 +68,10 @@ export const board: Person[] = [
     slug: "jeanne-francoise-mubiligi",
     image: personPortraits["jeanne-francoise-mubiligi"],
     summary:
-      "Deputy Managing Director of a construction company and Chairperson of the Chamber of Women Entrepreneurs — Rwanda.",
+      "Deputy Managing Director of a construction company and Chairperson of the Chamber of Women Entrepreneurs Rwanda.",
     bio: [
       "Mrs Mubiligi is currently Deputy Managing Director of a construction company with over eight years of managerial experience of working for major companies, with proven results of developing maximum sales and profitability.",
-      "Mrs Mubiligi is the Chairperson of the Chamber of Women Entrepreneurs — Rwanda.",
+      "Mrs Mubiligi is the Chairperson of the Chamber of Women Entrepreneurs Rwanda.",
       "She holds a Masters in International Business Development from Université de Neuchâtel and a Bachelor's degree in management, option in informative system management, from the same university.",
     ],
   },
@@ -85,7 +85,7 @@ export const board: Person[] = [
       "Head of Structured Credit at Mount Street Portfolio Advisers, with over 20 years in investment banking and portfolio management.",
     bio: [
       "Mr Ngarukiyintwali has over 20 years of experience in investment banking, financial advisory and portfolio management gained at Dresdner Bank, Deutsche Bank and Westdeutsche Landesbank (WestLB). He is currently Head of Structured Credit at Mount Street Portfolio Advisers, an independent financial advisory and portfolio management firm with offices in London, Düsseldorf, New York, Atlanta, Madrid and Athens.",
-      "He is an expert in securitization, a technique that consists in pooling various types of receivables — residential mortgages, auto loans, credit cards, commercial real estate loans and leveraged loans — in order to originate marketable asset backed securities (ABS) for funding or regulatory capital optimization purposes. He has structured various types of ABS products as well as managed large portfolios of ABS.",
+      "He is an expert in securitization, a technique that consists in pooling various types of receivables (residential mortgages, auto loans, credit cards, commercial real estate loans and leveraged loans) in order to originate marketable asset backed securities (ABS) for funding or regulatory capital optimization purposes. He has structured various types of ABS products as well as managed large portfolios of ABS.",
       "Mr Ngarukiyintwali holds a Master of Science in Mathematical Trading and Finance from the CASS Business School of the City University London, a Master Degree in Business (Diplom-Kaufmann) from the University of Mannheim, Germany, an executive training certificate in Finance from INSEAD and a Diplôme International de Management from the Institut Commercial de Nancy, France.",
     ],
   },
@@ -146,7 +146,7 @@ export const executives: Person[] = [
       "Brings over 25 years of investment experience transacting across Sub-Saharan African markets.",
     bio: [
       "Nathaniel is the Chief Investment Officer at Agaciro Development Fund (AgDF), Rwanda's sovereign wealth fund. Prior to joining Agaciro, he was the Chief Investment Officer at Norsad Capital, a Botswana-domiciled regional impact investor and private credit provider, specialising in structured debt solutions to companies across Southern and Eastern Africa.",
-      "He brings over 25 years of investment experience of transacting across Sub-Saharan African markets including the key African markets — Kenya, Ivory Coast, Nigeria, Ghana and South Africa — as well as multiple frontier markets. His experience spans private equity, private debt and credit (including structured debt and mezzanine), investment banking, hedge fund management and listed securities research and trading. He has covered a wide range of sectors including financial services (banking and NBFIs), infrastructure (IPPs, digital and soft infrastructure, including education and healthcare), the food value chain, industrials and manufacturing, affordable housing and hospitality. His investment approach is grounded in impact investing, with a focus on delivering sustainable financial returns alongside measurable developmental outcomes.",
+      "He brings over 25 years of investment experience of transacting across Sub-Saharan African markets including the key African markets of Kenya, Ivory Coast, Nigeria, Ghana and South Africa, as well as multiple frontier markets. His experience spans private equity, private debt and credit (including structured debt and mezzanine), investment banking, hedge fund management and listed securities research and trading. He has covered a wide range of sectors including financial services (banking and NBFIs), infrastructure (IPPs, digital and soft infrastructure, including education and healthcare), the food value chain, industrials and manufacturing, affordable housing and hospitality. His investment approach is grounded in impact investing, with a focus on delivering sustainable financial returns alongside measurable developmental outcomes.",
       "Nathaniel holds a Master's in Business Administration (cum laude) from the University of Witwatersrand, Wits Business School and a BSc (Hons) in Electrical Engineering. He studied Executive Leadership at Saïd Business School, University of Oxford and is a Certified Business Rescue Analyst (CRA).",
     ],
   },
@@ -193,7 +193,7 @@ export const teamMembers: Person[] = [
     bio: [
       "Zackiah is an accomplished corporate and commercial law professional with extensive experience advising public and private institutions on complex commercial, regulatory, and strategic matters. Currently serving as Senior Legal Officer at AGDF Corporate Trust, she plays a pivotal role in supporting institutional governance, regulatory compliance, and strategic corporate decision-making. With a strong background in corporate and commercial law, as well as financial sector regulation, she has developed expertise in board advisory, business structuring, contract negotiation, policy and regulatory review and drafting, compliance oversight, legal due diligence, and dispute management. Her work has consistently focused on strengthening institutional integrity, ensuring legal and regulatory alignment, and supporting sustainable organizational growth.",
       "Prior to joining AGDF Corporate Trust, she served as an Associate at K-Solutions & Partners, a general business law firm, where she advised corporate clients on commercial transactions, governance matters, and legal risk management. Earlier experience at the National Bank of Rwanda further strengthened her understanding of financial sector regulation and institutional compliance frameworks.",
-      "She serves as a Director on the boards of several companies across diverse sectors, providing strategic oversight and promoting sound corporate governance, regulatory compliance, and sustainable business growth. She holds a Bachelor's degree in Law (First Class Hons), a Postgraduate Diploma in Legal Practice, a Diploma in International Financial Reporting Standards — ACCA UK, and is currently pursuing an LLM in International Commercial and Investment Law.",
+      "She serves as a Director on the boards of several companies across diverse sectors, providing strategic oversight and promoting sound corporate governance, regulatory compliance, and sustainable business growth. She holds a Bachelor's degree in Law (First Class Hons), a Postgraduate Diploma in Legal Practice, a Diploma in International Financial Reporting Standards from ACCA UK, and is currently pursuing an LLM in International Commercial and Investment Law.",
     ],
   },
   {
@@ -219,10 +219,10 @@ export const teamMembers: Person[] = [
     summary:
       "Over 12 years of expertise in digital transformation, data governance, and systems integration.",
     bio: [
-      "Felicien is an accomplished IT professional with extensive expertise — over 12 years — in digital transformation, data governance, and systems integration. He has contributed to various projects, including development of Social Registries, disability management information systems (MIS), and multi-sector digital solutions in health, education, energy, and social protection at both the national and international levels.",
+      "Felicien is an accomplished IT professional with over 12 years of expertise in digital transformation, data governance, and systems integration. He has contributed to various projects, including development of Social Registries, disability management information systems (MIS), and multi-sector digital solutions in health, education, energy, and social protection at both the national and international levels.",
       "His consultancy experience extends to over 12 countries across multiple regions supporting various international organizations: development of data systems, delivering AI solutions, SDG monitoring dashboards, digital training, and digital capacity assessments.",
       "He holds a Master's degree in Information Technology (University of Madras) and certifications in emerging and digital technologies, data analytics and business intelligence, project management and UN Systems & Humanitarian certifications.",
-      "He maintains strong competencies in data systems development, data analytics, AI systems, and scalable digital infrastructures — capabilities that support evidence-based decision-making, data-driven portfolio management, and investment transparency.",
+      "He maintains strong competencies in data systems development, data analytics, AI systems, and scalable digital infrastructures, capabilities that support evidence-based decision-making, data-driven portfolio management, and investment transparency.",
     ],
   },
   {
@@ -291,7 +291,7 @@ export const teamMembers: Person[] = [
     summary:
       "Over eight years safeguarding the digital infrastructure of Rwanda's sovereign wealth fund.",
     bio: [
-      "Sedar is a seasoned IT and cybersecurity professional with over eight years of experience safeguarding the digital infrastructure of the Agaciro Development Fund, Rwanda's sovereign wealth fund — an institution where data integrity and security are of the highest national importance.",
+      "Sedar is a seasoned IT and cybersecurity professional with over eight years of experience safeguarding the digital infrastructure of the Agaciro Development Fund, Rwanda's sovereign wealth fund, an institution where data integrity and security are of the highest national importance.",
       "In his role as IT Officer, Sedar oversees network management, cybersecurity operations, and systems optimization, bringing a strong understanding of risk management, data governance, and IT alignment within a highly regulated financial environment.",
       "His expertise is backed by a portfolio of internationally recognized certifications spanning cybersecurity, ethical hacking, and advanced networking including the CISSP, CEH, CCNP, CCNA, and CND.",
       "A graduate of Saint Lawrence University, he combines technical depth with a strategic mindset, bridging day-to-day IT operations with long-term institutional security goals.",

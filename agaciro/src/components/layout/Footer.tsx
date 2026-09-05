@@ -74,7 +74,7 @@ export function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <Link aria-label="Agaciro Development Fund — home" className="footer-logo" href="/">
+            <Link aria-label="Agaciro Development Fund home" className="footer-logo" href="/">
               <Logo white />
             </Link>
             <div className="footer-legal">

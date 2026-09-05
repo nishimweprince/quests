@@ -16,7 +16,7 @@ export default function TeamPage() {
       <PageHero
         crumbs={[{ label: "About Us", href: "/about" }, { label: "Our Team" }]}
         image={media.about.team}
-        standfirst="Investment, legal, finance, risk, technology and communications — the people who run the Fund day to day."
+        standfirst="Investment, legal, finance, risk, technology and communications: the people who run the Fund day to day."
         title="Our Team"
       />
 

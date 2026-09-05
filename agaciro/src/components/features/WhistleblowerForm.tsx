@@ -20,7 +20,7 @@ export function WhistleblowerForm() {
     <>
       <form className="form" onSubmit={submit}>
         <div className="form-legend">
-          <h3>Section A — About you</h3>
+          <h3>Section A: About you</h3>
           <p>
             You may report anonymously. If you give your details, they are used
             only to follow up on this report.
@@ -59,7 +59,7 @@ export function WhistleblowerForm() {
         ) : null}
 
         <div className="form-legend">
-          <h3>Section B — The concern</h3>
+          <h3>Section B: The concern</h3>
           <p>Describe the incident in as much detail as you can.</p>
         </div>
 
@@ -86,7 +86,7 @@ export function WhistleblowerForm() {
         </div>
 
         <div className="form-legend">
-          <h3>Section C — People involved</h3>
+          <h3>Section C: People involved</h3>
         </div>
         <label className="form-wide">
           Person or persons alleged to be involved
@@ -98,7 +98,7 @@ export function WhistleblowerForm() {
         </label>
 
         <div className="form-legend">
-          <h3>Section D — Supporting evidence</h3>
+          <h3>Section D: Supporting evidence</h3>
           <p>{whistleblowing.evidenceNote}</p>
         </div>
         <label className="form-wide">

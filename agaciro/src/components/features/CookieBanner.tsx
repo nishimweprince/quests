@@ -26,7 +26,7 @@ export function CookieBanner() {
     try {
       localStorage.setItem(KEY, value);
     } catch {
-      /* storage unavailable — dismiss for this visit only */
+      /* storage unavailable, so dismiss for this visit only */
     }
     setOpen(false);
   };

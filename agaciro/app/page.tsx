@@ -114,7 +114,7 @@ export default function Home() {
                 <p>
                   Proposed at the 2011 Umushyikirano and launched on 23 August
                   2012, Agaciro grows a self-sufficient fund with a long-term
-                  horizon — investing on a commercial basis to build up public
+                  horizon, investing on a commercial basis to build up public
                   savings and catalyse economic impact in Rwanda.
                 </p>
                 <Link className="link-underline" href="/about/history">
@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       <ConnectCta
-        body="Investment proposals, partnership enquiries, and media questions — addressed to the Fund's team in Kigali."
+        body="Investment proposals, partnership enquiries and media questions reach the Fund's team in Kigali."
         image={media.home.cta}
       />
     </>

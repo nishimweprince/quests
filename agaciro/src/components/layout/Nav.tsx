@@ -32,7 +32,7 @@ export function Nav() {
   const [visible, setVisible] = useState(true);
   const [lastPath, setLastPath] = useState(pathname);
 
-  // Reset the chrome when the route changes — adjusting state during render
+  // Reset the chrome when the route changes. Adjusting state during render
   // rather than in an effect avoids a cascading second render.
   if (lastPath !== pathname) {
     setLastPath(pathname);
@@ -83,7 +83,7 @@ export function Nav() {
         className={`nav ${light ? "nav--light" : ""} ${visible ? "" : "nav--hidden"}`}
       >
         <div className="nav-inner container">
-          <Link aria-label="Agaciro Development Fund — home" className="nav-logo" href="/">
+          <Link aria-label="Agaciro Development Fund home" className="nav-logo" href="/">
             <span className="nav-logo-light">
               <Logo priority white />
             </span>
@@ -140,7 +140,7 @@ export function Nav() {
         inert={!open || undefined}
       >
         <div className="mobile-menu-top">
-          <Link aria-label="Agaciro Development Fund — home" className="nav-logo" href="/">
+          <Link aria-label="Agaciro Development Fund home" className="nav-logo" href="/">
             <Logo />
           </Link>
           <button

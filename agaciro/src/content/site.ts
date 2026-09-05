@@ -14,7 +14,7 @@ export const site = {
   mapQuery: "BPR+PCD+Towers+KN+67+Kigali+Rwanda",
 } as const;
 
-/** Headline figures published on agaciro.rw — "AgDF at a Glance". */
+/** Headline figures published on agaciro.rw under "AgDF at a Glance". */
 export const glance = [
   { value: 456, prefix: "FRW ", suffix: "bn", label: "Assets under management" },
   {
@@ -25,7 +25,7 @@ export const glance = [
   { value: 7, suffix: "", label: "Investment sectors" },
 ] as const;
 
-/** Dating and source for the headline figures — update when new audited accounts publish. */
+/** Dating and source for the headline figures. Update when new audited accounts publish. */
 export const figuresMeta = {
   asOf: "31 December 2024",
   reportHref: "/resources/annual-report",

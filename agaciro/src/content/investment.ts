@@ -20,13 +20,13 @@ export const investmentPages: InvestmentPage[] = [
         heading: "Equity",
         body: [
           "We back mid-stage growth companies in Rwanda and beyond that are profitable, generate cash, and can declare and pay a dividend in the short to medium term. We also partner with fund managers who have established track records.",
-          "We avoid greenfield investments unless they are significantly de-risked through contracted offtake or supply arrangements. [Typo corrected: the source text read “offtake supply implementation”.] We look for strong management and governance — a constituted board and audited financial statements — and for companies that can scale and crowd in capital alongside the Fund.",
+          "We avoid greenfield investments unless they are significantly de-risked through contracted offtake or supply arrangements. We look for strong management and governance, meaning a constituted board and audited financial statements, and for companies that can scale and crowd in capital alongside the Fund.",
         ],
         list: [
           "Track record: in operation for at least 3 years, and profitable for at least 2 of those 3 years, including the most recent year.",
           "Scale: EBITDA of at least Frw 3 billion on revenue of at least Frw 10 billion, cash or near-cash generative.",
           "Ticket size: about Frw 10 billion, which the company should be able to absorb within one year.",
-          "Influence: a stake of at least 10% with board representation, so the Fund has significant influence and oversight — including through syndication and co-investment structures.",
+          "Influence: a stake of at least 10% with board representation, so the Fund has significant influence and oversight, including through syndication and co-investment structures.",
         ],
       },
       {
@@ -76,7 +76,7 @@ export const investmentPages: InvestmentPage[] = [
       {
         heading: "Instruments",
         body: [
-          "We use a broad category of instruments, ranging from debt — senior, secured, unsecured, subordinated, mezzanine and junior debt. Under equity, we invest in preferred shares, common equity tier 1, and convertible debt.",
+          "We use a broad category of instruments. On the debt side these range across senior, secured, unsecured, subordinated, mezzanine and junior debt. Under equity, we invest in preferred shares, common equity tier 1, and convertible debt.",
         ],
       },
     ],
@@ -126,13 +126,13 @@ export const investmentPages: InvestmentPage[] = [
     slug: "investment-risk-management",
     title: "Investment Risk Management",
     summary:
-      "Agaciro tracks risk investment by investment — checking that each position performs and that every risk taken is adequately compensated for.",
+      "Agaciro tracks risk investment by investment, checking that each position performs and that every risk taken is adequately compensated for.",
     sections: [
       {
         heading: "How positions are monitored",
         body: [
           "Agaciro takes an asset-by-asset view of risk, combining financial health metrics, structural indicators, and sector-specific considerations. For equity investments, the focus is operating cashflow generation, revenue growth, profitability margins (EBITDA, EBIT, and net margin), dividend yield, and the viability of exit pathways. For debt investments, the primary metrics are average Debt-to-EBITDA on a portfolio-weighted basis, interest coverage ratios, and exposure to floating versus fixed rate instruments.",
-          "Beyond financial metrics, the Investment Department watches operational and structural indicators for each holding: customer and counterparty concentration, working capital cycles, leverage against asset quality and collateral, and capacity utilisation — with particular attention to FX mismatches between hard-currency obligations and local-currency revenues, offtake and contractual arrangements behind long-dated assets, and early signs of margin compression or deteriorating asset quality.",
+          "Beyond financial metrics, the Investment Department watches operational and structural indicators for each holding: customer and counterparty concentration, working capital cycles, leverage against asset quality and collateral, and capacity utilisation. It pays particular attention to FX mismatches between hard-currency obligations and local-currency revenues, to the offtake and contractual arrangements behind long-dated assets, and to early signs of margin compression or deteriorating asset quality.",
         ],
       },
       {

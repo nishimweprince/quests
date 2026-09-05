@@ -38,14 +38,14 @@ export function MotionProvider({ children }: { children: ReactNode }) {
             const inHero = Boolean(element.closest(".hero, .page-hero"));
             gsap.fromTo(
               element,
-              { opacity: 0, scale: 0.965, y: 18 },
+              { opacity: 0, scale: 0.98, y: 12 },
               {
                 opacity: 1,
                 scale: 1,
                 y: 0,
-                duration: 0.9,
-                ease: "power3.out",
-                delay: inHero ? 0.15 : 0,
+                duration: 0.5,
+                ease: "power2.out",
+                delay: inHero ? 0.05 : 0,
                 scrollTrigger: inHero
                   ? undefined
                   : { trigger: element, start: "top 88%", once: true },
@@ -67,7 +67,7 @@ export function MotionProvider({ children }: { children: ReactNode }) {
             };
             gsap.to(state, {
               value: target,
-              duration: 1.6,
+              duration: 1.0,
               ease: "power2.out",
               scrollTrigger: { trigger: element, start: "top 92%", once: true },
               onStart: () => write(0),

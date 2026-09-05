@@ -27,3 +27,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Agents
+.claude*
+.deepseek*
+.gemini*
+.groq*
+.mistral*
+.openai*
+.perplexity*
+.poe*
+.qwen*
+.replicate*
+.sage*
+.xai*
